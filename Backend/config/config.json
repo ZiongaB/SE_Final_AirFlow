@@ -1,0 +1,6 @@
+{
+    "host":"aws-project02.cyahxioux9bs.us-east-2.rds.amazonaws.com",
+    "user": "admin",
+    "database": "User_Login",
+    "password": "cheesecake123"
+}
