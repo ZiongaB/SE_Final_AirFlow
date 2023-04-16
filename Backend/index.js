@@ -1,8 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const authRoutes = require('./routes/auth');
-const postRoutes = require('./routes/posts');
-const leaderRoutes = require('./routes/leaderboard');
+
 const errorController = require('./controllers/error');
 
 
@@ -19,9 +18,7 @@ app.use((req,res,next)=>{
     res.setHeader('Access-Control-Allow-Headers','Content-Type,Authorization');
     next();
 });
-app.use('/leaderboard',leaderRoutes);
 app.use('/auth', authRoutes);
-app.use('/post', postRoutes);
 
 app.use(errorController.get404);
 app.use(errorController.get500);

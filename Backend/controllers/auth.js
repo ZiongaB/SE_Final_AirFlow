@@ -1,14 +1,15 @@
 const {validationResult} = require('express-validator');
 const User = require('../models/user');
-const Leaderboard = require('../models/leaderboard');
+
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
 exports.signup = async (req,res,next) =>{
+    console.log("Check");
     const errors = validationResult(req);
-
+    console.log(errors);
     if (!errors.isEmpty()) return
-
+    console.log("Check1");
     const name = req.body.name;
     const email = req.body.email;
     const password = req.body.password;
@@ -21,17 +22,9 @@ exports.signup = async (req,res,next) =>{
             email:email,
             password: hashedPassword
         }
-        const leadDetails = {
-            username:name,
-            classAdd:0, 
-            dormChoice:0,
-            hamVisit:0,
-            facilVis:0,
-            faculCheck:0
-        }
-        const addresult = await Leaderboard.save(leadDetails)
-        const result = await User.save(userDetails)
         
+        const result = await User.save(userDetails)
+        console.log("Check2");
 
         res.status(201).json({ message: 'User registered'})
     } catch(err){

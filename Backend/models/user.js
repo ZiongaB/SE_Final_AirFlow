@@ -9,13 +9,13 @@ module.exports = class User{
 
     static find(email){
         return db.execute(
-            'SELECT * FROM User WHERE email = ?', [email]
+            'SELECT * FROM user WHERE email = ?', [email]
         );
     }
 
     static save(user){
         return db.execute(
-            'INSERT INTO User (name,email,password) VALUES (?, ?, ?)', [user.name,user.email,user.password]
+            'INSERT INTO user (Username,Email,Password,Total_budget) VALUES (?, ?, ?,0)', [user.name,user.email,user.password]
         );
     }
     

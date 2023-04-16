@@ -1,6 +1,6 @@
 {
-    "host":"project3-database.crsgkzxmgz6x.us-east-2.rds.amazonaws.com",
+    "host":"airflow-database.cdhjz8r6a5lv.us-east-2.rds.amazonaws.com",
     "user": "admin",
-    "database": "Project3",
-    "password": "ZHDF7B6PjUGwNLcsDA60"
+    "database": "Airflow",
+    "password": "airflow123cc"
 }
