@@ -1,0 +1,52 @@
+
+.field{
+    width: 70%;
+    max-width: 500px;
+    padding: 0px 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.submitb{
+    font-size: 12px;
+}
+.button{
+    color: white;
+}
+
+.sign{
+    font-size: 30px;
+    color: orange;
+}
+.sign_up{
+    font-size: 135%;
+}
+.signup_button{
+    color:   #FF7F50;
+    font-size: 150%;
+}
+.login_comp{
+    padding-left: 30%;
+    padding-top: 10%;
+}
+.log_text{
+    padding-left: 20%;
+}
+
+.log{
+    min-height: 100vh;
+    min-width: 100vw;
+    background-image: url('../../../../assets/Imgs/background.png');
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: white;
+    position: relative;
+    background-position-x: center;
+    margin: auto;
+}
+.sign_up{
+    padding-top: 1%;
+    padding-bottom: 100%;
+}
