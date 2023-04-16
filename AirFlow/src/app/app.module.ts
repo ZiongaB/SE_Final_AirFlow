@@ -4,7 +4,10 @@ When making a new page we need to import the component for the new age
 
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+
+//<!-- Sebastian Mark -->
 import { RouterModule, Routes } from '@angular/router';
+//  <!-- Sebastian Mark -->
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,11 +20,13 @@ import { PackingComponent } from './components/dynamic/packing_page/packing.comp
 import { SignupComponent } from './components/dynamic/signup_page/signup.component';
 import { TripsComponent } from './components/dynamic/trips_page/trips.component';
 
+// <!-- Sebastian Mark -->
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
+//   <!-- Sebastian Mark -->
 
-
+import { AirportsComponent } from './components/static/airports/airports.component';
 import { Airport1PageComponent } from './components/static/airport1-page/airport1-page.component';
 import { Airport2PageComponent } from './components/static/airport2-page/airport2-page.component';
 import { Airport3PageComponent } from './components/static/airport3-page/airport3-page.component';
@@ -32,19 +37,10 @@ import { Location3PageComponent } from './components/static/location3-page/locat
 import { ChatbotComponent } from './components/dynamic/chatbot/chatbot.component';
 import { CalendarComponent } from './components/dynamic/calendar/calendar.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { HomeComponent } from './components/static/home/home.component';
 
 
-/*
-After importing a new component we need to define the route
-*/
-
-const routes: Routes = [
-  {path: 'chatbot', component:ChatbotComponent},
-  {path: 'trips', component: TripsComponent},
-  {path: 'signup', component: SignupComponent},
-];
-
-
+//   <!-- Sebastian Mark did some of this -->
 @NgModule({
   declarations: [
     AppComponent,
@@ -66,6 +62,9 @@ const routes: Routes = [
     Location2PageComponent,
     Location3PageComponent,
     NavbarComponent,
+    HomeComponent,
+    AirportsComponent,
+
    
   ],
   imports: [
@@ -81,3 +80,6 @@ const routes: Routes = [
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+
+// <!-- Sebastian Mark -->

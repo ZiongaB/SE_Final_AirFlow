@@ -1,4 +1,4 @@
-
+//   <!-- Sebastian Mark -->
 // function with types 
 import express, {Express, Request, Response} from 'express'
 import * as dotenv from 'dotenv'
@@ -18,3 +18,5 @@ app.listen(port, () => {
     // back ticks here 
     console.log(`Example app listening on port ${port}`)
 })
+
+//   <!-- Sebastian Mark -->
