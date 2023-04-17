@@ -1,6 +1,13 @@
 {
+<<<<<<< Updated upstream
     "host":"airflow-database.cdhjz8r6a5lv.us-east-2.rds.amazonaws.com",
     "user": "admin",
     "database": "Airflow",
     "password": "airflow123cc"
+=======
+    "host":"pairflow-database.cdhjz8r6a5lv.us-east-2.rds.amazonaws.com",
+    "user": "airflow123cc",
+    "database": "airflow-database",
+    "password": "ZHDF7B6PjUGwNLcsDA60"
+>>>>>>> Stashed changes
 }
