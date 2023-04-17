@@ -8,6 +8,7 @@
 /Backend/config
 /Backend/node_modules
 # Node
+/Backend/config
 /node_modules
 npm-debug.log
 yarn-error.log

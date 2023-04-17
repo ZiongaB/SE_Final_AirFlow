@@ -1,9 +1,17 @@
+/*
+When making a new page we need to import the component for the new age
+***/
+
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule,HTTP_INTERCEPTORS } from '@angular/common/http';
 
+
+//<!-- Sebastian Mark -->
+import { RouterModule, Routes } from '@angular/router';
+//  <!-- Sebastian Mark -->
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -35,8 +43,11 @@ import { Location3PageComponent } from './components/static/location3-page/locat
 
 import { ChatbotComponent } from './components/dynamic/chatbot/chatbot.component';
 import { CalendarComponent } from './components/dynamic/calendar/calendar.component';
-import { NavbarComponent } from './components/dynamic/navbar/navbar.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { HomeComponent } from './components/static/home/home.component';
 
+
+//   <!-- Sebastian Mark did some of this -->
 @NgModule({
   declarations: [
     AppComponent,
@@ -58,6 +69,9 @@ import { NavbarComponent } from './components/dynamic/navbar/navbar.component';
     Location2PageComponent,
     Location3PageComponent,
     NavbarComponent,
+    HomeComponent,
+
+   
   ],
   imports: [
     BrowserModule,
@@ -80,3 +94,6 @@ import { NavbarComponent } from './components/dynamic/navbar/navbar.component';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+
+// <!-- Sebastian Mark -->
