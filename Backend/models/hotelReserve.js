@@ -5,7 +5,6 @@ module.exports = class HotelReserve {
     constructor(user, tripname, hotel, checkin, checkout, cost){
         this.user = user;
         this.tripname = tripname;
-        this.flight1 = flight1;
         this.hotel = hotel;
         this.checkin = checkin;
         this.checkout = checkout;
