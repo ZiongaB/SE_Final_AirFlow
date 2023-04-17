@@ -1,7 +1,14 @@
-//Zach East
+/**
+ * This models the functions and data format to be
+ * used by the checklist controller and route files
+ * @author Zach East
+ */
 const db = require('../util/database');
 
+//Export all functions of this class 
 module.exports = class Checklist {
+
+    //Constructor for object
     constructor(user, tripname, item1, item2, item3, item4, item5, item6, item7, item8, item9, item10, checked1, checked2, checked3, checked4, checked5, checked6, checked7, checked8, checked9, checked10) {
         this.user = user;
         this.description = description;
@@ -31,11 +38,15 @@ module.exports = class Checklist {
         
     }
 
-    static fetchAll()
+    //Function to pass pull specific entries in database by user
+    static fetchAll(user)
     {
-        return db.execute('SELECT * FROM Airflow.checklists');
+        return db.execute(
+            `SELECT * FROM Airflow.checklists WHERE user = ${user}`
+        );
     }
 
+    //Function to insert new entry into database using values from passed objects
     static save(post){
         return db.execute(
             'INSERT INTO Airflow.checklists (user, tripname, item1, item2, item3, item4, item5, item6, item7, item8, item9, item10, checked1, checked2, checked3, checked4, checked5, checked6, checked7, checked8, checked9, checked10) VALUES (?,?,?,?,?, ?,?,?,?,?, ?,?,?,?,?, ?,?,?,?,?, ?,?,?)',

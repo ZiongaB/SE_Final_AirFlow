@@ -1,10 +1,16 @@
+/**
+ * This is the controller file that calls the backend functions
+ * to save and retrieve data relating to the calendar
+ * @author Zach East
+ */
+
 const { validationResult } = require('express-validator');
 
 const HotelReserve = require('../models/hotelReserve');
 
-exports.fetchAll = async (req, res, next) => {
+exports.fetchAll(user) = async (req, res, next) => {
   try {
-    const [allPosts] = await HotelReserve.fetchAll();
+    const [allPosts] = await HotelReserve.fetchAll(user);
     res.status(200).json(allPosts);
   } catch (err) {
     if (!err.statusCode) {

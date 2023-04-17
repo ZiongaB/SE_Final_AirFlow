@@ -1,11 +1,15 @@
+/**
+ * This is the controller file that calls the backend functions
+ * to save and retrieve data relating to the flight reservations
+ * @author Zach East
+ */
 const { validationResult } = require('express-validator');
-
 
 const FlightReserve = require('../models/flightReserve');
 
-exports.fetchAll = async (req, res, next) => {
+exports.fetchAll(user) = async (req, res, next) => {
   try {
-    const [allPosts] = await FlightReserve.fetchAll();
+    const [allPosts] = await FlightReserve.fetchAll(user);
     res.status(200).json(allPosts);
   } catch (err) {
     if (!err.statusCode) {

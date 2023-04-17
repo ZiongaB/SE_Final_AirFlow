@@ -1,9 +1,9 @@
 const { validationResult } = require('express-validator');
 const Trip = require('../models/trip');
 
-exports.fetchAll = async (req, res, next) => {
+exports.fetchAll(user) = async (req, res, next) => {
   try {
-    const [allPosts] = await Trip.fetchAll();
+    const [allPosts] = await Trip.fetchAll(user);
     res.status(200).json(allPosts);
   } catch (err) {
     if (!err.statusCode) {
