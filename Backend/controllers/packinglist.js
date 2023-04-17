@@ -1,11 +1,21 @@
-const { validationResult } = require('express-validator');
+/**
+ * This is the controller file that defines the how backend functions are
+ * called to save and retrieve data relating to packing lists
+ * @author Zach East
+ */
 
+const { validationResult } = require('express-validator');
 const Packinglist = require('../models/packinglist');
 
+//Export fetchAll to be used
 exports.fetchAll(user) = async (req, res, next) => {
+
+  //Call fetchAll function
   try {
     const [allPosts] = await Packinglist.fetchAll(user);
     res.status(200).json(allPosts);
+
+  //Catch Errors
   } catch (err) {
     if (!err.statusCode) {
       err.statusCode = 500;
@@ -14,11 +24,12 @@ exports.fetchAll(user) = async (req, res, next) => {
   }
 };
 
+//Export posting function to be used
 exports.postPacking = async (req, res, next) => {
   const errors = validationResult(req);
-
   if (!errors.isEmpty()) return;
-  
+
+  //Set constants to variable data
   const user = req.body.user;
   const tripname = req.body.tripname;
 
@@ -44,8 +55,7 @@ exports.postPacking = async (req, res, next) => {
   const checked9 = req.body.checked9;
   const checked10 = req.body.checked10;
 
-       
-
+  //Create a post object using variables
   try {
     const post = {
       user: user,
@@ -71,11 +81,13 @@ exports.postPacking = async (req, res, next) => {
       checked8: checked8,
       checked9: checked9,
       checked10: checked10,
-
-      
     };
+
+    //Call save function
     const result = await Packinglist.save(post);
     res.status(201).json({ message: 'Posted!' });
+
+  //Catch errors
   } catch (err) {
     if (!err.statusCode) {
       err.statusCode = 500;
