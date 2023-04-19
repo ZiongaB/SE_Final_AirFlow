@@ -29,6 +29,7 @@ export class TripsComponent {
     submit(formData: Pick<Trip,"Name" | "Spot">):void{
       console.log(formData);
       console.log(this.authService.userId);
+      this.TripService.createTrip(formData,this.authService.userId);
       this.tripForm.reset();
     }
 }
