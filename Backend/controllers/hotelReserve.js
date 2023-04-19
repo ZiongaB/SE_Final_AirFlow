@@ -8,8 +8,10 @@ const { validationResult } = require('express-validator');
 const HotelReserve = require('../models/hotelReserve');
 
 //Export fetchAll to be used
-exports.fetchAll(user) = async (req, res, next) => {
+exports.fetchAll = async (req, res, next) => {
   //Call fetchAll function
+  
+    const user = req.body.user;
   try {
     const [allPosts] = await HotelReserve.fetchAll(user);
     res.status(200).json(allPosts);

@@ -39,7 +39,7 @@ export class AuthService {
         this.userId = tokenObject.userId;
         localStorage.setItem("token",tokenObject.token);
         this.isUserLoggedIn$.next(true);
-        this.router.navigate([""]);
+        this.router.navigate(["home"]);
       }),
       catchError(this.errorHandlerService.handleError<{token:string; userId: User["id"]}>("login")),
     );

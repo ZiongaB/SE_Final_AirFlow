@@ -1,1 +1,16 @@
-<p>trips works!</p>
+<div>
+    <form [formGroup]=tripForm (ngSubmit)=submit(tripForm.value) novalidate>
+        <mat-form-field class="field">
+            <mat-label>Trip name</mat-label>
+            <input matInput placeholder="Name" formControlName="Name">
+        </mat-form-field>
+        <mat-form-field class="field">
+            <mat-label>Parking spot</mat-label>
+            <input matInput placeholder="Parking spot" formControlName="Spot">
+        </mat-form-field>
+        <div class="button" >
+            <button color="accent" [disabled]="!tripForm.valid" mat-raised-button type="submit" class="submitb">
+              <span>Submit</span></button>
+          </div>
+    </form>
+</div>

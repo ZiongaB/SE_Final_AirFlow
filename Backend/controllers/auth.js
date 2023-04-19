@@ -5,11 +5,9 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
 exports.signup = async (req,res,next) =>{
-    console.log("Check");
     const errors = validationResult(req);
     console.log(errors);
     if (!errors.isEmpty()) return
-    console.log("Check1");
     const name = req.body.name;
     const email = req.body.email;
     const password = req.body.password;
@@ -24,7 +22,7 @@ exports.signup = async (req,res,next) =>{
         }
         
         const result = await User.save(userDetails)
-        console.log("Check2");
+
 
         res.status(201).json({ message: 'User registered'})
     } catch(err){
@@ -58,11 +56,11 @@ exports.login = async (req,res,next) =>{
         }
         const token = jwt.sign({
             email:storedUser.Email,
-            userId:storedUser.id
+            userId:storedUser.ID
         }, 'secretfortoken',
         {expiresIn:'2h'});
         
-        res.status(200).json({token:token, userId:storedUser.id});
+        res.status(200).json({token:token, userId:storedUser.ID});
 
     }catch(err){
     if (!err.statusCode){

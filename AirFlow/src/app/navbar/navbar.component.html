@@ -13,7 +13,8 @@
     <!-- <a mat-button routerLink="/airport1">Airports</a> -->
     <a mat-button routerLink="/chatbot">Chatbot</a>
     <a mat-button routerLink="/trips">Trips </a>
-    <a mat-raised-button color = "accent" routerLink="signup">Signup</a>
+    <a mat-raised-button color = "accent" *ngIf="!isAuthenticated" routerLink="/login">Log in</a>
+    <a mat-raised-button color = "accent" href="" id="complicated" *ngIf="isAuthenticated" (click)="logout()"> Log out</a>
 
   </mat-toolbar>
 

@@ -17,7 +17,7 @@ router.post(
       body('user').trim().isLength({ min: 1 }).not().isEmpty(),
       body('tripname').trim().isLength({ min: 1 }).not().isEmpty(),
     ],
-    eventController.postEvent
+    eventController.postPacking
 );
 
 module.exports = router;

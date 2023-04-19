@@ -8,8 +8,9 @@ const { validationResult } = require('express-validator');
 const Trip = require('../models/trip');
 
 //Export fetchAll to be used
-exports.fetchAll(user) = async (req, res, next) => {
-
+exports.fetchAll = async (req, res, next) => {
+  
+  const user = req.body.user;
   //Call fetchAll function
   try {
     const [allPosts] = await Trip.fetchAll(user);

@@ -9,7 +9,9 @@ const CalendarItem = require('../models/calendarItem');
 
 
 //Export fetchAll to be used
-exports.fetchAll(user) = async (req, res, next) => {
+exports.fetchAll = async (req, res, next) => {
+  
+  const user = req.body.user;
 
   //Call fetchAll function
   try {

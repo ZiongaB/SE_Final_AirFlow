@@ -8,8 +8,8 @@ const { validationResult } = require('express-validator');
 const Checklist = require('../models/checklist');
 
 //Export fetchAll to be used
-exports.fetchAll(user) = async (req, res, next) => {
-
+exports.fetchAll = async (req, res, next) => {
+    const user = req.body.user;
   //Call fetchAll function
   try {
     const [allPosts] = await Checklist.fetchAll(user);
