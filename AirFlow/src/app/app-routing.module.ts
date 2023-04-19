@@ -24,6 +24,7 @@ import { Location2PageComponent } from './components/static/location2-page/locat
 import { Location3PageComponent } from './components/static/location3-page/location3-page.component';
 import { HomeComponent } from './components/static/home/home.component';
 import { ChatbotComponent } from './components/dynamic/chatbot/chatbot.component';
+import { AuthGuardService } from './components/services/auth-guard.service';
 
 /*
 After importing a new component we need to define the route
@@ -32,18 +33,17 @@ After importing a new component we need to define the route
 //  <!-- Sebastian Mark -->
 const routes: Routes = [
   { path: "login", component: LoginComponent },
-  { path: "boarding", component: BoardingPageComponent },
-  { path: "budget", component: BudgetComponent },
-  { path: "calendar", component: CalendarPageComponent },
-  { path: "checklist", component: ChecklistPageComponent },
-  { path: "packing", component: PackingComponent },
+  { path: "boarding", component: BoardingPageComponent, canActivate:[AuthGuardService]  },
+  { path: "budget", component: BudgetComponent, canActivate:[AuthGuardService]  },
+  { path: "calendar", component: CalendarPageComponent, canActivate:[AuthGuardService]  },
+  { path: "checklist", component: ChecklistPageComponent, canActivate:[AuthGuardService]  },
+  { path: "packing", component: PackingComponent, canActivate:[AuthGuardService]  },
   
   // navbar routing
   { path: "signup", component: SignupComponent },
-  { path: "trip", component: TripsComponent },
+  { path: "trip", component: TripsComponent, canActivate:[AuthGuardService] },
   {path: "home", component: HomeComponent},
   {path: "chatbot", component: ChatbotComponent},
-  {path: "trips", component: TripsComponent},
  
    //Airport routing
    {path: "airports", component: AirportsComponent},
