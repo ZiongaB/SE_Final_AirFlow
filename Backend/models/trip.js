@@ -9,22 +9,23 @@ const db = require('../util/database');
 module.exports = class Trip {
 
     //Constructor for object
-    constructor(user, tripname, parking){
-        this.user = user;
+    constructor(userId, tripname, parking){
+        this.userId = userId;
         this.tripname = tripname;
         this.parking = parking;
     }
 
     //Function to pass pull specific entries in database by user
-    static fetchAll(user)
+    static fetchAll(userId)
     {
         return db.execute(
-            `SELECT * FROM Airflow.trip WHERE user = ${user}`
+            `SELECT * FROM Airflow.trip WHERE user = ${userId}`
         );
     }
 
     //Function to insert new entry into database using values from passed objects
     static save(post){
+        console.log(post);
         return db.execute(
             'INSERT INTO Airflow.trip (user, tripname, parking) VALUES (?,?,?)',
             [post.user, post.tripname, post.parking]

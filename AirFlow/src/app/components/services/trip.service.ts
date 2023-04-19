@@ -23,7 +23,7 @@ export class TripService {
   createTrip(formData: Pick<Trip,"Name" | "Spot">,userId: User["id"],authtoken:String): Observable<Trip>{
     console.log("check1");
     console.log(authtoken);
-    return this.http.post<Trip>(this.url,{title:formData.Name, body:formData.Spot, user: userId,token: authtoken},this.httpOptions).pipe(
+    return this.http.post<Trip>(this.url,{tripname:formData.Name, parking:formData.Spot, userId: userId,token: authtoken},this.httpOptions).pipe(
       catchError(this.errorhandler.handleError<Trip>("createTrip")),
     );
   }
