@@ -28,8 +28,11 @@ exports.fetchAll = async (req, res, next) => {
 
 //Export posting function to be used
 exports.postTrip = async (req, res, next) => {
+  console.log("check1");
   const errors = validationResult(req);
   if (!errors.isEmpty()) return;
+  console.log("check2");
+
 
   //Set constants to variable data
   const user = req.body.user;
@@ -45,8 +48,10 @@ exports.postTrip = async (req, res, next) => {
     };
 
     //Call save function
+    console.log("check3");
     const result = await Trip.save(post);
     res.status(201).json({ message: 'Posted!' });
+    console.log("check4");
     
   //Catch errors
   } catch (err) {

@@ -15,6 +15,7 @@ export class AuthService {
 
   isUserLoggedIn$ = new BehaviorSubject<boolean>(false);
   userId: User["id"];
+  token:String;
 
   httpOptions: {headers:HttpHeaders}={
     headers: new HttpHeaders({"Content-Type" : "application/json"})
@@ -37,6 +38,7 @@ export class AuthService {
       first(Object),
        tap((tokenObject : {token: string; userId:User["id"]}) =>  {
         this.userId = tokenObject.userId;
+        this.token = tokenObject.token;
         localStorage.setItem("token",tokenObject.token);
         this.isUserLoggedIn$.next(true);
         this.router.navigate(["home"]);

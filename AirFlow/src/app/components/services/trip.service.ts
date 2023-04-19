@@ -20,9 +20,10 @@ export class TripService {
   errorHandlerService: any;
   constructor(private http:HttpClient, private errorhandler:ErrorHandlerService) { }
 
-  createTrip(formData: Pick<Trip,"Name" | "Spot">,userId: User["id"]): Observable<Trip>{
+  createTrip(formData: Pick<Trip,"Name" | "Spot">,userId: User["id"],authtoken:String): Observable<Trip>{
     console.log("check1");
-    return this.http.post<Trip>(this.url,{title:formData.Name, body:formData.Spot, user: userId},this.httpOptions).pipe(
+    console.log(authtoken);
+    return this.http.post<Trip>(this.url,{title:formData.Name, body:formData.Spot, user: userId,token: authtoken},this.httpOptions).pipe(
       catchError(this.errorhandler.handleError<Trip>("createTrip")),
     );
   }

@@ -25,6 +25,8 @@ app.use((req,res,next)=>{
     res.setHeader('Access-Control-Allow-Headers','Content-Type,Authorization');
     next();
 });
+
+
 app.use('/auth', authRoutes);
 
 app.use('/calendar', calendarRoutes);
