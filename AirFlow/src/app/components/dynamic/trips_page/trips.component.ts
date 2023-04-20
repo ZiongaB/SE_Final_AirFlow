@@ -14,14 +14,23 @@ export class TripsComponent {
 
   posts$:Observable<Trip[]>;
   tripForm: FormGroup
-  
-  filteredTrip!: Trip[];
+
+  allTrip!: Trip[];
+  filteredTrip: Trip[];
 
   constructor(private TripService:TripService,private authService:AuthService){}
 
   ngOnInit(){
     this.tripForm = this.createFormGroup();
-    this.posts$ = this.fetchAll();
+    console.log("fetching")
+    this.TripService.fetchAll().subscribe(posts =>{
+      this.allTrip = posts;
+      this.TripService.tripData = posts;
+      console.log(this.allTrip);
+    })
+ 
+
+
   }
 
   createPost() :void{
@@ -40,7 +49,7 @@ export class TripsComponent {
     })
   }
 
-    submit(formData: Pick<Trip,"Name" | "Spot">):void{
+    submit(formData: Pick<Trip,"tripname" | "parking">):void{
       this.TripService.createTrip(formData,this.authService.userId).subscribe();
       this.tripForm.reset();
     }
