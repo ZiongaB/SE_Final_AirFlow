@@ -21,9 +21,7 @@ export class TripsComponent {
 
   ngOnInit(){
     this.tripForm = this.createFormGroup();
-    console.log("Pulling Trips");
     this.posts$ = this.fetchAll();
-    console.log(this.posts$);
   }
 
   createPost() :void{

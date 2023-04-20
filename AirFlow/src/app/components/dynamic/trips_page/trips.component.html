@@ -13,7 +13,8 @@
               <span>Submit</span></button>
           </div>
     </form>
-
+</div>
+<div>
     <mat-card *ngFor="let post of posts$ | async">
         <div class="posttitle"> {{ post.UserId}}</div>
         <div class="postdata"> {{post.Name}}</div>

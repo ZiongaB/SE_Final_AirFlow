@@ -2,20 +2,17 @@ const { check } = require('express-validator');
 const jwt = require('jsonwebtoken');
 
 module.exports = (req, res, next) => {
-  
-  //const authHeader = req.get('Authorization');
-  const authHeader = req.body.token;
+  const authHeader = req.get('Authorization');
   if (!authHeader) {
     const error = new Error('Not authenticated!');
     error.statusCode = 401;
     throw error;
   }
-  //const token = authHeader.split('.')[2];
+  const token = authHeader.split(' ')[1];
   let decodedToken;
   try {
-    decodedToken = jwt.verify(authHeader, 'secretfortoken');
+    decodedToken = jwt.verify(token, 'secretfortoken');
   } catch (err) {
-    console.log(err);
     err.statusCode = 500;
     throw err;
   }
@@ -24,7 +21,6 @@ module.exports = (req, res, next) => {
     error.statusCode = 401;
     throw error;
   }
-  console.log("check2/2");
   req.isLoggedIn = true;
   req.userId = decodedToken.userId;
   req.email = decodedToken.email;
