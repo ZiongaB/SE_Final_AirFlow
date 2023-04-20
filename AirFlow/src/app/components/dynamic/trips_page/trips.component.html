@@ -2,11 +2,11 @@
     <form [formGroup]=tripForm (ngSubmit)=submit(tripForm.value) novalidate>
         <mat-form-field class="field">
             <mat-label>Trip name</mat-label>
-            <input matInput placeholder="Name" formControlName="Name">
+            <input matInput placeholder="Name" formControlName="tripname">
         </mat-form-field>
         <mat-form-field class="field">
             <mat-label>Parking spot</mat-label>
-            <input matInput placeholder="Parking spot" formControlName="Spot">
+            <input matInput placeholder="Parking spot" formControlName="parking">
         </mat-form-field>
         <div class="button" >
             <button color="accent" [disabled]="!tripForm.valid" mat-raised-button type="submit" class="submitb">
@@ -15,9 +15,8 @@
     </form>
 </div>
 <div>
-    <mat-card *ngFor="let post of posts$ | async">
-        <div class="posttitle"> {{ post.UserId}}</div>
-        <div class="postdata"> {{post.Name}}</div>
-        <div class="postbody"> {{post.Spot}}</div> 
+    <mat-card *ngFor="let post of allTrip">
+        <div class="postdata"> Trip: {{post.tripname}}</div>
+        <div class="postbody"> Parking:{{post.parking}}</div> 
     </mat-card>
 </div>
