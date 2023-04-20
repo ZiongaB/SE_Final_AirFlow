@@ -41,7 +41,7 @@ export class TripsComponent {
   }
 
     submit(formData: Pick<Trip,"Name" | "Spot">):void{
-      this.TripService.createTrip(formData,this.authService.userId,this.authService.token).subscribe();
+      this.TripService.createTrip(formData,this.authService.userId).subscribe();
       this.tripForm.reset();
     }
 
