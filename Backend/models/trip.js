@@ -16,11 +16,16 @@ module.exports = class Trip {
     }
 
     //Function to pass pull specific entries in database by user
-    static fetchAll(userId)
+    static fetchUser(userId)
     {
         return db.execute(
             `SELECT * FROM Airflow.trip WHERE user = ${userId}`
         );
+    }
+
+    static fetchAll()
+    {
+        return db.execute('SELECT * FROM Airflow.trip');
     }
 
     //Function to insert new entry into database using values from passed objects

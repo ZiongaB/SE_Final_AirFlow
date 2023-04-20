@@ -3,6 +3,7 @@ import { AuthService } from '../../services/auth.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Trip } from '../../models/Trip';
 import { TripService } from '../../services/trip.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-trips',
@@ -10,12 +11,27 @@ import { TripService } from '../../services/trip.service';
   styleUrls: ['./trips.component.scss']
 })
 export class TripsComponent {
+
+  posts$:Observable<Trip[]>;
   tripForm: FormGroup
+  
+  filteredTrip!: Trip[];
 
   constructor(private TripService:TripService,private authService:AuthService){}
 
   ngOnInit(){
     this.tripForm = this.createFormGroup();
+    console.log("Pulling Trips");
+    this.posts$ = this.fetchAll();
+    console.log(this.posts$);
+  }
+
+  createPost() :void{
+    this.posts$ = this.fetchAll();
+  }
+
+  fetchAll(): Observable<Trip[]>{
+    return this.TripService.fetchAll();
   }
 
   createFormGroup():FormGroup{

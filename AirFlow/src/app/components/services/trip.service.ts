@@ -11,12 +11,13 @@ import { User } from '../models/User';
 export class TripService {
   private url = "http://localhost:3000/trip";
 
+  public tripData!: Trip[];
   isUserLoggedIn$ = new BehaviorSubject<boolean>(false);
- 
 
   httpOptions: {headers:HttpHeaders}={
     headers: new HttpHeaders({"Content-Type" : "application/json"})
   }
+
   errorHandlerService: any;
   constructor(private http:HttpClient, private errorhandler:ErrorHandlerService) { }
 
@@ -26,4 +27,9 @@ export class TripService {
     );
   }
 
+  fetchAll(): Observable<Trip[]> {
+    return this.http.get<Trip[]>(this.url,{responseType:"json"}).pipe(
+      catchError(this.errorhandler.handleError<Trip[]>("fetchAll",[])),
+    );
+  } 
 }

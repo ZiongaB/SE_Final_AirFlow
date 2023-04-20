@@ -10,10 +10,10 @@ const Trip = require('../models/trip');
 //Export fetchAll to be used
 exports.fetchAll = async (req, res, next) => {
   
-  const user = req.body.user;
+  //const user = req.body.user;
   //Call fetchAll function
   try {
-    const [allPosts] = await Trip.fetchAll(user);
+    const [allPosts] = await Trip.fetchAll();
     res.status(200).json(allPosts);
 
   //Catch Errors
