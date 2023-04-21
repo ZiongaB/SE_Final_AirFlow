@@ -20,6 +20,7 @@ export class AuthService {
   httpOptions: {headers:HttpHeaders}={
     headers: new HttpHeaders({"Content-Type" : "application/json"})
   }
+  length: any;
   constructor(private http:HttpClient,
     private errorHandlerService:ErrorHandlerService,
     private router: Router) { }

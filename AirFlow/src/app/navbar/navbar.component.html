@@ -1,22 +1,37 @@
-<!-- All of this is needed in the navigation bar -->
-
-<!-- Sebastian Mark -->
-
-<mat-toolbar color = "primary" class="mat-elevation-z8">
-    <span><mat-icon>flight_takeof</mat-icon> Airflow</span>
-
-<div class = "spacer"> </div>
-
-    <a mat-button routerLink="/home">Home</a>
-    <a mat-button routerLink="/airports">Airports</a>
-    <!-- Airport 1 has a link to a page -->
-    <!-- <a mat-button routerLink="/airport1">Airports</a> -->
-    <a mat-button routerLink="/chatbot">Chatbot</a>
-    <a mat-button routerLink="/trip">Trips </a>
-    <a mat-raised-button color = "accent" *ngIf="!isAuthenticated" routerLink="/login">Log in</a>
-    <a mat-raised-button color = "accent" href="" id="complicated" *ngIf="isAuthenticated" (click)="logout()"> Log out</a>
-
-  </mat-toolbar>
-
-
-  <!-- Sebastian Mark -->
+<div style="height: 100vh;">
+    <mat-toolbar color = "primary" class="mat-elevation-z8">
+          <span><mat-icon>flight_takeof</mat-icon> Airflow</span>
+          <span class="menu-spacer"></span>
+          <div fxShow="true" fxHide.lt-md>
+            <!-- The following menu items will be hidden on both SM and XS screen sizes -->
+            <a mat-button routerLink="home">Home</a>
+            <a mat-button routerLink="airports">Airports</a>
+            <a mat-button routerLink="chatbot">Chatbot</a>
+            <a mat-button routerLink="trips">Trips </a>
+            <a mat-button routerLink="chatbot">Chatbot</a>
+            <a mat-raised-button color = "accent" routerLink="signup">Login</a>
+          </div>
+          <!-- <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
+            <mat-icon>menu</mat-icon>
+          </button> -->
+          <div fxShow = "true" fxHide.gt-sm="true">
+            <a (click)="sidenav.toggle()">Menu</a>
+          </div>
+      </mat-toolbar>
+      <mat-sidenav-container fxFlexFill>
+        <mat-sidenav #sidenav fxLayout = "column">
+            <div fxLayout = "column">
+            <!-- <a (click)="sidenav.toggle()" mat-list-item>Close</a> -->
+            <a mat-button routerLink="home" (click)="sidenav.close()">Home</a>
+            <a mat-button routerLink="airports" (click)="sidenav.close()">Airports</a>
+            <a mat-button routerLink="chatbot" (click)="sidenav.close()">Chatbot</a>
+            <a mat-button routerLink="trips" (click)="sidenav.close()">Trips </a>
+            <a mat-raised-button color = "accent" routerLink="signup" (click)="sidenav.close()">Login</a>
+        </div>
+      </mat-sidenav>
+        <mat-sidenav-content fxFlexFill>
+          <router-outlet></router-outlet>
+        </mat-sidenav-content>    
+      </mat-sidenav-container>
+      </div>
+    

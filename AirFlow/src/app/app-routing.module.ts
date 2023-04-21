@@ -46,7 +46,7 @@ const routes: Routes = [
   {path: "chatbot", component: ChatbotComponent},
  
    //Airport routing
-   {path: "airports", component: AirportsComponent},
+  {path: "airports", component: AirportsComponent},
   { path: "airport1", component: Airport1PageComponent },
   { path: "airport2", component: Airport2PageComponent },
   { path: "airport3", component: Airport3PageComponent },

@@ -46,6 +46,15 @@ import { ChatbotComponent } from './components/dynamic/chatbot/chatbot.component
 import { CalendarComponent } from './components/dynamic/calendar/calendar.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './components/static/home/home.component';
+import { MatMenuModule} from '@angular/material/menu';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { LayoutModule } from '@angular/cdk/layout';
+
+// Mat side nav module 
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatDivider, MatDividerModule } from '@angular/material/divider';
+
+
 
 
 //   <!-- Sebastian Mark did some of this -->
@@ -71,8 +80,8 @@ import { HomeComponent } from './components/static/home/home.component';
     Location3PageComponent,
     NavbarComponent,
     HomeComponent,
+  
 
-   
   ],
   imports: [
     BrowserModule,
@@ -90,6 +99,13 @@ import { HomeComponent } from './components/static/home/home.component';
     MatListModule,
     MatToolbarModule,
     MatSelectModule,
+    MatMenuModule,
+    FlexLayoutModule, 
+    LayoutModule,
+    MatSidenavModule,
+    MatDividerModule
+    
+    
   ],
   providers: [
     {
