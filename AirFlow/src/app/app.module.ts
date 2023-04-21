@@ -1,5 +1,18 @@
+/*
+When making a new page we need to import the component for the new age
+***/
+
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule,HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptorService } from './components/services/auth-interceptor.service';
+
+
+//<!-- Sebastian Mark -->
+import { RouterModule, Routes } from '@angular/router';
+//  <!-- Sebastian Mark -->
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,7 +25,16 @@ import { PackingComponent } from './components/dynamic/packing_page/packing.comp
 import { SignupComponent } from './components/dynamic/signup_page/signup.component';
 import { TripsComponent } from './components/dynamic/trips_page/trips.component';
 
-
+import {MatButtonModule} from "@angular/material/button"
+import { MatCardModule } from "@angular/material/card";
+import { MatIconModule } from "@angular/material/icon";
+import { MatInputModule } from "@angular/material/input";
+import { MatListModule } from "@angular/material/list";
+import { MatToolbarModule } from "@angular/material/toolbar";
+import {MatAutocompleteModule}from "@angular/material/autocomplete";
+import { MatFormFieldModule } from "@angular/material/form-field";
+import {MatSelectModule} from '@angular/material/select';
+import {MatChipsModule} from '@angular/material/chips';
 import { Airport1PageComponent } from './components/static/airport1-page/airport1-page.component';
 import { Airport2PageComponent } from './components/static/airport2-page/airport2-page.component';
 import { Airport3PageComponent } from './components/static/airport3-page/airport3-page.component';
@@ -22,8 +44,11 @@ import { Location3PageComponent } from './components/static/location3-page/locat
 
 import { ChatbotComponent } from './components/dynamic/chatbot/chatbot.component';
 import { CalendarComponent } from './components/dynamic/calendar/calendar.component';
-import { NavbarComponent } from './components/dynamic/navbar/navbar.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { HomeComponent } from './components/static/home/home.component';
 
+
+//   <!-- Sebastian Mark did some of this -->
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,12 +70,37 @@ import { NavbarComponent } from './components/dynamic/navbar/navbar.component';
     Location2PageComponent,
     Location3PageComponent,
     NavbarComponent,
+    HomeComponent,
+
+   
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    ReactiveFormsModule,
+    MatButtonModule,
+    MatCardModule,
+    MatChipsModule,
+    MatIconModule,
+    MatInputModule,
+    MatAutocompleteModule,
+    MatFormFieldModule,
+    MatListModule,
+    MatToolbarModule,
+    MatSelectModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorService,
+      multi:true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+
+// <!-- Sebastian Mark -->

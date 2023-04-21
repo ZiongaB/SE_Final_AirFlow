@@ -1,0 +1,6 @@
+{
+    "host":"airflow-database.cdhjz8r6a5lv.us-east-2.rds.amazonaws.com",
+    "user": "admin",
+    "database": "Airflow",
+    "password": "airflow123cc"
+}

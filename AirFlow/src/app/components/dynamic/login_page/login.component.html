@@ -1,1 +1,36 @@
-<p>login works!</p>
+<div class="log">
+    <div class=login_comp>
+      <div class="form">
+        <div class="log_text">
+          <h2>Login Here</h2>
+        </div> 
+        <form [formGroup]=loginForm (ngSubmit)=login() novalidate>
+          <mat-form-field class="field">
+            <mat-label>Email</mat-label>
+            <input matInput placeholder="Ex. John@gmail" formControlName="email">
+          </mat-form-field>
+          <mat-form-field class="field">
+            <mat-label>Password</mat-label>
+            <input matInput type="password" placeholder="Ex. Password" formControlName="password">
+          </mat-form-field>
+          <div class="button">
+            <button color="accent" white="!loginForm.valid" mat-raised-button type="submit" class="submitb">
+              <span>Login</span></button>
+          </div>
+  
+        </form>
+        <div class="sign_up">
+          <div>
+            <p class="link"> Don't have an acount? <br>
+            </p><a routerLinkActive="active-link" routerLink="/signup" class="sign">
+              <p></p>
+              <div></div> Sign up
+            </a> &nbsp; here
+  
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  
+  </div>

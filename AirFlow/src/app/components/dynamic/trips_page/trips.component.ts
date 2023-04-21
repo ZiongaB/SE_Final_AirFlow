@@ -1,4 +1,9 @@
 import { Component } from '@angular/core';
+import { AuthService } from '../../services/auth.service';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Trip } from '../../models/Trip';
+import { TripService } from '../../services/trip.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-trips',
@@ -6,5 +11,48 @@ import { Component } from '@angular/core';
   styleUrls: ['./trips.component.scss']
 })
 export class TripsComponent {
+
+  posts$:Observable<Trip[]>;
+  tripForm: FormGroup
+
+  allTrip!: Trip[];
+  filteredTrip: Trip[];
+
+  constructor(private TripService:TripService,private authService:AuthService){}
+
+  ngOnInit(){
+    this.tripForm = this.createFormGroup();
+    console.log("fetching")
+    this.TripService.fetchAll().subscribe(posts =>{
+      this.allTrip = posts;
+      this.TripService.tripData = posts;
+      console.log(this.allTrip);
+    })
+ 
+
+
+  }
+
+  createPost() :void{
+    this.posts$ = this.fetchAll();
+  }
+
+  fetchAll(): Observable<Trip[]>{
+    return this.TripService.fetchAll();
+  }
+
+  createFormGroup():FormGroup{
+    return new FormGroup({
+      Name: new FormControl("", [Validators.required, Validators.minLength(5)]),
+      Spot: new FormControl("", [Validators.required, Validators.minLength(10)]),
+
+    })
+  }
+
+    submit(formData: Pick<Trip,"tripname" | "parking">):void{
+      this.TripService.createTrip(formData,this.authService.userId).subscribe();
+      this.tripForm.reset();
+    }
+
 
 }
