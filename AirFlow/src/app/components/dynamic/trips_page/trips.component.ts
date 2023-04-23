@@ -22,11 +22,9 @@ export class TripsComponent {
 
   ngOnInit(){
     this.tripForm = this.createFormGroup();
-    console.log("fetching")
     this.TripService.fetchAll().subscribe(posts =>{
       this.allTrip = posts;
       this.TripService.tripData = posts;
-      console.log(this.allTrip);
     })
  
 
@@ -43,8 +41,8 @@ export class TripsComponent {
 
   createFormGroup():FormGroup{
     return new FormGroup({
-      Name: new FormControl("", [Validators.required, Validators.minLength(5)]),
-      Spot: new FormControl("", [Validators.required, Validators.minLength(10)]),
+      tripname: new FormControl("", [Validators.required, Validators.minLength(5)]),
+      parking: new FormControl("", [Validators.required, Validators.minLength(10)]),
 
     })
   }

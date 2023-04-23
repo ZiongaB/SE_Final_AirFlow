@@ -46,6 +46,7 @@ import { ChatbotComponent } from './components/dynamic/chatbot/chatbot.component
 import { CalendarComponent } from './components/dynamic/calendar/calendar.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './components/static/home/home.component';
+import { TripsPartComponent } from './components/dynamic/trips-part/trips-part.component';
 
 
 //   <!-- Sebastian Mark did some of this -->
@@ -71,6 +72,7 @@ import { HomeComponent } from './components/static/home/home.component';
     Location3PageComponent,
     NavbarComponent,
     HomeComponent,
+    TripsPartComponent,
 
    
   ],
