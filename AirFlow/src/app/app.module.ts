@@ -8,6 +8,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule,HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptorService } from './components/services/auth-interceptor.service';
+import{CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 
 
 //<!-- Sebastian Mark -->
@@ -114,7 +115,8 @@ import { MatDivider, MatDividerModule } from '@angular/material/divider';
       multi:true
     }
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas:[CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }
 
