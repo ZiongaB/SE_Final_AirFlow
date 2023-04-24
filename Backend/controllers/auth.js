@@ -91,3 +91,19 @@ exports.budget = async (req,res,next) =>{
         next(err)
     }
 }
+
+
+//Export fetchAll to be used
+exports.fetchBudget = async (req, res, next) => {
+    const ID =req.params.id;
+    
+    try {
+        const [allPosts] = await Trip.fetchBudget(ID);
+        res.status(200).json(allPosts);
+    } catch (err) {
+        if (!err.statusCode) {
+          err.statusCode = 500;
+        }
+        next(err);
+      }
+};

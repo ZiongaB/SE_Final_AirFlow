@@ -25,6 +25,13 @@ module.exports = class User{
             'UPDATE user SET Total_budget = ?  WHERE Email = ?', [userDetails.total_budget ,userDetails.email]
         );
     }
+
+    static fetchBudget(userId)
+    {
+        return db.execute(
+            `SELECT Total_budget FROM user WHERE user = ${userId}`
+        );
+    }
     
 };
 

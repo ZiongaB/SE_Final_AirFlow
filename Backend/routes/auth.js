@@ -26,6 +26,8 @@ router.patch(
     authController.budget
 );
 
+router.get('/:id', auth, authController.fetchBudget);
+
 router.post(
     '/login',
     authController.login
