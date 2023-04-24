@@ -23,7 +23,6 @@ exports.signup = async (req,res,next) =>{
         
         const result = await User.save(userDetails)
 
-
         res.status(201).json({ message: 'User registered'})
     } catch(err){
         if (!err.statusCode){
@@ -69,6 +68,26 @@ exports.login = async (req,res,next) =>{
     }
     next(err)
 }
+}
 
-    
+exports.budget = async (req,res,next) =>{
+    const email = req.body.name;
+    const budget = req.body.budget
+
+    try{    
+        const userDetails = {
+            email:email,
+            password: budget
+        }
+        
+        const result  = await User.budget(userDetails);
+        res.status(200).json("Budget Updated");
+
+    }catch(err){
+        if (!err.statusCode){
+            console.log("error!");
+            err.statusCode = 500;
+        }
+        next(err)
+    }
 }

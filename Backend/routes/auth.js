@@ -21,6 +21,11 @@ router.post(
     ], authController.signup
 );
 
+router.patch(
+    '/budget',
+    authController.budget
+);
+
 router.post(
     '/login',
     authController.login
