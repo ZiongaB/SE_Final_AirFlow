@@ -8,6 +8,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule,HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptorService } from './components/services/auth-interceptor.service';
+import{CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 
 
 //<!-- Sebastian Mark -->
@@ -47,6 +48,15 @@ import { CalendarComponent } from './components/dynamic/calendar/calendar.compon
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './components/static/home/home.component';
 import { TripsPartComponent } from './components/dynamic/trips-part/trips-part.component';
+import { MatMenuModule} from '@angular/material/menu';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { LayoutModule } from '@angular/cdk/layout';
+
+// Mat side nav module 
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatDivider, MatDividerModule } from '@angular/material/divider';
+
+
 
 
 //   <!-- Sebastian Mark did some of this -->
@@ -73,8 +83,8 @@ import { TripsPartComponent } from './components/dynamic/trips-part/trips-part.c
     NavbarComponent,
     HomeComponent,
     TripsPartComponent,
+  
 
-   
   ],
   imports: [
     BrowserModule,
@@ -92,6 +102,13 @@ import { TripsPartComponent } from './components/dynamic/trips-part/trips-part.c
     MatListModule,
     MatToolbarModule,
     MatSelectModule,
+    MatMenuModule,
+    FlexLayoutModule, 
+    LayoutModule,
+    MatSidenavModule,
+    MatDividerModule
+    
+    
   ],
   providers: [
     {
@@ -100,7 +117,8 @@ import { TripsPartComponent } from './components/dynamic/trips-part/trips-part.c
       multi:true
     }
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas:[CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }
 
