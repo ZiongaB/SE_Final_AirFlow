@@ -4,12 +4,13 @@ import { BehaviorSubject, Observable, catchError } from 'rxjs';
 import { ErrorHandlerService } from './error-handler.service';
 import { Trip } from '../models/Trip';
 import { User } from '../models/User';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TripService {
-  private url = "https://softengbackair-production.up.railway.app/trip";
+  private url = "http://localhost:3000/trip";
 
   public tripData!: Trip[];
   isUserLoggedIn$ = new BehaviorSubject<boolean>(false);
@@ -19,7 +20,7 @@ export class TripService {
   }
 
   errorHandlerService: any;
-  constructor(private http:HttpClient, private errorhandler:ErrorHandlerService) { }
+  constructor(private http:HttpClient, private errorhandler:ErrorHandlerService, private authService: AuthService) { }
 
   createTrip(formData: Pick<Trip,"tripname" | "parking">,userId: User["id"]): Observable<Trip>{
     return this.http.post<Trip>(this.url,{
@@ -32,7 +33,7 @@ export class TripService {
   }
 
   fetchAll(): Observable<Trip[]> {
-    return this.http.get<Trip[]>(this.url,{responseType:"json"}).pipe(
+    return this.http.get<Trip[]>(`${this.url}/${this.authService.userId}`,{responseType:"json"}).pipe(
       catchError(this.errorhandler.handleError<Trip[]>("fetchAll",[])),
     );
   } 

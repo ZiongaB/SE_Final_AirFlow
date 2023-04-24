@@ -47,6 +47,9 @@ import { ChatbotComponent } from './components/dynamic/chatbot/chatbot.component
 import { CalendarComponent } from './components/dynamic/calendar/calendar.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './components/static/home/home.component';
+
+import { TripsPartComponent } from './components/dynamic/trips-part/trips-part.component';
+
 import { MatMenuModule} from '@angular/material/menu';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { LayoutModule } from '@angular/cdk/layout';
@@ -81,7 +84,8 @@ import { MatDivider, MatDividerModule } from '@angular/material/divider';
     Location3PageComponent,
     NavbarComponent,
     HomeComponent,
-  
+    TripsPartComponent,
+
 
   ],
   imports: [
