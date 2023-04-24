@@ -1,4 +1,4 @@
-<div>
+<div >
     <form [formGroup]=tripForm (ngSubmit)=submit(tripForm.value) novalidate>
         <mat-form-field class="field">
             <mat-label>Trip name</mat-label>
@@ -14,9 +14,10 @@
           </div>
     </form>
 </div>
-<div>
-    <mat-card *ngFor="let post of allTrip">
-        <div class="postdata"> Trip: {{post.tripname}}</div>
-        <div class="postbody"> Parking:{{post.parking}}</div> 
-    </mat-card>
+
+<div *ngFor="let post of allTrip" >
+    <div class="trips">
+        <div> <b>Trip Name:</b> {{post.tripname}}</div>
+        <div> <b>Parking Space:</b>{{post.parking}}</div> 
+    </div>
 </div>
