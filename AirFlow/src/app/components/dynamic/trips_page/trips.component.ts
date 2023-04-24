@@ -13,7 +13,7 @@ import { Observable } from 'rxjs';
 export class TripsComponent {
 
   posts$:Observable<Trip[]>;
-  tripForm: FormGroup
+  
 
   allTrip!: Trip[];
   filteredTrip: Trip[];
@@ -21,7 +21,7 @@ export class TripsComponent {
   constructor(private TripService:TripService,private authService:AuthService){}
 
   ngOnInit(){
-    this.tripForm = this.createFormGroup();
+    
     this.TripService.fetchAll().subscribe(posts =>{
       this.allTrip = posts;
       this.TripService.tripData = posts;
@@ -39,18 +39,9 @@ export class TripsComponent {
     return this.TripService.fetchAll();
   }
 
-  createFormGroup():FormGroup{
-    return new FormGroup({
-      tripname: new FormControl("", [Validators.required, Validators.minLength(5)]),
-      parking: new FormControl("", [Validators.required, Validators.minLength(10)]),
+  
 
-    })
-  }
-
-    submit(formData: Pick<Trip,"tripname" | "parking">):void{
-      this.TripService.createTrip(formData,this.authService.userId).subscribe();
-      this.tripForm.reset();
-    }
+    
 
 
 }

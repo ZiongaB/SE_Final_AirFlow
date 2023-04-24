@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Trip } from '../../models/Trip';
+import { TripService } from '../../services/trip.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-trips-part',
@@ -6,5 +10,22 @@ import { Component } from '@angular/core';
   styleUrls: ['./trips-part.component.scss']
 })
 export class TripsPartComponent {
+  tripForm: FormGroup
+  ngOnInit(){
+    this.tripForm = this.createFormGroup();
+  }
 
+  constructor(private TripService: TripService,private authService:AuthService){}
+
+  createFormGroup():FormGroup{
+    return new FormGroup({
+      tripname: new FormControl("", [Validators.required, Validators.minLength(5)]),
+      parking: new FormControl("", [Validators.required, Validators.minLength(10)]),
+
+    })
+  }
+  submit(formData: Pick<Trip,"tripname" | "parking">):void{
+    this.TripService.createTrip(formData,this.authService.userId).subscribe();
+    this.tripForm.reset();
+  }
 }

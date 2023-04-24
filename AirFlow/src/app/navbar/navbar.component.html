@@ -8,7 +8,8 @@
             <a mat-button routerLink="airports">Airports</a>
             <a mat-button routerLink="budget">Budget</a>
             <a mat-button routerLink="trip">Trips </a>
-            <a mat-raised-button color = "accent" routerLink="signup">Login</a>
+            <a routerLinkActive="active-link" routerLink="login" id="complicated" *ngIf="!isAuthenticated" mat-raised-button color = "accent"> Log in</a>
+            <a href="home" id="complicated" *ngIf="isAuthenticated" (click)="logout()" mat-raised-button color = "accent"> Log out</a>
           </div>
           <!-- <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
             <mat-icon>menu</mat-icon>
