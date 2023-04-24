@@ -21,18 +21,17 @@ export class TripsComponent {
   constructor(private TripService:TripService,private authService:AuthService){}
 
   ngOnInit(){
-    
     this.TripService.fetchAll().subscribe(posts =>{
       this.allTrip = posts;
       this.TripService.tripData = posts;
     })
- 
-
-
   }
 
   createPost() :void{
-    this.posts$ = this.fetchAll();
+    this.TripService.fetchAll().subscribe(posts =>{
+      this.allTrip = posts;
+      this.TripService.tripData = posts;
+    })
   }
 
   fetchAll(): Observable<Trip[]>{

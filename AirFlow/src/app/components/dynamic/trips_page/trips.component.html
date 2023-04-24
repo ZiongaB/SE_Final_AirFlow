@@ -1,5 +1,5 @@
 <div>
-    <app-trips-part></app-trips-part>
+    <app-trips-part (create) = "createPost()"></app-trips-part>
 </div>
 <div>
     <mat-card *ngFor="let post of allTrip">

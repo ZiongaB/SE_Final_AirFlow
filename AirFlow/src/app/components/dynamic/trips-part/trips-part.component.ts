@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Trip } from '../../models/Trip';
 import { TripService } from '../../services/trip.service';
 import { AuthService } from '../../services/auth.service';
+import { first } from 'rxjs';
 
 @Component({
   selector: 'app-trips-part',
@@ -11,6 +12,7 @@ import { AuthService } from '../../services/auth.service';
 })
 export class TripsPartComponent {
   tripForm: FormGroup
+  @Output() create: EventEmitter<any> = new EventEmitter();
   ngOnInit(){
     this.tripForm = this.createFormGroup();
   }
@@ -25,7 +27,10 @@ export class TripsPartComponent {
     })
   }
   submit(formData: Pick<Trip,"tripname" | "parking">):void{
-    this.TripService.createTrip(formData,this.authService.userId).subscribe();
+    this.TripService.createTrip(formData,this.authService.userId).pipe(first()).subscribe(()=>{
+      this.create.emit(null);
+    })
+    ;
     this.tripForm.reset();
   }
 }
