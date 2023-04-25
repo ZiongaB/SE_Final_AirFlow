@@ -19,6 +19,8 @@ export class TripsComponent {
   filteredTrip: Trip[];
 
   createTrip: Boolean = false;
+  createHotel: Boolean = false;
+  createCar: Boolean = false;
 
   constructor(private TripService:TripService,private authService:AuthService){}
 
@@ -31,6 +33,14 @@ export class TripsComponent {
 
   tripIf(){
     this.createTrip = !this.createTrip;
+  }
+
+  hotelIf(){
+    this.createHotel = !this.createHotel;
+  }
+
+  carIf(){
+    this.createCar = !this.createCar;
   }
 
   createPost() :void{
