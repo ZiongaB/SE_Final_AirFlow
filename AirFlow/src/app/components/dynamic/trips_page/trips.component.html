@@ -3,18 +3,13 @@
     <app-trips-part (create) = "createPost()" *ngIf="createTrip"></app-trips-part>
     
 </div>
-<div>
-    <mat-card *ngFor="let post of allTrip">
-        <button mat-icon-button  (click)="deleteTrip(post.id)"> <mat-icon  color="warn" class="button"> delete</mat-icon></button>
-
-        <div class="triptitle"> Trip: {{post.tripname}}</div>
-        <div class="parkingspot"> Parking:{{post.parking}}</div> 
-    </mat-card>
+  
 
 <div class="trips">
     <button (click)="toggleTrip()" type="checkbox" >show/hide Trips</button>
     <ng-container *ngIf = "tripVisible">
         <div *ngFor="let post of allTrip" >
+            <button mat-icon-button  (click)="deleteTrip(post.id)" id="deletebutton"> <mat-icon  color="warn" class="button"> delete</mat-icon></button>
             <div> <b>Trip Name:</b> {{post.tripname}}</div>
             <div> <b>Parking Space:</b>{{post.parking}}</div> 
         </div>
