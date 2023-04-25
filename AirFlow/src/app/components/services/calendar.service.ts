@@ -15,7 +15,7 @@ import { User } from '../models/User';
 })
 export class CalendarService {
 
-  private url = "http://localhost:3000/calendar";
+  private url = "https://softengbackair-production.up.railway.app/calendar";
   isUserLoggedIn$ = new BehaviorSubject<boolean>(false);
 
   public calendarItems!: CalendarItem[];

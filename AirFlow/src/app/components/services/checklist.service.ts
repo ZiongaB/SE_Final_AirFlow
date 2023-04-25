@@ -14,7 +14,7 @@ import { User } from '../models/User';
   providedIn: 'root'
 })
 export class ChecklistService {
-  private url = "http://localhost:3000/checklists";
+  private url = "https://softengbackair-production.up.railway.app/checklists";
 
   public checklistData!: [];
   public filteredChecklists!: [];

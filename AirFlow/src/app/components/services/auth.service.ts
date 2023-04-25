@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
 
-  private url = "http://localhost:3000/auth";
+  private url = "https://softengbackair-production.up.railway.app/auth";
 
   isUserLoggedIn$ = new BehaviorSubject<boolean>(false);
   userId: User["id"];

@@ -14,7 +14,7 @@ import { User } from '../models/User';
   providedIn: 'root'
 })
 export class CarReserveService {
-  private url = "http://localhost:3000/cars";
+  private url = "https://softengbackair-production.up.railway.app/cars";
 
   public carData!: [];
   public filteredCar!: [];

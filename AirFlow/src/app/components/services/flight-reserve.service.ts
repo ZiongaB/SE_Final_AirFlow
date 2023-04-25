@@ -15,7 +15,7 @@ import { User } from '../models/User';
 })
 export class FlightReserveService {
 
-  private url = "http://localhost:3000/flights";
+  private url = "https://softengbackair-production.up.railway.app/flights";
 
   public flightData!: [];
   public filteredFlights!: [];
