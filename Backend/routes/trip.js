@@ -18,7 +18,6 @@ router.post(
       auth,
       body('userId').trim().isLength({ min: 1 }).not().isEmpty(),
       body('tripname').trim().isLength({ min: 1 }).not().isEmpty(),
-      body('parking').trim().isLength({ min: 1 }).not().isEmpty(),
     ],
     eventController.postTrip
 );

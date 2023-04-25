@@ -49,14 +49,12 @@ exports.postTrip = async (req, res, next) => {
   //Set constants to variable data
   const user = req.body.userId;
   const tripname = req.body.tripname;
-  const parking= req.body.parking;
 
   //Create a post object using variables
   try {
     const post = {
       user: user,
       tripname: tripname,
-      parking: parking,
     };
 
     //Call save function

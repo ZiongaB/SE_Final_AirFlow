@@ -6,6 +6,7 @@ import { Trip } from '../models/Trip';
 import { User } from '../models/User';
 import { AuthService } from './auth.service';
 import { Holder } from '../models/Holder';
+import { FlightReserveService } from './flight-reserve.service';
 
 @Injectable({
   providedIn: 'root'
@@ -21,12 +22,12 @@ export class TripService {
   }
 
   errorHandlerService: any;
-  constructor(private http:HttpClient, private errorhandler:ErrorHandlerService, private authService: AuthService) { }
+  constructor(private http:HttpClient, private errorhandler:ErrorHandlerService, private authService: AuthService,private flightService:FlightReserveService) { }
 
   createTrip(formData: Holder,userId: User["id"]): Observable<Trip>{
+    const variable = this.flightService.createPackingList(formData,userId).subscribe();
     return this.http.post<Trip>(this.url,{
-      tripname:formData.tripname, 
-      parking:formData.parking, 
+      tripname:formData.tripname,
       userId: userId
       },this.httpOptions).pipe(
       catchError(this.errorhandler.handleError<Trip>("createTrip")),
