@@ -52,4 +52,30 @@ export class TripsComponent {
     
 
 
+    //Zach
+
+    tripVisible: boolean = false;
+    flightVisible: boolean = false;
+    hotelVisible: boolean = false;
+    carVisible: boolean = false;
+    
+    
+
+    //Make trip visible or invisible
+    toggleTrip() {
+      this.tripVisible = ! this.tripVisible;
+    }
+    //Make flights visible or invisible
+    toggleFlight() {
+      this.flightVisible = ! this.flightVisible;
+    }
+    //Make hotels visible or invisible
+    toggleHotel() {
+      this.hotelVisible = ! this.hotelVisible;
+    }
+    //Make cars visible or invisible
+    toggleCar() {
+      this.carVisible = ! this.carVisible;
+    }
+
 }

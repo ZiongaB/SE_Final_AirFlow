@@ -12,6 +12,7 @@ exports.fetchAll = async (req, res, next) => {
   //const user = req.body.user;
   //Call fetchAll function
   const ID =req.params.id;
+  //console.log(ID);
   try {
     const [allPosts] = await Trip.fetchUser(ID);
     res.status(200).json(allPosts);

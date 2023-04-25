@@ -10,4 +10,45 @@
         <div class="triptitle"> Trip: {{post.tripname}}</div>
         <div class="parkingspot"> Parking:{{post.parking}}</div> 
     </mat-card>
+
+<div class="trips">
+    <button (click)="toggleTrip()" type="checkbox" >show/hide Trips</button>
+    <ng-container *ngIf = "tripVisible">
+        <div *ngFor="let post of allTrip" >
+            <div> <b>Trip Name:</b> {{post.tripname}}</div>
+            <div> <b>Parking Space:</b>{{post.parking}}</div> 
+        </div>
+    </ng-container>
+</div>
+
+<div class="trips">
+    <button (click)="toggleHotel()" type="checkbox" >show/hide Hotels</button>
+    <ng-container *ngIf = "hotelVisible">
+        <div *ngFor="let post of allTrip" >
+            <div> <b>Trip Name:</b> {{post.tripname}}</div>
+            <div> <b>Parking Space:</b>{{post.parking}}</div> 
+            <br>
+        </div>
+    </ng-container>
+</div>
+
+<div class="trips">
+    <button (click)="toggleFlight()" type="checkbox" >show/hide Flights</button>
+    <ng-container *ngIf = "flightVisible">
+        <div *ngFor="let post of allTrip" >
+            <div> <b>Trip Name:</b> {{post.tripname}}</div>
+            <div> <b>Parking Space:</b>{{post.parking}}</div> 
+        </div>
+    </ng-container>
+</div>
+
+
+<div class="trips">
+    <button (click)="toggleCar()" type="checkbox" >show/hide Cars</button>
+    <ng-container *ngIf = "carVisible">
+        <div *ngFor="let post of allTrip" >
+            <div> <b>Trip Name:</b> {{post.tripname}}</div>
+            <div> <b>Parking Space:</b>{{post.parking}}</div> 
+        </div>
+    </ng-container>
 </div>
