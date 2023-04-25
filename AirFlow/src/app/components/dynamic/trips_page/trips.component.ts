@@ -18,6 +18,8 @@ export class TripsComponent {
   allTrip!: Trip[];
   filteredTrip: Trip[];
 
+  createTrip: Boolean = false;
+
   constructor(private TripService:TripService,private authService:AuthService){}
 
   ngOnInit(){
@@ -25,6 +27,10 @@ export class TripsComponent {
       this.allTrip = posts;
       this.TripService.tripData = posts;
     })
+  }
+
+  tripIf(){
+    this.createTrip = !this.createTrip;
   }
 
   createPost() :void{
@@ -39,7 +45,10 @@ export class TripsComponent {
   }
 
   
-
+  deleteTrip(id:Number): void{
+    this.TripService.deleteTrip(id).subscribe();
+    this.createPost();
+  }
     
 
 

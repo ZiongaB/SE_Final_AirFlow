@@ -4,9 +4,44 @@
             <mat-label>Trip name</mat-label>
             <input matInput placeholder="Name" formControlName="tripname">
         </mat-form-field>
+        <span class="biglabels">Flight information: <br></span>
+        <span class="smalllabels">First flight:</span>
         <mat-form-field class="field">
-            <mat-label>Parking spot</mat-label>
-            <input matInput placeholder="Parking spot" formControlName="parking">
+            <mat-label>Flight number</mat-label>
+            <input matInput placeholder="ex: BA 98" formControlName="flight1">
+        </mat-form-field>
+        <mat-form-field class="field">
+            <mat-label>Cost</mat-label>
+            <input matInput type="number" placeholder="ex:200.00" formControlName="cost1">
+        </mat-form-field>
+        <mat-form-field class="field">
+            <mat-label>Time</mat-label>
+            <input matInput formControlName="time1" 
+            [matDatepicker]="time1Picker" (click)="time1Picker.open()">
+            <mat-datepicker-toggle matSuffix [for]="time1Picker"></mat-datepicker-toggle>
+            <mat-datepicker #time1Picker></mat-datepicker>
+        </mat-form-field>
+        <span class="smalllabels">Return flight:</span>
+        <mat-form-field class="field">
+            <mat-label>Flight number</mat-label>
+            <input matInput placeholder="ex: BA 98" formControlName="flight2">
+        </mat-form-field>
+        <mat-form-field class="field">
+            <mat-label>Cost</mat-label>
+            <input matInput type="number" placeholder="ex:200.00" formControlName="cost2">
+        </mat-form-field>
+        <mat-form-field class="field">
+            <mat-label>Time</mat-label>
+            <input matInput formControlName="time2" 
+            [matDatepicker]="time2Picker" (click)="time2Picker.open()">
+            <mat-datepicker-toggle matSuffix [for]="time2Picker"></mat-datepicker-toggle>
+            <mat-datepicker #time2Picker></mat-datepicker>
+        </mat-form-field>
+        <span>Car Information:</span>
+        <mat-form-field class="field">
+            <mat-label>Description</mat-label>
+            <textarea  matInput cols="20" rows="5" formControlName="description"></textarea>
+
         </mat-form-field>
         <div class="button" >
             <button color="accent" [disabled]="!tripForm.valid" mat-raised-button type="submit" class="submitb">

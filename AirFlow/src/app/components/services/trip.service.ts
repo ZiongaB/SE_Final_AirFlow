@@ -1,10 +1,11 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, catchError } from 'rxjs';
+import { BehaviorSubject, Observable, catchError, first } from 'rxjs';
 import { ErrorHandlerService } from './error-handler.service';
 import { Trip } from '../models/Trip';
 import { User } from '../models/User';
 import { AuthService } from './auth.service';
+import { Holder } from '../models/Holder';
 
 @Injectable({
   providedIn: 'root'
@@ -22,7 +23,7 @@ export class TripService {
   errorHandlerService: any;
   constructor(private http:HttpClient, private errorhandler:ErrorHandlerService, private authService: AuthService) { }
 
-  createTrip(formData: Pick<Trip,"tripname" | "parking">,userId: User["id"]): Observable<Trip>{
+  createTrip(formData: Holder,userId: User["id"]): Observable<Trip>{
     return this.http.post<Trip>(this.url,{
       tripname:formData.tripname, 
       parking:formData.parking, 
@@ -37,4 +38,11 @@ export class TripService {
       catchError(this.errorhandler.handleError<Trip[]>("fetchAll",[])),
     );
   } 
+
+  deleteTrip(postId: Number): Observable<{}>{
+    return this.http.delete<Trip>(`${this.url}/${postId}`,this.httpOptions).pipe(first(),
+    catchError(this.errorhandler.handleError<Trip>("deletePost")) 
+    );
+    
+  }
 }

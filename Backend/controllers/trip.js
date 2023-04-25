@@ -24,6 +24,20 @@ exports.fetchAll = async (req, res, next) => {
   }
 };
 
+exports.deleteTrip = async(req,res,next)=>{
+  try{    
+    const deleteresponse =await Trip.delete(req.params.id);
+    res.status(200).json({deleteresponse});
+}catch(err){
+    console.log(err);
+        if (!err.statusCode){
+            console.log("error!");
+            err.statusCode = 500;
+        } 
+        next(err)
+    }
+
+}
 
 //Export posting function to be used
 exports.postTrip = async (req, res, next) => {

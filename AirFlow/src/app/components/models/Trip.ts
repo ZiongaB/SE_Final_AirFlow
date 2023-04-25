@@ -1,5 +1,6 @@
 export interface Trip{
-    userId: Number,
+    user: Number,
+    id: Number,
     tripname: String,
     parking: String
 }

@@ -1,8 +1,12 @@
 <div>
-    <app-trips-part (create) = "createPost()"></app-trips-part>
+    <button (click)="tripIf()" id="ifButton">Create Trip</button>
+    <app-trips-part (create) = "createPost()" *ngIf="createTrip"></app-trips-part>
+    
 </div>
 <div>
     <mat-card *ngFor="let post of allTrip">
+        <button mat-icon-button  (click)="deleteTrip(post.id)"> <mat-icon  color="warn" class="button"> delete</mat-icon></button>
+
         <div class="triptitle"> Trip: {{post.tripname}}</div>
         <div class="parkingspot"> Parking:{{post.parking}}</div> 
     </mat-card>
