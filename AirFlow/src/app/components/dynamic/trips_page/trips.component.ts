@@ -13,47 +13,43 @@ import { Observable } from 'rxjs';
 export class TripsComponent {
 
   posts$:Observable<Trip[]>;
-  tripForm: FormGroup
+  
 
   allTrip!: Trip[];
   filteredTrip: Trip[];
 
+  createTrip: Boolean = false;
+
   constructor(private TripService:TripService,private authService:AuthService){}
 
   ngOnInit(){
-    this.tripForm = this.createFormGroup();
     this.TripService.fetchAll().subscribe(posts =>{
       this.allTrip = posts;
       this.TripService.tripData = posts;
     })
- 
+  }
 
-
+  tripIf(){
+    this.createTrip = !this.createTrip;
   }
 
   createPost() :void{
-    this.posts$ = this.fetchAll();
+    this.TripService.fetchAll().subscribe(posts =>{
+      this.allTrip = posts;
+      this.TripService.tripData = posts;
+    })
   }
 
   fetchAll(): Observable<Trip[]>{
     return this.TripService.fetchAll();
   }
 
-  createFormGroup():FormGroup{
-    return new FormGroup({
-      tripname: new FormControl("", [Validators.required, Validators.minLength(5)]),
-      parking: new FormControl("", [Validators.required, Validators.minLength(10)]),
-
-    })
+  
+  deleteTrip(id:Number): void{
+    this.TripService.deleteTrip(id).subscribe();
+    this.createPost();
   }
-
-    submit(formData: Pick<Trip,"tripname" | "parking">,):void{
-      this.TripService.createTrip(formData,this.authService.userId).subscribe();
-      //this.CarService.createService
-      //carsub()
-      //this.Holderservice.createHolder
-      this.tripForm.reset();
-    }
+    
 
 
     //Zach

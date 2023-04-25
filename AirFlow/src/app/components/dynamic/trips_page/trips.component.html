@@ -1,24 +1,15 @@
-<div >
-    <form [formGroup]=tripForm (ngSubmit)=submit(tripForm.value) novalidate>
-        <mat-form-field class="field">
-            <mat-label>Trip name</mat-label>
-            <input matInput placeholder="Name" formControlName="tripname">
-        </mat-form-field>
-        <mat-form-field class="field">
-            <mat-label>Parking spot</mat-label>
-            <input matInput placeholder="Parking spot" formControlName="parking">
-        </mat-form-field>
-        <div class="button" >
-            <button color="accent" [disabled]="!tripForm.valid" mat-raised-button type="submit" class="submitb">
-              <span>Submit</span></button>
-          </div>
-    </form>
+<div>
+    <button (click)="tripIf()" id="ifButton">Create Trip</button>
+    <app-trips-part (create) = "createPost()" *ngIf="createTrip"></app-trips-part>
+    
 </div>
+  
 
 <div class="trips">
     <button (click)="toggleTrip()" type="checkbox" >show/hide Trips</button>
     <ng-container *ngIf = "tripVisible">
         <div *ngFor="let post of allTrip" >
+            <button mat-icon-button  (click)="deleteTrip(post.id)" id="deletebutton"> <mat-icon  color="warn" class="button"> delete</mat-icon></button>
             <div> <b>Trip Name:</b> {{post.tripname}}</div>
             <div> <b>Parking Space:</b>{{post.parking}}</div> 
         </div>
@@ -56,4 +47,3 @@
         </div>
     </ng-container>
 </div>
-

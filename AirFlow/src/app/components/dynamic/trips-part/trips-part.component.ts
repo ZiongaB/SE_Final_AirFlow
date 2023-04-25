@@ -1,4 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Trip } from '../../models/Trip';
+import { TripService } from '../../services/trip.service';
+import { AuthService } from '../../services/auth.service';
+import { first } from 'rxjs';
+import { Holder } from '../../models/Holder';
 
 @Component({
   selector: 'app-trips-part',
@@ -6,5 +12,32 @@ import { Component } from '@angular/core';
   styleUrls: ['./trips-part.component.scss']
 })
 export class TripsPartComponent {
+  tripForm: FormGroup
+  @Output() create: EventEmitter<any> = new EventEmitter();
+  ngOnInit(){
+    this.tripForm = this.createFormGroup();
+  }
 
+  constructor(private TripService: TripService,private authService:AuthService){}
+
+  createFormGroup():FormGroup{
+    return new FormGroup({
+      tripname: new FormControl("", [Validators.required, Validators.minLength(5)]),
+      flight1: new FormControl("", [Validators.required, Validators.minLength(1)]),
+      cost1:new FormControl("",[Validators.required, Validators.pattern(/^[0-9]+$/)]),
+      time1: new FormControl("",[Validators.required]),
+      flight2: new FormControl("", [Validators.required, Validators.minLength(1)]),
+      cost2:new FormControl("",[Validators.required, Validators.pattern(/^[0-9]+$/)]),
+      time2: new FormControl("",[Validators.required]),
+
+    })
+  }
+  
+  submit(formData: Holder):void{
+    // this.TripService.createTrip(formData,this.authService.userId).pipe(first()).subscribe(()=>{
+    //   this.create.emit(null);
+    // });
+    this.tripForm.reset();
+    console.log(formData.time1);
+  }
 }
