@@ -11,7 +11,7 @@ import { Holder } from '../models/Holder';
   providedIn: 'root'
 })
 export class TripService {
-  private url = "http://localhost:3000/trip";
+  private url = "https://softengbackair-production.up.railway.app/trip";
 
   public tripData!: Trip[];
   isUserLoggedIn$ = new BehaviorSubject<boolean>(false);
