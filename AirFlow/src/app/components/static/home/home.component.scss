@@ -1,0 +1,28 @@
+body,
+html {
+  height: 100%;
+}
+
+.welcome{
+
+    * {
+        text-align: center;
+        }
+font-size: large;
+color: white;
+}
+
+.bg {
+    img {
+        width: 100%;
+        height: auto;
+      }
+  /* The image used */
+  background-image: url("../../../../assets/imgs/airplane.jpg");
+  /* Full height */
+  height: 100%;
+  /* Center and scale the image nicely */
+  background-position: right;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
