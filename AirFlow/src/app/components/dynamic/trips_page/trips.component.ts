@@ -49,7 +49,9 @@ export class TripsComponent {
     this.flightService.fetchAll().subscribe(posts =>{
       this.allFlight= posts;
       for(const y of this.allFlight){
-        this.flightMap!.set(y.userid,y);
+        this.flightMap!.set(y.tripid,y);
+        console.log(y.tripid);
+        console.log(this.flightMap.get(y.tripid)?.flight1)
       }
       
     })

@@ -54,6 +54,7 @@ exports.postFlight = async (req, res, next) => {
   const flight2 = req.body.flight2;
   const cost2 = req.body.cost2;
   const time2 = req.body.time2;
+  const tripid = req.body.tripid;
 
   //Create a post object using variables
   try {
@@ -66,6 +67,7 @@ exports.postFlight = async (req, res, next) => {
       flight2: flight2,
       cost2: cost2,
       time2: time2,
+      tripid:tripid
     };
     //Call save function
     const result = await FlightReserve.save(post);

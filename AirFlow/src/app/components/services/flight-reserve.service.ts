@@ -32,7 +32,7 @@ export class FlightReserveService {
   constructor(private http:HttpClient, private errorhandler:ErrorHandlerService,private authService:AuthService,private tripService:TripService) { }
 
   
-  createPackingList(formData: Holder,userId: Number): Observable<Flight>{
+  createFlight(formData: Holder,userId: Number,tripid:Number): Observable<Flight>{
     return this.http.post<Flight>(
       this.url,{
         tripname: formData.tripname, 
@@ -42,7 +42,8 @@ export class FlightReserveService {
         time1: formData.time1.getFullYear()+"-"+(formData.time1.getUTCMonth()+1) +"-"+formData.time1.getDate() +" "+formData.time12+":00",
         flight2: formData.flight2,
         cost2: formData.cost2,
-        time2: formData.time2.getFullYear()+"-"+(formData.time2.getUTCMonth()+1) +"-"+formData.time2.getDate() +" "+formData.time22+":00"
+        time2: formData.time2.getFullYear()+"-"+(formData.time2.getUTCMonth()+1) +"-"+formData.time2.getDate() +" "+formData.time22+":00",
+        tripid:tripid
       },this.httpOptions
         ).pipe(
       catchError(this.errorhandler.handleError<Flight>("createFlight")),

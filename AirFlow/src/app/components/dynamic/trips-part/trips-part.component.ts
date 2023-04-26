@@ -42,7 +42,7 @@ export class TripsPartComponent {
     var tripid:Number;
     this.TripService.createTrip(formData,this.authService.userId).subscribe(message =>{
       tripid = this.giveID(message);
-      this.flightService.createPackingList(formData,tripid).pipe(first()).subscribe(()=>{
+      this.flightService.createFlight(formData,this.authService.userId,tripid).pipe(first()).subscribe(()=>{
         this.create.emit(null);
       });
     });
