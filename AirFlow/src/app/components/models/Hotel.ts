@@ -7,6 +7,8 @@ export interface Hotel{
     tripname: String,
     hotel: String,
     checkin: Date,
+    checkin2: String,
     checkout: Date,
+    checkout2: String,
     cost: Number
 }

@@ -67,8 +67,6 @@ export class TripsComponent {
     this.createPost();
   }
     
-
-
     //Zach
 
     tripVisible: boolean = false;

@@ -9,6 +9,7 @@ export interface Holder extends Trip,Car,Flight{
         tripname:Pick<Trip,"tripname">,
         parking: Pick<Trip,"parking">
     },
+
     flightinfo: {
         flight1: Pick<Flight,"flight1">,
 	    cost1: Pick<Flight,"cost1">,
@@ -21,19 +22,20 @@ export interface Holder extends Trip,Car,Flight{
         time22:Pick<Flight,"time22">
 
     }
-    // carinfo: {
-    //     description: Pick<Car,"description">,
-    //     rentalinfo: Pick<Car,"rentalinfo">,
-    //     pickup: Pick<Car,"pickup">,
-    //     returntime: Pick<Car,"returntime">,
-    //     cost: Pick<Car,"cost">
-    // },
-    // hotelinfo:{
-    //     hotel: Pick<Hotel,"hotel">,
-    //     checkin: Pick<Hotel,"checkin">,
-    //     checkout: Pick<Hotel,"checkout">,
-    //     cost: Pick<Hotel,"cost">
-    // }
+    /*8
+    carinfo: {
+        description: Pick<Car,"description">,
+        rentalinfo: Pick<Car,"rentalinfo">,
+        pickup: Pick<Car,"pickup">,
+        returntime: Pick<Car,"returntime">,
+        cost: Pick<Car,"cost">
+    },
+    hotelinfo:{
+        hotel: Pick<Hotel,"hotel">,
+        checkin: Pick<Hotel,"checkin">,
+        checkout: Pick<Hotel,"checkout">,
+        cost: Pick<Hotel,"cost">
+    }*/
 
 
 }

@@ -8,6 +8,8 @@ export interface Car{
     description: String,
     rentalinfo: String,
     pickup: Date,
+    pickup2: String,
     returntime: Date,
+    returntime2: String,
     cost: Number
 }
