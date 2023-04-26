@@ -32,7 +32,7 @@ exports.postFlight = async (req, res, next) => {
   if (!errors.isEmpty()) return;
 
   //Set constants to variable data
-  const user = req.body.user;
+  const user = req.body.userId;
   const tripname = req.body.tripname;
   const flight1 = req.body.flight1;
   const cost1 = req.body.cost1;
@@ -53,11 +53,9 @@ exports.postFlight = async (req, res, next) => {
       cost2: cost2,
       time2: time2,
     };
-
     //Call save function
     const result = await FlightReserve.save(post);
     res.status(201).json({ message: 'Posted!' });
-
     //Catch Errors
   } catch (err) {
     if (!err.statusCode) {

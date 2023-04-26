@@ -26,18 +26,22 @@ export class TripsPartComponent {
       flight1: new FormControl("", [Validators.required, Validators.minLength(1)]),
       cost1:new FormControl("",[Validators.required, Validators.pattern(/^[0-9]+$/)]),
       time1: new FormControl("",[Validators.required]),
+      time12: new FormControl("",[Validators.required]),
       flight2: new FormControl("", [Validators.required, Validators.minLength(1)]),
       cost2:new FormControl("",[Validators.required, Validators.pattern(/^[0-9]+$/)]),
       time2: new FormControl("",[Validators.required]),
-
+      time22:new FormControl("",[Validators.required]),
     })
   }
   
+
   submit(formData: Holder):void{
-    // this.TripService.createTrip(formData,this.authService.userId).pipe(first()).subscribe(()=>{
-    //   this.create.emit(null);
-    // });
+     this.TripService.createTrip(formData,this.authService.userId).pipe(first()).subscribe(()=>{
+       this.create.emit(null);
+     });
+    
+    console.log(formData.time1.getFullYear()+"-"+(formData.time1.getUTCMonth()+1) +"-"+formData.time1.getDate() +" "+formData.time12+":00");
+
     this.tripForm.reset();
-    console.log(formData.time1);
   }
 }

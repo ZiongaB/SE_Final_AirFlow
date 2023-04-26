@@ -9,8 +9,10 @@ export interface Flight{
     flight1: String,
     cost1: Number,
     time1: Date,
+    time12:String,
 
     flight2: String,
     cost2: Number,
-    time2: Date
+    time2: Date,
+    time22:String
 }
