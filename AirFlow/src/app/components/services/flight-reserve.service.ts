@@ -18,7 +18,7 @@ import { TripService } from './trip.service';
 })
 export class FlightReserveService {
 
-  private url = "https://softengbackair-production.up.railway.app/flights";
+  private url = "http://localhost:3000/flights";
 
   public flightData!: [];
   public filteredFlights!: [];
