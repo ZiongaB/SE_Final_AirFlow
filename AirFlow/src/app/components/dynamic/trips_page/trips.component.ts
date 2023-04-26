@@ -17,7 +17,7 @@ export class TripsComponent {
   allFlight!:Flight[];
   allTrip!: Trip[];
   filteredTrip: Trip[];
-  flightMap!: Map<Number,Flight>;
+  flightMap: Map<Number,Flight>;
 
   createTrip: Boolean = false;
   createHotel: Boolean = false;
@@ -50,8 +50,6 @@ export class TripsComponent {
       this.allFlight= posts;
       for(const y of this.allFlight){
         this.flightMap!.set(y.tripid,y);
-        console.log(y.tripid);
-        console.log(this.flightMap.get(y.tripid)?.flight1)
       }
       
     })
