@@ -14,7 +14,7 @@ import { User } from '../models/User';
   providedIn: 'root'
 })
 export class PackinglistService {
-  private url = "http://localhost:3000/packinglists";
+  private url = "https://softengbackair-production.up.railway.app/packinglists";
 
   public packinglistData!: [];
   public filteredPackinglist!: [];
