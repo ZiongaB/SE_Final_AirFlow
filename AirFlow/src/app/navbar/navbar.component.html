@@ -7,6 +7,7 @@
             <a mat-button routerLink="home">Home</a>
             <a mat-button routerLink="airports">Airports</a>
             <a mat-button routerLink="budget">Budget</a>
+            <a mat-button routerLink="packing">Packing</a>
             <a mat-button routerLink="trip">Trips </a>
             <a routerLinkActive="active-link" routerLink="login" id="complicated" *ngIf="!isAuthenticated" mat-raised-button color = "accent"> Log in</a>
             <a href="home" id="complicated" *ngIf="isAuthenticated" (click)="logout()" mat-raised-button color = "accent"> Log out</a>
@@ -24,14 +25,13 @@
             <!-- <a (click)="sidenav.toggle()" mat-list-item>Close</a> -->
             <a mat-button routerLink="home" (click)="sidenav.close()">Home</a>
             <a mat-button routerLink="airports" (click)="sidenav.close()">Airports</a>
-            <a mat-button routerLink="budget" (click)="sidenav.close()">Budget</a>
+            <a mat-button routerLink="budget" (click)="sidenav.close()">Budget</a><a mat-button routerLink="packing">Packing</a>
             <a mat-button routerLink="trip" (click)="sidenav.close()">Trips </a>
             <a mat-raised-button color = "accent" routerLink="login" (click)="sidenav.close()">Login</a>
         </div>
       </mat-sidenav>
         <mat-sidenav-content fxFlexFill>
           <router-outlet></router-outlet>
-        </mat-sidenav-content>    
+        </mat-sidenav-content>
       </mat-sidenav-container>
       </div>
-    
