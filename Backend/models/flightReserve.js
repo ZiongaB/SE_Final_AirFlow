@@ -27,6 +27,9 @@ module.exports = class FlightReserve {
             `SELECT * FROM Airflow.flights WHERE user = ${user}`
         );
     }
+    static delete(id){
+        return db.execute('DELETE FROM Airflow.flights WHERE user = ?',[id]);
+    } 
 
     //Function to insert new entry into database using values from passed objects
     static save(post){

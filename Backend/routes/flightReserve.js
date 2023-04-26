@@ -8,7 +8,7 @@ const auth =  require('../middleware/auth');
 
 const router = express.Router();
 
-router.get('/', auth, eventController.fetchAll);
+router.get('/:id', auth, eventController.fetchAll);
 
 router.post(
     '/',
@@ -25,5 +25,6 @@ router.post(
     ],
     eventController.postFlight
 );
+router.delete('/:id',auth,eventController.deleteFlight)
 
 module.exports = router;

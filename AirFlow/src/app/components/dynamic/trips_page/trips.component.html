@@ -8,7 +8,11 @@
             <hr>
             <div *ngFor="let post of allTrip" >
                 <b>Trip Name:</b> {{post.tripname}}<br>
-                <b>Parking Space:</b>{{post.parking}}
+                <b>Parking Space:</b>{{post.parking}} <br>
+                <b>Departing Flight Number</b>{{flightMap.get(post.id)?.flight1}} <br>
+                <b>Departing Flight Time</b>{{flightMap.get(post.id)?.time1}} <br>
+                <b>Returning Flight Number</b>{{flightMap.get(post.id)?.flight2}} <br>
+                <b>Returning Flight Time</b>{{flightMap.get(post.id)?.time2}} <br>
                 <button mat-icon-button  (click)="deleteTrip(post.id)" id="deletebutton"> <mat-icon  color="warn" class="button"> delete</mat-icon></button>
                 <hr>
             </div>

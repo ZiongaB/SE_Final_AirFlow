@@ -33,7 +33,6 @@ export class SignupComponent {
 
   }
   dest(anything:any){
-    console.log(anything);
     if(anything.message == "User registered"){
       this.router.navigate(["login"])
     }

@@ -3,6 +3,7 @@
  * @author Zach East
  */
 export interface Flight{
+    id:Number,
     userid: Number,
     tripname: String,
 

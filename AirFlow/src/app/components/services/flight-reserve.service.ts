@@ -5,11 +5,13 @@
  */
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, catchError } from 'rxjs';
+import { BehaviorSubject, Observable, catchError, first } from 'rxjs';
 import { ErrorHandlerService } from './error-handler.service';
 import { Flight } from '../models/Flight';
 import { User } from '../models/User';
 import { Holder } from '../models/Holder';
+import { AuthService } from './auth.service';
+import { TripService } from './trip.service';
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +22,6 @@ export class FlightReserveService {
 
   public flightData!: [];
   public filteredFlights!: [];
-
   isUserLoggedIn$ = new BehaviorSubject<boolean>(false);
 
   httpOptions: {headers:HttpHeaders}={
@@ -28,10 +29,10 @@ export class FlightReserveService {
   }
 
   errorHandlerService: any;
-  constructor(private http:HttpClient, private errorhandler:ErrorHandlerService) { }
+  constructor(private http:HttpClient, private errorhandler:ErrorHandlerService,private authService:AuthService,private tripService:TripService) { }
 
-  createPackingList(formData: Holder,userId: User["id"]): Observable<Flight>{
-    console.log(formData)
+  
+  createPackingList(formData: Holder,userId: Number): Observable<Flight>{
     return this.http.post<Flight>(
       this.url,{
         tripname: formData.tripname, 
@@ -49,8 +50,15 @@ export class FlightReserveService {
   }
 
   fetchAll(): Observable<Flight[]> {
-    return this.http.get<Flight[]>(this.url,{responseType:"json"}).pipe(
+    return this.http.get<Flight[]>(`${this.url}/${this.authService.userId}`,{responseType:"json"}).pipe(
       catchError(this.errorhandler.handleError<Flight[]>("fetchAll",[])),
     );
   } 
+
+  deleteFlight(postId: Number): Observable<{}>{
+    return this.http.delete<Flight>(`${this.url}/${postId}`,this.httpOptions).pipe(first(),
+    catchError(this.errorhandler.handleError<Flight>("deletePost")) 
+    );
+    
+  }
 }
