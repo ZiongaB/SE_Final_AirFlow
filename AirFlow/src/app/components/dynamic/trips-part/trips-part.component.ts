@@ -17,7 +17,6 @@ export class TripsPartComponent {
   ngOnInit(){
     this.tripForm = this.createFormGroup();
   }
-
   constructor(private TripService: TripService,private authService:AuthService){}
 
   createFormGroup():FormGroup{

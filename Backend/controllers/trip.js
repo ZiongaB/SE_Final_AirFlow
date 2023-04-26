@@ -37,7 +37,6 @@ exports.deleteTrip = async(req,res,next)=>{
         } 
         next(err)
     }
-
 }
 
 //Export posting function to be used
