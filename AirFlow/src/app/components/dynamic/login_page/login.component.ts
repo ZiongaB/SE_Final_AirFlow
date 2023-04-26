@@ -8,7 +8,7 @@ import { AuthService } from '../../services/auth.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-  loginForm: FormGroup; 
+  loginForm: FormGroup;
   constructor(private authService: AuthService){  }
 
   createFormGroup():FormGroup{
@@ -17,12 +17,17 @@ export class LoginComponent {
       password: new FormControl("", [Validators.required, Validators.minLength(7)])
     })
   }
-
+   // this is our method name that is going to be triggered
+  //  onAddPost(){
+  //   alert('Logined in');
+  //   // we want to get information about the posts
+  // }
   ngOnInit():void {
     this.loginForm = this.createFormGroup();
   }
   login(): void{
     this.authService.login(this.loginForm.value.email,this.loginForm.value.password).subscribe();
+    alert('Logged in');
   }
 
 }
