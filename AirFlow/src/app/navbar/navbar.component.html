@@ -4,7 +4,7 @@
           <span class="menu-spacer"></span>
           <div fxShow="true" fxHide.lt-md>
             <!-- The following menu items will be hidden on both SM and XS screen sizes -->
-            <a mat-button routerLink="home">Home</a>
+            <a mat-button routerLink="home"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon>Home</a>
             <a mat-button routerLink="airports">Airports</a>
             <a mat-button routerLink="budget">Budget</a>
             <a mat-button routerLink="packing">Packing</a>
@@ -23,7 +23,7 @@
         <mat-sidenav #sidenav fxLayout = "column">
             <div fxLayout = "column">
             <!-- <a (click)="sidenav.toggle()" mat-list-item>Close</a> -->
-            <a mat-button routerLink="home" (click)="sidenav.close()">Home</a>
+            <a mat-button routerLink="home" (click)="sidenav.close()"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon>Home</a>
             <a mat-button routerLink="airports" (click)="sidenav.close()">Airports</a>
             <a mat-button routerLink="budget" (click)="sidenav.close()">Budget</a><a mat-button routerLink="packing">Packing</a>
             <a mat-button routerLink="trip" (click)="sidenav.close()">Trips </a>

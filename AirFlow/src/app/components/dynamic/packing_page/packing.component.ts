@@ -7,4 +7,6 @@ import { Component } from '@angular/core';
 })
 export class PackingComponent {
 
+  typesOfShoes: string[] = ['Boarding pass', 'Wallet', 'Clothes', 'Moccasins', 'Sneakers', 'Jacket', 'Laptop','Cellphone', 'Optional: Passport'];
+
 }
