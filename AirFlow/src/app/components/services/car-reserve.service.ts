@@ -28,14 +28,14 @@ export class CarReserveService {
   errorHandlerService: any;
   constructor(private http:HttpClient, private errorhandler:ErrorHandlerService) { }
 
-  createCar(formData: Pick<Car,"tripname"|"description"|"rentalinfo"|"pickup"|"returntime"|"cost">,userId: User["id"]): Observable<Car>{
+  createCar(formData: Pick<Car,"tripname"|"description"|"rentalinfo"|"pickup"|"pickup2"|"returntime"|"returntime2"|"cost">,userId: User["id"]): Observable<Car>{
     return this.http.post<Car>(
       this.url,{
         tripname: formData.tripname, 
         description: formData.description, 
         rentalinfo: formData.rentalinfo,
-        pickup: formData.pickup,
-        returntime: formData.returntime,
+        pickup: formData.pickup.getFullYear()+"-"+(formData.pickup.getUTCMonth()+1) +"-"+formData.pickup.getDate() +" "+formData.pickup2+":00",
+        returntime: formData.returntime.getFullYear()+"-"+(formData.returntime.getUTCMonth()+1) +"-"+formData.returntime.getDate() +" "+formData.returntime2+":00",
         cost: formData.cost,
         userId: userId
       },this.httpOptions

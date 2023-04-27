@@ -13,6 +13,7 @@ import { FlightReserveService } from '../../services/flight-reserve.service';
   styleUrls: ['./trips-part.component.scss']
 })
 export class TripsPartComponent {
+  
   tripForm: FormGroup
   @Output() create: EventEmitter<any> = new EventEmitter();
   ngOnInit(){
