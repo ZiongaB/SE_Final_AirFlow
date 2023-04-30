@@ -79,20 +79,20 @@ export class TripsComponent {
       }
     })
   }
-
   //Get list of all cars
   createCarPost(): void{
     this.carService.fetchAll().subscribe(posts =>{
       this.allCar= posts;
     })
   }
-
   //Get list of all hotels
   createHotelPost(): void{
     this.hotelService.fetchAll().subscribe(posts =>{
       this.allHotel= posts;
     })
   }
+
+
 
   //Delete a specific Flight by trip id number
   deleteFlight(id:Number):void{
@@ -105,16 +105,14 @@ export class TripsComponent {
     this.deleteFlight(id);
     this.createPost();
   }
-
   //Delete a specific Car by id number
   deleteCar(id:Number): void{
-    this.carService.deleteCar(id);
+    this.carService.deleteCar(id).subscribe();
     this.createCarPost();
   }
-
   //Delete a specific Hotel by trip id
   deleteHotel(id:Number): void{
-    this.hotelService.deleteHotel(id);
+    this.hotelService.deleteHotel(id).subscribe();
     this.createHotelPost();
   }
 

@@ -31,7 +31,7 @@ exports.postHotel = async (req, res, next) => {
   if (!errors.isEmpty()) return;
 
   //Set constants to variable data
-  const user = req.body.user;
+  const userId = req.body.userId;
   const tripname = req.body.tripname;
   const hotel = req.body.hotel;
   const checkin = req.body.checkin;
@@ -41,7 +41,7 @@ exports.postHotel = async (req, res, next) => {
   //Create a post object using variables
   try {
     const post = {
-      user: user,
+      user: userId,
       tripname: tripname,
       hotel: hotel,
       checkin: checkin,

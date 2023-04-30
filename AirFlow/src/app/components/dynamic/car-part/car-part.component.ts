@@ -37,8 +37,6 @@ export class CarPartComponent {
     this.CarService.createCar(formData,this.authService.userId).pipe(first()).subscribe(()=>{
       this.create.emit(null);
     });
-   
-
    this.carForm.reset();
  }
 }

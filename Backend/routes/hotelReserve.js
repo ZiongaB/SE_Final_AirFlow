@@ -14,7 +14,7 @@ router.post(
     '/',
     [
       auth,
-      body('user').trim().isLength({ min: 1 }).not().isEmpty(),
+      body('userId').trim().isLength({ min: 1 }).not().isEmpty(),
       body('tripname').trim().isLength({ min: 1 }).not().isEmpty(),
       body('hotel').trim().isLength({ min: 1 }).not().isEmpty(),
       body('checkin').trim().isLength({ min: 1 }).not().isEmpty(),

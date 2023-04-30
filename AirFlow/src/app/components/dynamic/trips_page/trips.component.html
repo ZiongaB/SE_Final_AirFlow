@@ -25,7 +25,7 @@
 
 <div class= "formholder">
     <button (click)="hotelIf()" id="ifButton">Create Hotel Reservation</button>
-    <app-hotel-part (create) = "createPost()" *ngIf="createHotel"></app-hotel-part>
+    <app-hotel-part (create) = "createHotelPost()" *ngIf="createHotel"></app-hotel-part>
 
     <div class="trips">
         <button (click)="toggleHotel()" type="checkbox" >show/hide Hotel Reservations</button>
@@ -37,7 +37,7 @@
                 <b>Checkin Time: </b>{{post.checkin}}<br>
                 <b>Checkout Time: </b> {{post.checkout}}<br>
                 <b>Cost: </b>${{post.cost}}<br>
-                <button mat-icon-button  (click)="deleteHotel(post.userId)" id="deletebutton"> <mat-icon  color="warn" class="button"> delete</mat-icon></button>
+                <button mat-icon-button  (click)="deleteHotel(post.id)" id="deletebutton"> <mat-icon  color="warn" class="button"> delete</mat-icon></button>
                 <hr>
             </div>
         </ng-container>
@@ -46,7 +46,7 @@
 
 <div class= "formholder">
     <button (click)="carIf()" id="ifButton">Create Rental Car</button>
-    <app-car-part (create) = "createPost()" *ngIf="createCar"></app-car-part>
+    <app-car-part (create) = "createCarPost()" *ngIf="createCar"></app-car-part>
 
     <div class="trips">
         <button (click)="toggleCar()" type="checkbox" >show/hide Rental Cars</button>
@@ -59,7 +59,7 @@
                 <b>Pickup Time: </b>{{post.pickup}}<br>
                 <b>Return Time: </b>{{post.returntime}}<br>
                 <b>Cost: </b>${{post.cost}}<br>
-                <button mat-icon-button  (click)="deleteCar(post.userId)" id="deletebutton"> <mat-icon  color="warn" class="button"> delete</mat-icon></button>
+                <button mat-icon-button  (click)="deleteCar(post.id)" id="deletebutton"> <mat-icon  color="warn" class="button"> delete</mat-icon></button>
                 <hr>
             </div>
         </ng-container>

@@ -3,6 +3,7 @@
  * @author Zach East
  */
 export interface Car{
+    id: Number;
     userId: Number,
     tripname: String,
     description: String,

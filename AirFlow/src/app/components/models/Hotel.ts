@@ -3,6 +3,7 @@
  * @author Zach East
  */
 export interface Hotel{
+    id: Number;
     userId: Number,
     tripname: String,
     hotel: String,
