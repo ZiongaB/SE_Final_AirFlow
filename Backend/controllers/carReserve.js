@@ -29,10 +29,11 @@ exports.fetchAll = async (req, res, next) => {
 //Export posting function to be used
 exports.postCar = async (req, res, next) => {
   const errors = validationResult(req);
+  console.log(errors)
   if (!errors.isEmpty()) return;
 
   //Set constants to variable data
-  const user = req.body.user;
+  const userId = req.body.userId;
   const description = req.body.description;
   const tripname = req.body.tripname;
   const rentalinfo = req.body.rentalinfo;
@@ -43,7 +44,7 @@ exports.postCar = async (req, res, next) => {
   //Create a post object using variables
   try {
     const post = {
-      user: user,
+      user: userId,
       description: description,
       tripname: tripname,
       rentalinfo: rentalinfo,
@@ -52,10 +53,11 @@ exports.postCar = async (req, res, next) => {
       cost: cost,
     };
 
+    console.log(post)
+
     //Call save function
     const result = await CarReserve.save(post);
     res.status(201).json({ message: 'Posted!' });
-
     //Catch Errors
   } catch (err) {
     if (!err.statusCode) {
