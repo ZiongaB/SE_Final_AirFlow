@@ -1,9 +1,10 @@
 <h1>Packing page</h1>
+
 <div class="center">
 <form class="example-form">
   <mat-form-field class="example-full-width">
     <mat-label>Flight number</mat-label>
-    <input matInput placeholder="Ex. #123" value="1234">
+    <input matInput placeholder="Ex. #123" value="1234"  matInput rows = "4">
   </mat-form-field>
   <mat-form-field class="example-full-width">
     <mat-label>Destinaton</mat-label>
@@ -12,10 +13,8 @@
 
   <mat-form-field class="example-full-width">
     <mat-label>Leave a comment</mat-label>
-    <textarea matInput placeholder="Ex. Flight details"></textarea>
+    <textarea matInput placeholder="Ex. Flight details" ></textarea>
   </mat-form-field>
-
-
   <mat-selection-list #shoes>
     <mat-list-option *ngFor="let shoe of typesOfShoes">
       {{shoe}}
@@ -24,8 +23,6 @@
   <p>
     Options selected: {{shoes.selectedOptions.selected.length}}
   </p>
-
-
 </form>
 <svg id="clouds" xmlns="http://www.w3.org/2000/svg" width="2611.084" height="485.677" viewBox="0 0 2611.084 485.677">
   <title>Gray Clouds Background</title>
