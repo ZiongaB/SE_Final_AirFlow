@@ -5,16 +5,17 @@
  */
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, catchError } from 'rxjs';
+import { BehaviorSubject, Observable, catchError, first } from 'rxjs';
 import { ErrorHandlerService } from './error-handler.service';
 import { Hotel } from '../models/Hotel';
 import { User } from '../models/User';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HotelReserveService {
-  private url = "https://softengbackair-production.up.railway.app/hotels";
+  private url = "http://localhost:3000/hotels";
 
   public packinglistData!: [];
   public filteredPackinglist!: [];
@@ -26,7 +27,11 @@ export class HotelReserveService {
   }
 
   errorHandlerService: any;
-  constructor(private http:HttpClient, private errorhandler:ErrorHandlerService) { }
+  constructor(
+    private http:HttpClient, 
+    private errorhandler:ErrorHandlerService,
+    private authService:AuthService,
+  ) { }
 
   createHotel(formData: Pick<Hotel,
     "tripname"|"hotel"|"checkin"|"checkin2"|"checkout"|"checkout2"|"cost"
@@ -46,9 +51,15 @@ export class HotelReserveService {
   }
 
   fetchAll(): Observable<Hotel[]> {
-    return this.http.get<Hotel[]>(this.url,{responseType:"json"}).pipe(
+    return this.http.get<Hotel[]>(`${this.url}/${this.authService.userId}`,{responseType:"json"}).pipe(
       catchError(this.errorhandler.handleError<Hotel[]>("fetchAll",[])),
     );
   } 
+
+  deleteHotel(postId: Number): Observable<{}>{
+    return this.http.delete<Hotel>(`${this.url}/${postId}`,this.httpOptions).pipe(first(),
+    catchError(this.errorhandler.handleError<Hotel>("deleteHotel")) 
+    );
+  }
 
 }

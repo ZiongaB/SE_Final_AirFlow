@@ -5,16 +5,17 @@
  */
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, catchError } from 'rxjs';
+import { BehaviorSubject, Observable, catchError, first } from 'rxjs';
 import { ErrorHandlerService } from './error-handler.service';
 import { Car } from '../models/Car';
 import { User } from '../models/User';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CarReserveService {
-  private url = "https://softengbackair-production.up.railway.app/cars";
+  private url = "http://localhost:3000/cars";
 
   public carData!: [];
   public filteredCar!: [];
@@ -26,7 +27,12 @@ export class CarReserveService {
   }
 
   errorHandlerService: any;
-  constructor(private http:HttpClient, private errorhandler:ErrorHandlerService) { }
+
+  constructor(
+    private http:HttpClient, 
+    private errorhandler:ErrorHandlerService,
+    private authService:AuthService
+  ) { }
 
   createCar(formData: Pick<Car,"tripname"|"description"|"rentalinfo"|"pickup"|"pickup2"|"returntime"|"returntime2"|"cost">,userId: User["id"]): Observable<Car>{
     return this.http.post<Car>(
@@ -45,8 +51,15 @@ export class CarReserveService {
   }
 
   fetchAll(): Observable<Car[]> {
-    return this.http.get<Car[]>(this.url,{responseType:"json"}).pipe(
+    return this.http.get<Car[]>(`${this.url}/${this.authService.userId}`,{responseType:"json"}).pipe(
       catchError(this.errorhandler.handleError<Car[]>("fetchAll",[])),
     );
   } 
+
+  deleteCar(postId: Number): Observable<{}>{
+    return this.http.delete<Car>(`${this.url}/${postId}`,this.httpOptions).pipe(first(),
+    catchError(this.errorhandler.handleError<Car>("deleteCar")) 
+    );
+  }
+  
 }

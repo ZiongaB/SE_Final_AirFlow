@@ -10,10 +10,10 @@ const CarReserve = require('../models/carReserve');
 //Export fetchAll to be used
 exports.fetchAll = async (req, res, next) => {
   
-  const user = req.body.user;
+  const ID = req.params.id;
   //Call fetchAll function
   try {
-    const [allPosts] = await CarReserve.fetchAll(user);
+    const [allPosts] = await CarReserve.fetchAll(ID);
     res.status(200).json(allPosts);
 
     //Catch Errors
@@ -64,3 +64,17 @@ exports.postCar = async (req, res, next) => {
     next(err);
   }
 };
+
+exports.deleteCar = async (req,res,next)=>{
+  try{    
+    const deleteresponse =await CarReserve.delete(req.params.id);
+    res.status(200).json({deleteresponse});
+}catch(err){
+    console.log(err);
+        if (!err.statusCode){
+            console.log("error!");
+            err.statusCode = 500;
+        } 
+        next(err)
+    }
+}

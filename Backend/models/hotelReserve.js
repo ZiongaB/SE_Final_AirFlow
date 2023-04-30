@@ -33,4 +33,8 @@ module.exports = class HotelReserve {
             [post.user, post.tripname, post.hotel, post.checkin, post.checkout, post.cost]
         );
     }
+
+    static delete(id){
+        return db.execute('DELETE FROM Airflow.flights WHERE id = ?',[id]);
+    } 
 }

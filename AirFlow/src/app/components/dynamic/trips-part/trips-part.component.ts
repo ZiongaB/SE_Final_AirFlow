@@ -48,8 +48,7 @@ export class TripsPartComponent {
       });
     });
 
-     
-    
+  
     this.tripForm.reset();
   }
 }

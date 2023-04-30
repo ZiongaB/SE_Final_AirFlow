@@ -42,6 +42,4 @@ export class CarPartComponent {
 
    this.carForm.reset();
  }
-
-
 }
