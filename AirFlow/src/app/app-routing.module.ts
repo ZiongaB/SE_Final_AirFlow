@@ -44,7 +44,7 @@ const routes: Routes = [
   // navbar routing
   { path: "signup", component: SignupComponent },
   { path: "trip", component: TripsComponent, canActivate:[AuthGuardService] },
-  { path: "home", component: HomeComponent},
+  { path: "", component: HomeComponent},
   { path: "chatbot", component: ChatbotComponent},
 
    //Airport routing
