@@ -36,6 +36,12 @@ module.exports = class Trip {
         );
     }
 
+    static catch(){
+        return db.execute(
+            'select * from Airflow.trip ORDER BY id DESC LIMIT 1'
+        )
+    }
+
     static delete(id){
         return db.execute('DELETE FROM Airflow.trip WHERE id = ?',[id]);
     }    

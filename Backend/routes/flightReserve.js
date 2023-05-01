@@ -8,7 +8,7 @@ const auth =  require('../middleware/auth');
 
 const router = express.Router();
 
-router.get('/', auth, eventController.fetchAll);
+router.get('/:id', auth, eventController.fetchAll);
 
 router.post(
     '/',
@@ -22,8 +22,10 @@ router.post(
       body('flight2').trim().isLength({ min: 1 }).not().isEmpty(),
       body('cost2').trim().isLength({ min: 1 }).not().isEmpty(),
       body('time2').trim().isLength({ min: 1 }).not().isEmpty(),
+      body('tripid').trim().isLength({ min: 1 }).not().isEmpty()
     ],
     eventController.postFlight
 );
+router.delete('/:id',auth,eventController.deleteFlight)
 
 module.exports = router;

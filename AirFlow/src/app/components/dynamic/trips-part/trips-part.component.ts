@@ -5,6 +5,7 @@ import { TripService } from '../../services/trip.service';
 import { AuthService } from '../../services/auth.service';
 import { first } from 'rxjs';
 import { Holder } from '../../models/Holder';
+import { FlightReserveService } from '../../services/flight-reserve.service';
 
 @Component({
   selector: 'app-trips-part',
@@ -12,16 +13,18 @@ import { Holder } from '../../models/Holder';
   styleUrls: ['./trips-part.component.scss']
 })
 export class TripsPartComponent {
+  
   tripForm: FormGroup
   @Output() create: EventEmitter<any> = new EventEmitter();
   ngOnInit(){
     this.tripForm = this.createFormGroup();
   }
-  constructor(private TripService: TripService,private authService:AuthService){}
+
+  constructor(private TripService: TripService,private authService:AuthService,private flightService:FlightReserveService){}
 
   createFormGroup():FormGroup{
     return new FormGroup({
-      tripname: new FormControl("", [Validators.required, Validators.minLength(5)]),
+      tripname: new FormControl("", [Validators.required, Validators.minLength(1)]),
       flight1: new FormControl("", [Validators.required, Validators.minLength(1)]),
       cost1:new FormControl("",[Validators.required, Validators.pattern(/^[0-9]+$/)]),
       time1: new FormControl("",[Validators.required]),
@@ -32,14 +35,21 @@ export class TripsPartComponent {
       time22:new FormControl("",[Validators.required]),
     })
   }
-
+  
+  giveID(msg:any):Number{
+    return msg.message;
+  }
   submit(formData: Holder):void{
-     this.TripService.createTrip(formData,this.authService.userId).pipe(first()).subscribe(()=>{
-       this.create.emit(null);
-     });
+    var tripid:Number;
+    this.TripService.createTrip(formData,this.authService.userId).subscribe(message =>{
+      tripid = this.giveID(message);
+      this.flightService.createFlight(formData,this.authService.userId,tripid).pipe(first()).subscribe(()=>{
+        this.create.emit(null);
+      });
+    });
 
-    console.log(formData.time1.getFullYear()+"-"+(formData.time1.getUTCMonth()+1) +"-"+formData.time1.getDate() +" "+formData.time12+":00");
-
+     
+    
     this.tripForm.reset();
   }
 }

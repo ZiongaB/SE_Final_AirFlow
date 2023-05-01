@@ -4,6 +4,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Trip } from '../../models/Trip';
 import { TripService } from '../../services/trip.service';
 import { Observable } from 'rxjs';
+import { Flight } from '../../models/Flight';
+import { FlightReserveService } from '../../services/flight-reserve.service';
 
 @Component({
   selector: 'app-trips',
@@ -11,24 +13,20 @@ import { Observable } from 'rxjs';
   styleUrls: ['./trips.component.scss']
 })
 export class TripsComponent {
-
-  posts$:Observable<Trip[]>;
-  
-
+ 
+  allFlight!:Flight[];
   allTrip!: Trip[];
   filteredTrip: Trip[];
+  flightMap: Map<Number,Flight>;
 
   createTrip: Boolean = false;
   createHotel: Boolean = false;
   createCar: Boolean = false;
 
-  constructor(private TripService:TripService,private authService:AuthService){}
+  constructor(private TripService:TripService,private authService:AuthService, private flightService:FlightReserveService){}
 
   ngOnInit(){
-    this.TripService.fetchAll().subscribe(posts =>{
-      this.allTrip = posts;
-      this.TripService.tripData = posts;
-    })
+    this.createPost();
   }
 
   tripIf(){
@@ -44,24 +42,31 @@ export class TripsComponent {
   }
 
   createPost() :void{
+    this.flightMap = new Map();
     this.TripService.fetchAll().subscribe(posts =>{
       this.allTrip = posts;
-      this.TripService.tripData = posts;
+    })
+    this.flightService.fetchAll().subscribe(posts =>{
+      this.allFlight= posts;
+      for(const y of this.allFlight){
+        this.flightMap!.set(y.tripid,y);
+      }
+      
     })
   }
 
-  fetchAll(): Observable<Trip[]>{
-    return this.TripService.fetchAll();
-  }
 
-  
+
+  deleteFlight(id:Number):void{
+    this.flightService.deleteFlight(id).subscribe()
+    this.createPost();
+  }
   deleteTrip(id:Number): void{
     this.TripService.deleteTrip(id).subscribe();
+    this.deleteFlight(id);
     this.createPost();
   }
     
-
-
     //Zach
 
     tripVisible: boolean = false;

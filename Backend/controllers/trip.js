@@ -6,6 +6,7 @@
 
 const { validationResult } = require('express-validator');
 const Trip = require('../models/trip');
+const { restart } = require('nodemon');
 
 //Export fetchAll to be used
 exports.fetchAll = async (req, res, next) => {
@@ -58,7 +59,8 @@ exports.postTrip = async (req, res, next) => {
 
     //Call save function
     const result = await Trip.save(post);
-    res.status(201).json({ message: 'Posted!' });
+    const catching = await Trip.catch();
+    res.status(201).json({ message: catching[0][0].id });
 
     
   //Catch errors

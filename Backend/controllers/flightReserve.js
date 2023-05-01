@@ -10,10 +10,10 @@ const FlightReserve = require('../models/flightReserve');
 //Export fetchAll to be used
 exports.fetchAll = async (req, res, next) => {
   
-    const user = req.body.user;
+    const ID = req.params.id;
   //Call fetchAll function
   try {
-    const [allPosts] = await FlightReserve.fetchAll(user);
+    const [allPosts] = await FlightReserve.fetchAll(ID);
     res.status(200).json(allPosts);
 
   //Catch Errors
@@ -25,6 +25,20 @@ exports.fetchAll = async (req, res, next) => {
   }
 };
 
+exports.deleteFlight = async (req,res,next)=>{
+  try{    
+    const deleteresponse =await FlightReserve.delete(req.params.id);
+    res.status(200).json({deleteresponse});
+}catch(err){
+    console.log(err);
+        if (!err.statusCode){
+            console.log("error!");
+            err.statusCode = 500;
+        } 
+        next(err)
+    }
+
+}
 
 //Export posting function to be used
 exports.postFlight = async (req, res, next) => {
@@ -40,6 +54,7 @@ exports.postFlight = async (req, res, next) => {
   const flight2 = req.body.flight2;
   const cost2 = req.body.cost2;
   const time2 = req.body.time2;
+  const tripid = req.body.tripid;
 
   //Create a post object using variables
   try {
@@ -52,6 +67,7 @@ exports.postFlight = async (req, res, next) => {
       flight2: flight2,
       cost2: cost2,
       time2: time2,
+      tripid:tripid
     };
     //Call save function
     const result = await FlightReserve.save(post);

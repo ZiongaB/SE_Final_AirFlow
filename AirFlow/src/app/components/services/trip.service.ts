@@ -12,7 +12,7 @@ import { FlightReserveService } from './flight-reserve.service';
   providedIn: 'root'
 })
 export class TripService {
-  private url = "https://softengbackair-production.up.railway.app/trip";
+  private url = "http://localhost:3000/trip";
 
   public tripData!: Trip[];
   isUserLoggedIn$ = new BehaviorSubject<boolean>(false);
@@ -22,10 +22,9 @@ export class TripService {
   }
 
   errorHandlerService: any;
-  constructor(private http:HttpClient, private errorhandler:ErrorHandlerService, private authService: AuthService,private flightService:FlightReserveService) { }
+  constructor(private http:HttpClient, private errorhandler:ErrorHandlerService, private authService: AuthService) { }
 
   createTrip(formData: Holder,userId: User["id"]): Observable<Trip>{
-    const variable = this.flightService.createPackingList(formData,userId).subscribe();
     return this.http.post<Trip>(this.url,{
       tripname:formData.tripname,
       userId: userId
@@ -33,7 +32,7 @@ export class TripService {
       catchError(this.errorhandler.handleError<Trip>("createTrip")),
     );
   }
-
+  
   fetchAll(): Observable<Trip[]> {
     return this.http.get<Trip[]>(`${this.url}/${this.authService.userId}`,{responseType:"json"}).pipe(
       catchError(this.errorhandler.handleError<Trip[]>("fetchAll",[])),
