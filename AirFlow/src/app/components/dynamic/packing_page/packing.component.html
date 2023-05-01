@@ -10,11 +10,13 @@
     <mat-label>Destinaton</mat-label>
     <input matInput placeholder="Ex. Denever, Colorado" value="Denver">
   </mat-form-field>
+  <button>Submit</button>
+  <hr>
 
-  <mat-form-field class="example-full-width">
+  <!-- <mat-form-field class="example-full-width">
     <mat-label>Leave a comment</mat-label>
     <textarea matInput placeholder="Ex. Flight details" ></textarea>
-  </mat-form-field>
+  </mat-form-field> -->
   <mat-selection-list #shoes>
     <mat-list-option *ngFor="let shoe of typesOfShoes">
       {{shoe}}
