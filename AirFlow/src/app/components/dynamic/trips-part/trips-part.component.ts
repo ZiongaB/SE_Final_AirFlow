@@ -17,7 +17,6 @@ export class TripsPartComponent {
   ngOnInit(){
     this.tripForm = this.createFormGroup();
   }
-
   constructor(private TripService: TripService,private authService:AuthService){}
 
   createFormGroup():FormGroup{
@@ -33,13 +32,12 @@ export class TripsPartComponent {
       time22:new FormControl("",[Validators.required]),
     })
   }
-  
 
   submit(formData: Holder):void{
      this.TripService.createTrip(formData,this.authService.userId).pipe(first()).subscribe(()=>{
        this.create.emit(null);
      });
-    
+
     console.log(formData.time1.getFullYear()+"-"+(formData.time1.getUTCMonth()+1) +"-"+formData.time1.getDate() +" "+formData.time12+":00");
 
     this.tripForm.reset();

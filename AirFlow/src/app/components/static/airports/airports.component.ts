@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AirportsComponent {
 
+addOn(){
+  console.log("Clicked")
+}
+
 }
