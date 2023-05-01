@@ -3,7 +3,7 @@
       <div class="form">
         <div class="log_text">
           <h2>Login Here</h2>
-        </div> 
+        </div>
         <form [formGroup]=loginForm (ngSubmit)=login() novalidate>
           <mat-form-field class="field">
             <mat-label>Email</mat-label>
@@ -14,10 +14,12 @@
             <input matInput type="password" placeholder="Ex. Password" formControlName="password">
           </mat-form-field>
           <div class="button">
-            <button color="accent" white="!loginForm.valid" mat-raised-button type="submit" class="submitb">
+
+            <!-- Testing login notification -->
+            <button (click)="login()" color="primary" white="!loginForm.valid" mat-raised-button type="submit" class="submitb">
               <span>Login</span></button>
+            <!-- Testing login notification -->
           </div>
-  
         </form>
         <div class="sign_up">
           <div>
@@ -26,11 +28,9 @@
               <p></p>
               <div></div> Sign up
             </a> &nbsp; here
-  
+
           </div>
         </div>
       </div>
     </div>
-  
-  
   </div>

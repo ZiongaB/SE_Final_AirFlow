@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { TripsPartComponent } from './trips-part.component';
 
 describe('TripsPartComponent', () => {
