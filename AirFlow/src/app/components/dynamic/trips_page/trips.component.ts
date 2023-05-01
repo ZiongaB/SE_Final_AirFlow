@@ -13,7 +13,7 @@ import { FlightReserveService } from '../../services/flight-reserve.service';
   styleUrls: ['./trips.component.scss']
 })
 export class TripsComponent {
- 
+
   allFlight!:Flight[];
   allTrip!: Trip[];
   filteredTrip: Trip[];
@@ -51,11 +51,9 @@ export class TripsComponent {
       for(const y of this.allFlight){
         this.flightMap!.set(y.tripid,y);
       }
-      
+
     })
   }
-
-
 
   deleteFlight(id:Number):void{
     this.flightService.deleteFlight(id).subscribe()
@@ -66,15 +64,15 @@ export class TripsComponent {
     this.deleteFlight(id);
     this.createPost();
   }
-    
+
     //Zach
 
     tripVisible: boolean = false;
     flightVisible: boolean = false;
     hotelVisible: boolean = false;
     carVisible: boolean = false;
-    
-    
+
+
 
     //Make trip visible or invisible
     toggleTrip() {

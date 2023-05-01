@@ -5,6 +5,7 @@
 export interface Packinglist{
     userId: Number,
     tripname: String,
+    destination: String,
 
     item1: String,
     item2: String,
@@ -17,7 +18,7 @@ export interface Packinglist{
     item8: String,
     item9: String,
     item10: String,
-    
+
     checked1: Boolean,
     checked2: Boolean,
     checked3: Boolean,
