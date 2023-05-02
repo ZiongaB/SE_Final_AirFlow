@@ -10,7 +10,7 @@ import { AuthService } from './auth.service';
 })
 export class BudgetService {
 
-    private url = "https://softengbackair-production.up.railway.app/auth";
+    private url = "http://localhost:3000/auth";
 
     isUserLoggedIn$ = new BehaviorSubject<boolean>(false);
     userId: User["id"];
@@ -28,11 +28,10 @@ export class BudgetService {
         );
     }
 
-    updateBudget(formData: Pick<User,"email"|"budget">,userId: User["id"]):Observable<User>{
+    updateBudget(formData: Pick<User,"budget">,userId: User["id"]):Observable<User>{
         return this.http.patch<User>(this.url,{
-            email: formData.email,
+            id: userId,
             budget:formData.budget,
-            userId: userId
             },this.httpOptions).pipe(
             catchError(this.errorhandler.handleError<User>("updateBudget")),
         );

@@ -71,12 +71,12 @@ exports.login = async (req,res,next) =>{
 }
 
 exports.budget = async (req,res,next) =>{
-    const email = req.body.name;
+    const id = req.body.id;
     const budget = req.body.budget
 
     try{    
         const userDetails = {
-            email:email,
+            id:id,
             password: budget
         }
         

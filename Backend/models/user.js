@@ -3,7 +3,7 @@ const db = require("../util/database");
 module.exports = class User{
     constructor(Name,Email,Password,Total_budget){
      this.Name = Name;
-     this.Email=Email;
+     this.Email= Email;
      this.Password = Password;
      this.Total_budget = Total_budget;
     }
@@ -22,16 +22,15 @@ module.exports = class User{
 
     static budget(userDetails){
         return db.execute(
-            'UPDATE user SET Total_budget = ?  WHERE Email = ?', [userDetails.total_budget ,userDetails.email]
+            'UPDATE user SET Total_budget = ?  WHERE ID = ?', [userDetails.total_budget ,userDetails.id]
         );
     }
 
     static fetchBudget(userId)
     {
         return db.execute(
-            `SELECT Total_budget FROM user WHERE user = ${userId}`
+            `SELECT Total_budget FROM user WHERE ID = ${userId}`
         );
     }
     
 };
-

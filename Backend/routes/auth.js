@@ -22,7 +22,7 @@ router.post(
 );
 
 router.patch(
-    '/budget',
+    '/:id',
     authController.budget
 );
 
