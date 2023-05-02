@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { first } from 'rxjs';
 import { Holder } from '../../models/Holder';
@@ -13,13 +13,15 @@ import { TripService } from '../../services/trip.service';
 })
 export class FlightPartComponent {
  
-  tripForm: FormGroup
+  flightForm: FormGroup
   @Output() create: EventEmitter<any> = new EventEmitter();
+  @Input() tripid: Number;
+  @Input() tripname:String;
   ngOnInit(){
-    this.tripForm = this.createFormGroup();
+    this.flightForm = this.createFormGroup();
   }
 
-  constructor(private TripService: TripService,private authService:AuthService,private flightService:FlightReserveService){}
+  constructor(private authService:AuthService,private flightService:FlightReserveService){}
 
   createFormGroup():FormGroup{
     return new FormGroup({
@@ -34,13 +36,10 @@ export class FlightPartComponent {
     return msg.message;
   }
   submit(formData: Holder):void{
-    var tripid:Number;
-    this.TripService.createTrip(formData,this.authService.userId).subscribe(message =>{
-      tripid = this.giveID(message);
-      this.flightService.createFlight(formData,this.authService.userId,tripid).pipe(first()).subscribe(()=>{
+    console.log(formData)
+      this.flightService.createFlight(formData,this.authService.userId,this.tripid,this.tripname).pipe(first()).subscribe(()=>{
         this.create.emit(null);
       });
-    });
-    this.tripForm.reset();
+    this.flightForm.reset();
   }
 }

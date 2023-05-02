@@ -27,9 +27,10 @@ export class TripsPartComponent {
       tripname: new FormControl("", [Validators.required, Validators.minLength(1)]),
     })
   }
-  submit(formData: Holder):void{
+  submit(formData: Trip):void{
 
     this.TripService.createTrip(formData,this.authService.userId).subscribe();
+    this.create.emit(null);
     this.tripForm.reset();
   }
 }

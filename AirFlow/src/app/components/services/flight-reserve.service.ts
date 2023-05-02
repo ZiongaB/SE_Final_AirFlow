@@ -34,14 +34,14 @@ export class FlightReserveService {
     private http:HttpClient, 
     private errorhandler:ErrorHandlerService,
     private authService:AuthService,
-    private tripService:TripService
   ) { }
 
   
-  createFlight(formData: Holder,userId: Number,tripid:Number): Observable<Flight>{
+  createFlight(formData: Holder,userId: Number,tripid:Number,tripname:String): Observable<Flight>{
+    console.log("check")
     return this.http.post<Flight>(
       this.url,{
-        tripname: formData.tripname, 
+        tripname: tripname, 
         userId: userId,
         flight: formData.flight,
         cost: formData.cost,

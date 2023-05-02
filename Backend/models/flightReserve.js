@@ -35,7 +35,7 @@ module.exports = class FlightReserve {
     //Function to insert new entry into database using values from passed objects
     static save(post){
         return db.execute(
-            'INSERT INTO Airflow.flights (user, tripname, flight, cost, time,tripid) VALUES (?,?,?,?,?,?,?,?,?)',
+            'INSERT INTO Airflow.flights (user, tripname, flight, cost, time,tripid) VALUES (?,?,?,?,?,?)',
             [post.user, post.tripname, post.flight, post.cost, post.time, post.tripid]
         );
     }

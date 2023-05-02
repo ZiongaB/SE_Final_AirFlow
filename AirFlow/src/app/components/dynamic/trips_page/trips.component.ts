@@ -35,6 +35,7 @@ export class TripsComponent {
   createTrip: Boolean = false;
   createHotel: Boolean = false;
   createCar: Boolean = false;
+  createFlight:Boolean = false;
 
   //Constructor to define services
   constructor(
@@ -52,32 +53,19 @@ export class TripsComponent {
     this.createHotelPost();
   }
 
-  //Switch if car section is visible
-  tripIf(){
-    this.createTrip = !this.createTrip;
-  }
 
-  //Switch if car section is visible
-  hotelIf(){
-    this.createHotel = !this.createHotel;
-  }
 
-  //Switch if car section is visible
-  carIf(){
-    this.createCar = !this.createCar;
-  }
-
-  //Get list of all trips/flights
+  //Get list of all trips
   createPost() :void{
-    this.flightMap = new Map();
     this.TripService.fetchAll().subscribe(posts =>{
       this.allTrip = posts;
     })
+  }
+
+  //Get list of all flights
+  createFlightPost():void{
     this.flightService.fetchAll().subscribe(posts =>{
       this.allFlight= posts;
-      for(const y of this.allFlight){
-        this.flightMap!.set(y.tripid,y);
-      }
     })
   }
   
@@ -127,24 +115,5 @@ export class TripsComponent {
   hotelVisible: boolean = false;
   carVisible: boolean = false;
     
-  //Make trip visible or invisible
-  toggleTrip() {
-    this.tripVisible = ! this.tripVisible;
-  }
-
-
-  //Make flights visible or invisible
-  toggleFlight() {
-    this.flightVisible = ! this.flightVisible;
-  }
-
-  //Make hotels visible or invisible
-  toggleHotel() {
-    this.hotelVisible = ! this.hotelVisible;
-  }
-  //Make cars visible or invisible
-  toggleCar() {
-    this.carVisible = ! this.carVisible;
-  }
 
 }

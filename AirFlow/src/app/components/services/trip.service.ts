@@ -24,7 +24,7 @@ export class TripService {
   errorHandlerService: any;
   constructor(private http:HttpClient, private errorhandler:ErrorHandlerService, private authService: AuthService) { }
 
-  createTrip(formData: Holder,userId: User["id"]): Observable<Trip>{
+  createTrip(formData: Trip,userId: User["id"]): Observable<Trip>{
     return this.http.post<Trip>(this.url,{
       tripname:formData.tripname,
       userId: userId
