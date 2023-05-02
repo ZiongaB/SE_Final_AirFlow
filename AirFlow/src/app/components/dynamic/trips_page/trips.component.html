@@ -25,16 +25,19 @@
 
 <div class= "formholder">
     <button (click)="hotelIf()" id="ifButton">Create Hotel Reservation</button>
-    <app-trips-part (create) = "createPost()" *ngIf="createHotel"></app-trips-part>
+    <app-hotel-part (create) = "createHotelPost()" *ngIf="createHotel"></app-hotel-part>
 
     <div class="trips">
         <button (click)="toggleHotel()" type="checkbox" >show/hide Hotel Reservations</button>
         <ng-container *ngIf = "hotelVisible">
             <hr>
-            <div *ngFor="let post of allTrip" >
-                <b>Trip Name:</b> {{post.tripname}}<br>
-                <b>Parking Space:</b>{{post.parking}}
-                <button mat-icon-button  (click)="deleteTrip(post.id)" id="deletebutton"> <mat-icon  color="warn" class="button"> delete</mat-icon></button>
+            <div *ngFor="let post of allHotel" >
+                <b>Trip Name: </b> {{post.tripname}}<br>
+                <b>Hotel: </b>{{post.hotel}}<br>
+                <b>Checkin Time: </b>{{post.checkin}}<br>
+                <b>Checkout Time: </b> {{post.checkout}}<br>
+                <b>Cost: </b>${{post.cost}}<br>
+                <button mat-icon-button  (click)="deleteHotel(post.id)" id="deletebutton"> <mat-icon  color="warn" class="button"> delete</mat-icon></button>
                 <hr>
             </div>
         </ng-container>
@@ -43,16 +46,20 @@
 
 <div class= "formholder">
     <button (click)="carIf()" id="ifButton">Create Rental Car</button>
-    <app-trips-part (create) = "createPost()" *ngIf="createCar"></app-trips-part>
+    <app-car-part (create) = "createCarPost()" *ngIf="createCar"></app-car-part>
 
     <div class="trips">
         <button (click)="toggleCar()" type="checkbox" >show/hide Rental Cars</button>
         <ng-container *ngIf = "carVisible">
             <hr>
-            <div *ngFor="let post of allTrip" >
-                <b>Trip Name:</b> {{post.tripname}}<br>
-                <b>Parking Space:</b>{{post.parking}}
-                <button mat-icon-button  (click)="deleteTrip(post.id)" id="deletebutton"> <mat-icon  color="warn" class="button"> delete</mat-icon></button>
+            <div *ngFor="let post of allCar" >
+                <b>Trip Name: </b>{{post.tripname}}<br>
+                <b>Car Description: </b>{{post.description}}<br>
+                <b>Rental Information: </b>{{post.rentalinfo}}<br>
+                <b>Pickup Time: </b>{{post.pickup}}<br>
+                <b>Return Time: </b>{{post.returntime}}<br>
+                <b>Cost: </b>${{post.cost}}<br>
+                <button mat-icon-button  (click)="deleteCar(post.id)" id="deletebutton"> <mat-icon  color="warn" class="button"> delete</mat-icon></button>
                 <hr>
             </div>
         </ng-container>

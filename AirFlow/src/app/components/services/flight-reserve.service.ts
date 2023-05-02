@@ -29,7 +29,13 @@ export class FlightReserveService {
   }
 
   errorHandlerService: any;
-  constructor(private http:HttpClient, private errorhandler:ErrorHandlerService,private authService:AuthService,private tripService:TripService) { }
+  
+  constructor(
+    private http:HttpClient, 
+    private errorhandler:ErrorHandlerService,
+    private authService:AuthService,
+    private tripService:TripService
+  ) { }
 
   
   createFlight(formData: Holder,userId: Number,tripid:Number): Observable<Flight>{
@@ -60,6 +66,5 @@ export class FlightReserveService {
     return this.http.delete<Flight>(`${this.url}/${postId}`,this.httpOptions).pipe(first(),
     catchError(this.errorhandler.handleError<Flight>("deletePost")) 
     );
-    
   }
 }

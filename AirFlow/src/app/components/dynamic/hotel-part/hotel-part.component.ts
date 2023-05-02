@@ -33,6 +33,7 @@ export class HotelPartComponent {
     })
   }
 
+  
   submit(formData: Hotel):void{
     this.HotelService.createHotel(formData,this.authService.userId).pipe(first()).subscribe(()=>{
       this.create.emit(null);
@@ -42,6 +43,4 @@ export class HotelPartComponent {
 
    this.hotelForm.reset();
  }
-
-
 }
