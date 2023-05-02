@@ -5,6 +5,7 @@
 export interface Packinglist{
     userId: Number,
     tripname: String,
+    destination: String,
 
     item1: String,
     item2: String,

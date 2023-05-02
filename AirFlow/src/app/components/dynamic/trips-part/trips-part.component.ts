@@ -47,9 +47,6 @@ export class TripsPartComponent {
         this.create.emit(null);
       });
     });
-
-     
-    
     this.tripForm.reset();
   }
 }

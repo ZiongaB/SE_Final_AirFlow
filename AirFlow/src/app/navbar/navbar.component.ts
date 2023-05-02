@@ -53,7 +53,7 @@ export class NavbarComponent{
   logout(){
     localStorage.removeItem("token");
     this.authService.isUserLoggedIn$.next(false);
-    this.router.navigate(["home"])
+    this.router.navigate([""])
   }
 }
  // Andrews work ends here
