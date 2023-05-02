@@ -1,0 +1,30 @@
+<div>
+    <form [formGroup]=tripForm (ngSubmit)=submit(tripForm.value) novalidate>
+        <span class="biglabels">Flight information: <br></span>
+        <span class="smalllabels">First flight:</span>
+        <mat-form-field class="field">
+            <mat-label>Flight number</mat-label>
+            <input matInput placeholder="ex: BA 98" formControlName="flight1">
+        </mat-form-field>
+        <mat-form-field class="field">
+            <mat-label>Cost</mat-label>
+            <input matInput type="number" placeholder="ex:200.00" formControlName="cost1">
+        </mat-form-field>
+        <mat-form-field class="field">
+            <mat-label>Date</mat-label>
+            <input matInput formControlName="time1" 
+            [matDatepicker]="time1Picker" (click)="time1Picker.open()">
+            <mat-datepicker-toggle matSuffix [for]="time1Picker"></mat-datepicker-toggle>
+            <mat-datepicker #time1Picker></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field class="field">
+            <mat-label>Time</mat-label>
+            <input matInput type="text" placeholder="ex: 14:20" formControlName="time12" >
+        </mat-form-field>
+        <div class="button" >
+            <button color="accent" [disabled]="!tripForm.valid" mat-raised-button type="submit" class="submitb">
+              <span>Submit</span></button>
+          </div>
+    </form>
+</div>
+

@@ -43,12 +43,9 @@ export class FlightReserveService {
       this.url,{
         tripname: formData.tripname, 
         userId: userId,
-        flight1: formData.flight1,
-        cost1: formData.cost1,
-        time1: formData.time1.getFullYear()+"-"+(formData.time1.getUTCMonth()+1) +"-"+formData.time1.getDate() +" "+formData.time12+":00",
-        flight2: formData.flight2,
-        cost2: formData.cost2,
-        time2: formData.time2.getFullYear()+"-"+(formData.time2.getUTCMonth()+1) +"-"+formData.time2.getDate() +" "+formData.time22+":00",
+        flight: formData.flight,
+        cost: formData.cost,
+        time: formData.time.getFullYear()+"-"+(formData.time.getUTCMonth()+1) +"-"+formData.time.getDate() +" "+formData.time2+":00",
         tripid:tripid
       },this.httpOptions
         ).pipe(

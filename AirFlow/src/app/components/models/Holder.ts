@@ -11,15 +11,10 @@ export interface Holder extends Trip,Car,Flight{
     },
 
     flightinfo: {
-        flight1: Pick<Flight,"flight1">,
-	    cost1: Pick<Flight,"cost1">,
-	    time1: Pick<Flight,"time1">, //(These go to calendar as well)
-        time12:Pick<Flight,"time12">,
-	
-	    flight2: Pick<Flight,"flight2">,
-	    cost2:Pick<Flight,"cost2">,
-	    time2:Pick<Flight,"time2">,// (These go to calendar as well)
-        time22:Pick<Flight,"time22">
+        flight: Pick<Flight,"flight">,
+	    cost: Pick<Flight,"cost">,
+	    time: Pick<Flight,"time">, //(These go to calendar as well)
+        time2:Pick<Flight,"time2">,
 
     }
     /*8
