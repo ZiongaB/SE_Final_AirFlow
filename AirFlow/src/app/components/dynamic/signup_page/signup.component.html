@@ -2,7 +2,7 @@
     <div class=login_comp>
         <div class="form">
             <div class="log_text">
-                <h2>Sign Up Here</h2> 
+                <h2>Sign Up Here</h2>
             </div>
             <form [formGroup]=signupForm (ngSubmit)=signup() novalidate class="form">
                 <mat-form-field class="field">
@@ -17,7 +17,7 @@
                     <mat-label>Password</mat-label>
                     <input matInput type="password" placeholder="Ex. Password" formControlName="password">
                 </mat-form-field>
-                <button color="accent" red="!signupForm.valid" mat-raised-button type="submit">
+                <button color="primary" red="!signupForm.valid" mat-raised-button type="submit">
                     <span>Submit</span></button>
             </form>
         </div>

@@ -4,7 +4,7 @@
  * @author Zach East
  */
 
-const { validationResult } = require('express-validator');
+const {validationResult } = require('express-validator');
 const Packinglist = require('../models/packinglist');
 
 //Export fetchAll to be used

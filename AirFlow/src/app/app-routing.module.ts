@@ -31,20 +31,22 @@ After importing a new component we need to define the route
 */
 
 //  <!-- Sebastian Mark -->
+
+// later we can change this to  { path: "packing", component: PackingComponent, canActivate:[AuthGuardService]   },
 const routes: Routes = [
   { path: "login", component: LoginComponent },
   { path: "boarding", component: BoardingPageComponent, canActivate:[AuthGuardService]  },
   { path: "budget", component: BudgetComponent, canActivate:[AuthGuardService]  },
   { path: "calendar", component: CalendarPageComponent, canActivate:[AuthGuardService]  },
   { path: "checklist", component: ChecklistPageComponent, canActivate:[AuthGuardService]  },
-  { path: "packing", component: PackingComponent, canActivate:[AuthGuardService]  },
-  
+  { path: "packing", component: PackingComponent, canActivate:[AuthGuardService] },
+
   // navbar routing
   { path: "signup", component: SignupComponent },
   { path: "trip", component: TripsComponent, canActivate:[AuthGuardService] },
-  { path: "home", component: HomeComponent},
+  { path: "", component: HomeComponent},
   { path: "chatbot", component: ChatbotComponent},
- 
+
    //Airport routing
   { path: "airports", component: AirportsComponent},
   { path: "airport1", component: Airport1PageComponent },
@@ -53,7 +55,7 @@ const routes: Routes = [
   { path: "location1", component: Location1PageComponent },
   { path: "location2", component: Location2PageComponent },
   { path: "location3", component: Location3PageComponent },
-  
+
 ];
 
 @NgModule({

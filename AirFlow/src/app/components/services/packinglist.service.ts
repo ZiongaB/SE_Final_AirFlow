@@ -1,5 +1,5 @@
 /**
- * This is the services file that controlls updating 
+ * This is the services file that controlls updating
  * and displaying the packing list data
  * @author Zach East
  */
@@ -14,7 +14,7 @@ import { User } from '../models/User';
   providedIn: 'root'
 })
 export class PackinglistService {
-  private url = "https://softengbackair-production.up.railway.app/packinglists";
+  private url = "https://localhost:3000//packinglists";
 
   public packinglistData!: [];
   public filteredPackinglist!: [];
@@ -38,7 +38,7 @@ export class PackinglistService {
   createPackingList(formData: Pick<Packinglist,"tripname">,userId: User["id"], generatedList:string[]): Observable<Packinglist>{
     return this.http.post<Packinglist>(
       this.url,{
-        tripname: formData.tripname, 
+        tripname: formData.tripname,
         userId: userId,
 
         item1: generatedList[0],
@@ -62,5 +62,5 @@ export class PackinglistService {
     return this.http.get<Packinglist[]>(this.url,{responseType:"json"}).pipe(
       catchError(this.errorhandler.handleError<Packinglist[]>("fetchAll",[])),
     );
-  } 
+  }
 }

@@ -20,6 +20,7 @@ import { HotelReserveService } from '../../services/hotel-reserve.service';
 })
 export class TripsComponent {
 
+
   //Lists for trips and flights
   allFlight!:Flight[];
   allTrip!: Trip[];
@@ -79,6 +80,7 @@ export class TripsComponent {
       }
     })
   }
+  
   //Get list of all cars
   createCarPost(): void{
     this.carService.fetchAll().subscribe(posts =>{
@@ -92,8 +94,6 @@ export class TripsComponent {
     })
   }
 
-
-
   //Delete a specific Flight by trip id number
   deleteFlight(id:Number):void{
     this.flightService.deleteFlight(id).subscribe()
@@ -105,6 +105,7 @@ export class TripsComponent {
     this.deleteFlight(id);
     this.createPost();
   }
+
   //Delete a specific Car by id number
   deleteCar(id:Number): void{
     this.carService.deleteCar(id).subscribe();
@@ -126,6 +127,7 @@ export class TripsComponent {
   toggleTrip() {
     this.tripVisible = ! this.tripVisible;
   }
+
 
   //Make flights visible or invisible
   toggleFlight() {
