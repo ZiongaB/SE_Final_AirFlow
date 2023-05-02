@@ -1,1 +1,57 @@
-<p>hotel-part works!</p>
+<div>
+    <form [formGroup]=hotelForm (ngSubmit)=submit(hotelForm.value) novalidate>
+        <mat-form-field class="field">
+            <mat-label>Trip name</mat-label>
+            <input matInput placeholder="Name" formControlName="tripname">
+        </mat-form-field>
+
+        <span class="biglabels">Reservation Information: <br></span>
+
+        <span class="smalllabels">Description:</span>
+
+        <mat-form-field class="field">
+            <mat-label>Hotel Information</mat-label>
+            <input matInput placeholder="ex: Hyatt at Palm Springs, Room 105" formControlName="hotel">
+        </mat-form-field>
+
+
+        <mat-form-field class="field">
+            <mat-label>Hotel Cost</mat-label>
+            <input matInput type="number" placeholder="ex:200.00" formControlName="cost">
+        </mat-form-field>
+
+        <span class="smalllabels">Check-in:</span>
+
+        <mat-form-field class="field">
+            <mat-label>Check-in Date</mat-label>
+            <input matInput formControlName="checkin" 
+            [matDatepicker]="checkinPicker" (click)="checkinPicker.open()">
+            <mat-datepicker-toggle matSuffix [for]="checkinPicker"></mat-datepicker-toggle>
+            <mat-datepicker #checkinPicker></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field class="field">
+            <mat-label>Check-in Time</mat-label>
+            <input matInput type="text" placeholder="ex: 14:20" formControlName="checkin2" >
+        </mat-form-field>
+
+        <span class="smalllabels">Checkout:</span>
+
+        <mat-form-field class="field">
+            <mat-label>Checkout Date</mat-label>
+            <input matInput formControlName="checkout" 
+            [matDatepicker]="checkoutPicker" (click)="checkoutPicker.open()">
+            <mat-datepicker-toggle matSuffix [for]="checkoutPicker"></mat-datepicker-toggle>
+            <mat-datepicker #checkoutPicker></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field class="field">
+            <mat-label>Checkout Time</mat-label>
+            <input matInput type="text" placeholder="ex: 14:20" formControlName="checkout2" >
+        </mat-form-field>
+
+        <div class="button" >
+            <button color="accent" [disabled]="!hotelForm.valid" mat-raised-button type="submit" class="submitb">
+              <span>Submit</span></button>
+          </div>
+    </form>
+</div>
+

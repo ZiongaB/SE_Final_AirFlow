@@ -1,1 +1,58 @@
-<p>car-part works!</p>
+<div>
+    <form [formGroup]=carForm (ngSubmit)=submit(carForm.value) novalidate>
+        <mat-form-field class="field">
+            <mat-label>Trip name</mat-label>
+            <input matInput placeholder="Name" formControlName="tripname">
+        </mat-form-field>
+
+        <span class="biglabels">Car information: <br></span>
+
+        <span class="smalllabels">Description:</span>
+
+        <mat-form-field class="field">
+            <mat-label>Car Description</mat-label>
+            <input matInput placeholder="ex: White Toyota Corolla" formControlName="description">
+        </mat-form-field>
+
+        <mat-form-field class="field">
+            <mat-label>Rental Information</mat-label>
+            <input matInput placeholder="ex: Enterprise at 8567 Rental Street" formControlName="rentalinfo">
+        </mat-form-field>
+
+        <mat-form-field class="field">
+            <mat-label>Rental Cost</mat-label>
+            <input matInput type="number" placeholder="ex:200.00" formControlName="cost">
+        </mat-form-field>
+
+        <span class="smalllabels">Pickup:</span>
+        <mat-form-field class="field">
+            <mat-label>Pickup Date</mat-label>
+            <input matInput formControlName="pickup" 
+            [matDatepicker]="pickupPicker" (click)="pickupPicker.open()">
+            <mat-datepicker-toggle matSuffix [for]="pickupPicker"></mat-datepicker-toggle>
+            <mat-datepicker #pickupPicker></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field class="field">
+            <mat-label>Pickup Time</mat-label>
+            <input matInput type="text" placeholder="ex: 14:20" formControlName="pickup2" >
+        </mat-form-field>
+
+        <span class="smalllabels">Return Date:</span>
+        <mat-form-field class="field">
+            <mat-label>Return Date</mat-label>
+            <input matInput formControlName="returntime" 
+            [matDatepicker]="returnPicker" (click)="returnPicker.open()">
+            <mat-datepicker-toggle matSuffix [for]="returnPicker"></mat-datepicker-toggle>
+            <mat-datepicker #returnPicker></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field class="field">
+            <mat-label>Return Time</mat-label>
+            <input matInput type="text" placeholder="ex: 14:20" formControlName="returntime2" >
+        </mat-form-field>
+
+        <div class="button" >
+            <button color="accent" [disabled]="!carForm.valid" mat-raised-button type="submit" class="submitb">
+              <span>Submit</span></button>
+          </div>
+    </form>
+</div>

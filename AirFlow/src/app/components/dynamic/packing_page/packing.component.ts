@@ -18,10 +18,13 @@ export class PackingComponent {
   thisFlight!:Flight
   isDisplayed=false;
 
-  constructor( private tripService:TripService, private flightSerive:FlightReserveService){}
+constructor(private tripService:TripService, private flightService: FlightReserveService){
+
+
+}
 
   ngOnInit(){
-    this.packingForm=this.createFormGroup();
+    this.packingForm = this.createFormGroup();
   }
 
   toggleData() {
@@ -48,7 +51,7 @@ export class PackingComponent {
           this.thisTrip=x;
         }
       }
-      this.flightSerive.fetchAll().subscribe(posts=>{
+      this.flightService.fetchAll().subscribe(posts=>{
         for(const y of posts){
           if(y.tripid==this.thisTrip.id){
             this.thisFlight=y;

@@ -32,17 +32,17 @@ export class TripService {
       catchError(this.errorhandler.handleError<Trip>("createTrip")),
     );
   }
-  
+
   fetchAll(): Observable<Trip[]> {
     return this.http.get<Trip[]>(`${this.url}/${this.authService.userId}`,{responseType:"json"}).pipe(
       catchError(this.errorhandler.handleError<Trip[]>("fetchAll",[])),
     );
-  } 
+  }
 
   deleteTrip(postId: Number): Observable<{}>{
     return this.http.delete<Trip>(`${this.url}/${postId}`,this.httpOptions).pipe(first(),
-    catchError(this.errorhandler.handleError<Trip>("deletePost")) 
+    catchError(this.errorhandler.handleError<Trip>("deletePost"))
     );
-    
+
   }
 }

@@ -8,13 +8,13 @@ const auth =  require('../middleware/auth');
 
 const router = express.Router();
 
-router.get('/', auth, eventController.fetchAll);
+router.get('/:id', auth, eventController.fetchAll);
 
 router.post(
     '/',
     [
       auth,
-      body('user').trim().isLength({ min: 1 }).not().isEmpty(),
+      body('userId').trim().isLength({ min: 1 }).not().isEmpty(),
       body('description').trim().isLength({ min: 1 }).not().isEmpty(),
       body('tripname').trim().isLength({ min: 1 }).not().isEmpty(),
       body('rentalinfo').trim().isLength({ min: 1 }).not().isEmpty(),
@@ -24,5 +24,7 @@ router.post(
     ],
     eventController.postCar
 );
+
+router.delete('/:id',auth,eventController.deleteCar)
 
 module.exports = router;
