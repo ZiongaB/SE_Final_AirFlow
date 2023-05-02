@@ -55,6 +55,10 @@ export class TripsComponent {
     })
   }
 
+  toDate(thing:any):Date{
+    const dt = new Date(thing);
+    return dt;
+  }
 
 
   deleteFlight(id:Number):void{

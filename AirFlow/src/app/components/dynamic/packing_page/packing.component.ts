@@ -36,6 +36,11 @@ export class PackingComponent {
     });
   }
 
+  toDate(thing:any):Date{
+    const dt = new Date(thing);
+    return dt;
+  }
+
   submit(formData:Pick<Packinglist,"tripname"|"destination">):void{
     this.tripService.fetchAll().subscribe(posts =>{
       for(const x of posts){
