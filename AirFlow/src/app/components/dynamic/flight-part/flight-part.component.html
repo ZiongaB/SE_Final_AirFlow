@@ -1,8 +1,7 @@
 <button (click)="this.createFlight=!this.createFlight" id="ifButton">Create Flight Reservation</button>
-  <div *ngIf="createFlight" class="trips">
+  <div *ngIf="createFlight" >
         <form [formGroup]=flightForm (ngSubmit)=submit(flightForm.value) novalidate>
             <span class="biglabels">Flight information: <br></span>
-            <span class="smalllabels">First flight:</span>
             <mat-form-field class="field">
                 <mat-label>Flight number</mat-label>
                 <input matInput placeholder="ex: BA 98" formControlName="flight">

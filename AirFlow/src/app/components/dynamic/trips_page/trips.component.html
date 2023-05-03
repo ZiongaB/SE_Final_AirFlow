@@ -6,15 +6,14 @@
     <div class="trips">
         <!-- <button (click)="this.tripVisible=!this.tripVisible" type="checkbox" >show/hide Trips</button> -->
         <ng-container>
-            <hr>
             <div *ngFor="let trip of allTrip" >
+                <hr>
                 <b>Trip Name:</b> {{trip.tripname}}<br>
                 <!-- <b>Parking Space:</b>{{post.id}} <br> -->
                 <button mat-icon-button  (click)="deleteTrip(trip.id)" id="deletebutton"> <mat-icon  color="warn" class="button"> delete</mat-icon></button>
                 <div class="trippart" >      
                     <app-flight-part [tripid]="trip.id" [tripname]="trip.tripname"></app-flight-part>
                 </div>
-                <hr>
                 <div class="trippart">
                     <app-hotel-part [tripid]="trip.id" [tripname]="trip.tripname"></app-hotel-part>
                 </div>
@@ -22,6 +21,7 @@
                 <div class="trippart">
                     <app-car-part [tripid]="trip.id" [tripname]="trip.tripname"></app-car-part>
                 </div>
+                <hr>
             </div>
         </ng-container>
     </div>
