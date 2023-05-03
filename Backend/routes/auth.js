@@ -21,8 +21,9 @@ router.post(
     ], authController.signup
 );
 
-router.patch(
-    '/:id',
+
+router.post(
+    '/budget',
     authController.budget
 );
 

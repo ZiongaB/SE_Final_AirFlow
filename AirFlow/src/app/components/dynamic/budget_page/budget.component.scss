@@ -1,0 +1,85 @@
+.formholder2{
+    margin: auto;
+    width: 95%;
+    float: center;
+    padding: 15px;
+    margin-top:12px;
+    margin-left: 1%;
+    margin-right: 1%;
+    background: cornflowerblue;
+    border: 2px solid black/*transparent*/;
+    border-radius: 15px;
+    justify-content: center;
+    text-align: center;
+}
+
+@media screen and (max-width: 600px){
+    .formholder2{
+        margin: auto;
+        width: 95%;
+        float: center;
+        padding: 15px;
+        margin-top:12px;
+        margin-left: 1%;
+        margin-right: 1%;
+        background: cornflowerblue;
+        border: 2px solid black/*transparent*/;
+        border-radius: 15px;
+        justify-content: center;
+        text-align: center;
+    }
+    
+}
+
+
+#deletebutton{
+    float: right;
+}
+
+//@media screen and (max-width: 600px){
+.finalA{
+    color: green;
+    .h1{
+        color: inherit;
+    }
+}
+
+.finalB{
+    color: red;
+    .h1{
+        color: inherit;
+    }
+}
+
+
+svg#clouds {
+  position: fixed;
+  bottom: -160px;
+  left: -230px;
+  z-index: -10;
+  width: 1920px;
+}
+
+.field{
+    width: 70%;
+    max-width: 500px;
+    padding: 0px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    float: center;
+}
+
+#trippart{
+    margin: auto;
+    width: 40%;
+    padding-left: 40px;
+}
+
+svg#clouds {
+    position: fixed;
+    bottom: -160px;
+    left: -230px;
+    z-index: -10;
+    width: 1920px;
+  }
