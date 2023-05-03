@@ -22,7 +22,11 @@ module.exports = class User{
 
     static budget(userDetails){
         return db.execute(
+<<<<<<< Updated upstream
             'UPDATE user SET Total_budget = ?  WHERE Email = ?', [userDetails.total_budget ,userDetails.email]
+=======
+            'UPDATE user SET Total_budget = ?  WHERE ID = ?', [userDetails.budget ,userDetails.id]
+>>>>>>> Stashed changes
         );
     }
 

@@ -21,7 +21,11 @@ router.post(
     ], authController.signup
 );
 
+<<<<<<< Updated upstream
 router.patch(
+=======
+router.post(
+>>>>>>> Stashed changes
     '/budget',
     authController.budget
 );
