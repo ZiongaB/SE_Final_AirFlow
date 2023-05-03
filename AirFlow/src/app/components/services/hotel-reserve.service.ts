@@ -33,17 +33,17 @@ export class HotelReserveService {
     private authService:AuthService,
   ) { }
 
-  createHotel(formData: Pick<Hotel,
-    "tripname"|"hotel"|"checkin"|"checkin2"|"checkout"|"checkout2"|"cost"
-    >,userId: User["id"]): Observable<Hotel>{
+  createHotel(formData: Pick<Hotel,|"hotel"|"checkin"|"checkin2"|"checkout"|"checkout2"|"cost">
+  ,userId: User["id"],tripid:Number,tripname:String): Observable<Hotel>{
     return this.http.post<Hotel>(
       this.url,{
-        tripname: formData.tripname, 
+        tripname: tripname, 
         hotel: formData.hotel,
         checkin: formData.checkin.getFullYear()+"-"+(formData.checkin.getUTCMonth()+1) +"-"+formData.checkin.getDate() +" "+formData.checkin2+":00",
         checkout: formData.checkout.getFullYear()+"-"+(formData.checkout.getUTCMonth()+1) +"-"+formData.checkout.getDate() +" "+formData.checkout2+":00",
         cost: formData.cost,
         userId: userId,
+        tripid:tripid,
       },this.httpOptions
         ).pipe(
       catchError(this.errorhandler.handleError<Hotel>("createHotel")),

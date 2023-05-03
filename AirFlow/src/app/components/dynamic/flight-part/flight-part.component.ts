@@ -5,6 +5,7 @@ import { Holder } from '../../models/Holder';
 import { AuthService } from '../../services/auth.service';
 import { FlightReserveService } from '../../services/flight-reserve.service';
 import { TripService } from '../../services/trip.service';
+import { Flight } from '../../models/Flight';
 
 @Component({
   selector: 'app-flight-part',
@@ -14,11 +15,17 @@ import { TripService } from '../../services/trip.service';
 export class FlightPartComponent {
  
   flightForm: FormGroup
-  @Output() create: EventEmitter<any> = new EventEmitter();
   @Input() tripid: Number;
   @Input() tripname:String;
+
+  createFlight:Boolean = false;
+  flightVisible: boolean = false;
+  allFlight!:Flight[];
+
+
   ngOnInit(){
     this.flightForm = this.createFormGroup();
+    this.createFlightPost();
   }
 
   constructor(private authService:AuthService,private flightService:FlightReserveService){}
@@ -35,10 +42,27 @@ export class FlightPartComponent {
   giveID(msg:any):Number{
     return msg.message;
   }
+
+  //Get list of all flights
+  createFlightPost():void{
+    this.flightService.fetchAll().subscribe(posts =>{
+      this.allFlight = posts;
+    })
+  }
+
+  toDate(thing:any):Date{
+    const dt = new Date(thing);
+    return dt;
+  }
+
+  deleteFlight(id:Number):void{
+    this.flightService.deleteFlight(id).subscribe()
+    this.createFlightPost();
+  }
+
   submit(formData: Holder):void{
     console.log(formData)
       this.flightService.createFlight(formData,this.authService.userId,this.tripid,this.tripname).pipe(first()).subscribe(()=>{
-        this.create.emit(null);
       });
     this.flightForm.reset();
   }

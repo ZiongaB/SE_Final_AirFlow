@@ -27,8 +27,10 @@ module.exports = class FlightReserve {
             `SELECT * FROM Airflow.flights WHERE user = ${user}`
         );
     }
-    
     static delete(id){
+        return db.execute('delete from Airflow.flights where id = ?',[id]);
+    }
+    static deleteid(id){
         return db.execute('DELETE FROM Airflow.flights WHERE tripid = ?',[id]);
     } 
 

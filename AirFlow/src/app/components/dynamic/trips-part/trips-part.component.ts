@@ -16,6 +16,7 @@ export class TripsPartComponent {
   
   tripForm: FormGroup
   @Output() create: EventEmitter<any> = new EventEmitter();
+  
   ngOnInit(){
     this.tripForm = this.createFormGroup();
   }

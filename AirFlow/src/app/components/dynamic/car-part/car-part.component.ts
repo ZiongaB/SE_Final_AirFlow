@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Car } from '../../models/Car';
 import { CarReserveService } from '../../services/car-reserve.service';
@@ -13,8 +13,15 @@ import { first } from 'rxjs';
 export class CarPartComponent {
   carForm: FormGroup
   @Output() create: EventEmitter<any> = new EventEmitter();
+  @Input() tripid: Number;
+  @Input() tripname:String;
+
+  carVisible: boolean = false;
+  createCar: Boolean = false;
+  allCar!: Car[];
   ngOnInit(){
     this.carForm = this.createFormGroup();
+    this.createCarPost();
   }
 
   constructor(private CarService: CarReserveService,private authService:AuthService){}
@@ -30,6 +37,18 @@ export class CarPartComponent {
       returntime2: new FormControl("",[Validators.required]),
       cost:new FormControl("",[Validators.required, Validators.pattern(/^[0-9]+$/)]),
       
+    })
+  }
+
+  deleteCar(id:Number): void{
+    this.CarService.deleteCar(id).subscribe();
+    this.createCarPost();
+  }
+
+   //Get list of all cars
+   createCarPost(): void{
+    this.CarService.fetchAll().subscribe(posts =>{
+      this.allCar= posts;
     })
   }
 

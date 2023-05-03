@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Hotel } from '../../models/Hotel';
 import { HotelReserveService } from '../../services/hotel-reserve.service';
@@ -14,8 +14,16 @@ export class HotelPartComponent {
 
   hotelForm: FormGroup
   @Output() create: EventEmitter<any> = new EventEmitter();
+  @Input() tripid: Number;
+  @Input() tripname:String;
+  allHotel!: Hotel[];
+  createHotel: Boolean = false;
+
+  hotelVisible: boolean = false;
+
   ngOnInit(){
     this.hotelForm = this.createFormGroup();
+    this.createHotelPost();
   }
 
   constructor(private HotelService: HotelReserveService,private authService:AuthService){}
@@ -33,9 +41,23 @@ export class HotelPartComponent {
     })
   }
 
+  createHotelPost(): void{
+    this.HotelService.fetchAll().subscribe(posts =>{
+      this.allHotel= posts;
+    })
+  }
+
+    //Delete a specific Hotel by trip id
+    deleteHotel(id:Number): void{
+      this.HotelService.deleteHotel(id).subscribe();
+      this.createHotelPost();
+    }
+
+
+
   
   submit(formData: Hotel):void{
-    this.HotelService.createHotel(formData,this.authService.userId).pipe(first()).subscribe(()=>{
+    this.HotelService.createHotel(formData,this.authService.userId,this.tripid,this.tripname).pipe(first()).subscribe(()=>{
       this.create.emit(null);
     });
    

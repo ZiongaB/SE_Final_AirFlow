@@ -37,6 +37,7 @@ exports.postHotel = async (req, res, next) => {
   const checkin = req.body.checkin;
   const checkout = req.body.checkout;
   const cost = req.body.cost;
+  const tripid=req.body.tripid;
 
   //Create a post object using variables
   try {
@@ -47,6 +48,7 @@ exports.postHotel = async (req, res, next) => {
       checkin: checkin,
       checkout: checkout,
       cost: cost,
+      tripid:tripid
     };
 
     //Call save function

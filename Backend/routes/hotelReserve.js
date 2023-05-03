@@ -20,6 +20,7 @@ router.post(
       body('checkin').trim().isLength({ min: 1 }).not().isEmpty(),
       body('checkout').trim().isLength({ min: 1 }).not().isEmpty(),
       body('cost').trim().isLength({ min: 1 }).not().isEmpty(),
+      body('tripid').stripLow().isLength({min:1}).not().isEmpty(),
     ],
     eventController.postHotel
 );

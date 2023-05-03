@@ -4,6 +4,7 @@
  */
 export interface Flight{
     tripid:Number,
+    id:Number,
     userid: Number,
     tripname: String,
 

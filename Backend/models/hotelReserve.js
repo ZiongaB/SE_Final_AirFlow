@@ -29,12 +29,14 @@ module.exports = class HotelReserve {
     //Function to insert new entry into database using values from passed objects
     static save(post){
         return db.execute(
-            'INSERT INTO Airflow.hotels (user, tripname, hotel, checkin, checkout, cost) VALUES (?,?,?,?,?,?)',
-            [post.user, post.tripname, post.hotel, post.checkin, post.checkout, post.cost]
+            'INSERT INTO Airflow.hotels (user, tripname, hotel, checkin, checkout, cost,tripid) VALUES (?,?,?,?,?,?,?)',
+            [post.user, post.tripname, post.hotel, post.checkin, post.checkout, post.cost,post.tripid]
         );
     }
-
     static delete(id){
-        return db.execute('DELETE FROM Airflow.flights WHERE id = ?',[id]);
+        return db.execute('delete from Airflow.hotels where id = ?',[id]);
+    }
+    static deleteid(id){
+        return db.execute('DELETE FROM Airflow.hotels WHERE tripid = ?',[id]);
     } 
 }
