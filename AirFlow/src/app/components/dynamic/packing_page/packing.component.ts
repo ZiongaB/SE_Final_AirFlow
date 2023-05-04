@@ -17,7 +17,7 @@ export class PackingComponent {
   toDisplay = false;
   packingForm: FormGroup
   thisTrip!: Trip;
-  thisFlight!:Flight
+  allflights!:Flight[]
   isDisplayed=false;
 
 constructor(private tripService:TripService, private flightService: FlightReserveService){
@@ -36,7 +36,6 @@ constructor(private tripService:TripService, private flightService: FlightReserv
   createFormGroup():FormGroup{
     return new FormGroup({
       tripname: new FormControl("", [Validators.required, Validators.minLength(1)]),
-      destination: new FormControl("", [Validators.required, Validators.minLength(1)]),
     });
   }
 
@@ -53,11 +52,7 @@ constructor(private tripService:TripService, private flightService: FlightReserv
         }
       }
       this.flightService.fetchAll().subscribe(posts=>{
-        for(const y of posts){
-          if(y.tripid==this.thisTrip.id){
-            this.thisFlight=y;
-          }
-        }
+        this.allflights = posts;
         this.isDisplayed=true;
       })
 
@@ -68,7 +63,7 @@ constructor(private tripService:TripService, private flightService: FlightReserv
   }
 
   typesOfItems: string[] = ['Boarding pass', 'Wallet', 'Drivers License','Cellphone','Laptop/Tablet', 'Optional: Passport', "Electronic Chargers", 'Outlet Adapter'];
-  typesOfClothes: string[] = ['Shirt', 'Jacket', 'Dress','Jeans','Swim Shorts', 'Hats', 'Suits', 'Ties', 'Hiking Boots', 'Skirts', 'Socks'];
+  typesOfClothes: string[] = ['Shirt', 'Jacket', 'Dress','Jeans','Swim Shorts', 'Hats', 'Suits', 'Ties', 'Hiking Boots', 'Skirts'];
 
 
 }
