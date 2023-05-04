@@ -7,6 +7,9 @@
 const { validationResult } = require('express-validator');
 const Trip = require('../models/trip');
 const { restart } = require('nodemon');
+const HotelReserve = require('../models/hotelReserve');
+const FlightReserve = require('../models/flightReserve');
+const CarReserve = require('../models/carReserve');
 
 //Export fetchAll to be used
 exports.fetchAll = async (req, res, next) => {
@@ -28,6 +31,9 @@ exports.fetchAll = async (req, res, next) => {
 
 exports.deleteTrip = async(req,res,next)=>{
   try{    
+    const deleteCar = await CarReserve.deleteid(req.params.id)
+    const deleteFlight = await FlightReserve.deleteid(req.params.id)
+    const deleteHotel = await HotelReserve.deleteid(req.params.id)
     const deleteresponse =await Trip.delete(req.params.id);
     res.status(200).json({deleteresponse});
 }catch(err){
@@ -59,8 +65,7 @@ exports.postTrip = async (req, res, next) => {
 
     //Call save function
     const result = await Trip.save(post);
-    const catching = await Trip.catch();
-    res.status(201).json({ message: catching[0][0].id });
+    res.status(201).json({ msg:"Posted!"});
 
     
   //Catch errors

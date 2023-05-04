@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
-import { FormGroup } from '@angular/forms';
-import {FormControl, Validators } from '@angular/forms';
-import { Flight } from '../../models/Flight';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Packinglist } from '../../models/PackingList';
+import { TripService } from '../../services/trip.service';
 import { Trip } from '../../models/Trip';
 import { FlightReserveService } from '../../services/flight-reserve.service';
-import { TripService } from '../../services/trip.service';
+import { Flight } from '../../models/Flight';
 
 @Component({
   selector: 'app-packing',
@@ -16,9 +15,8 @@ export class PackingComponent {
   toDisplay = false;
   packingForm: FormGroup
   thisTrip!: Trip;
-  thisFlight: Flight;
-  isDisplay = false;
-
+  thisFlight!:Flight
+  isDisplayed=false;
 
 constructor(private tripService:TripService, private flightService: FlightReserveService){
 
@@ -26,43 +24,48 @@ constructor(private tripService:TripService, private flightService: FlightReserv
 }
 
   ngOnInit(){
-    this.packingForm = this.creatFormGroup();
+    this.packingForm = this.createFormGroup();
   }
 
   toggleData() {
     this.toDisplay = !this.toDisplay;
   }
 
-  creatFormGroup():FormGroup{
+
+  createFormGroup():FormGroup{
     return new FormGroup({
       tripname: new FormControl("", [Validators.required, Validators.minLength(1)]),
       destination: new FormControl("", [Validators.required, Validators.minLength(1)]),
     });
   }
 
-  submit(formData:Pick<Packinglist, "tripname" | "destination">): void {
-   this.tripService.fetchAll().subscribe(posts =>{
-    for(const x of posts){
-      if(x.tripname == formData.tripname){
-        this.thisTrip = x;
-      }
-    }
-    this.flightService.fetchAll().subscribe(post => {
-      for(const y of post){
-        if(y.tripid == this.thisTrip.id){
-          this.thisFlight = y;
-        }
-      }
-      this.isDisplay = true;
-    })
-
-
-  });
-
-    this.packingForm.reset();
-
+  toDate(thing:any):Date{
+    const dt = new Date(thing);
+    return dt;
   }
 
-  typesOfShoes: string[] = ['Boarding pass', 'Wallet', 'Drivers License', 'Cellphone', 'Laptop', 'Optional: Passport'];
+  submit(formData:Pick<Packinglist,"tripname"|"destination">):void{
+    this.tripService.fetchAll().subscribe(posts =>{
+      for(const x of posts){
+        if(x.tripname == formData.tripname){
+          this.thisTrip=x;
+        }
+      }
+      this.flightService.fetchAll().subscribe(posts=>{
+        for(const y of posts){
+          if(y.tripid==this.thisTrip.id){
+            this.thisFlight=y;
+          }
+        }
+        this.isDisplayed=true;
+      })
+      
+    });
+
+
+    this.packingForm.reset();
+  }
+
+  typesOfShoes: string[] = ['Boarding pass', 'Wallet', 'Drivers License','Cellphone','Laptop', 'Optional: Passport'];
 
 }

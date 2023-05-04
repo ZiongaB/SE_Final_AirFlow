@@ -14,7 +14,7 @@ import { User } from '../models/User';
   providedIn: 'root'
 })
 export class PackinglistService {
-  private url = "https://localhost:3000//packinglists";
+  private url = "http://localhost:3000/packinglists";
 
   public packinglistData!: [];
   public filteredPackinglist!: [];

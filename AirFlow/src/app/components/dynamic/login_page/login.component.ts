@@ -26,10 +26,12 @@ export class LoginComponent {
     this.loginForm = this.createFormGroup();
   }
   login(): void{
-    this.authService.login(this.loginForm.value.email,this.loginForm.value.password).subscribe( res => {
-      alert('Logged in');
+    this.authService.login(this.loginForm.value.email,this.loginForm.value.password).subscribe(res =>{
+      if(res==undefined){
+        alert("Logged in incorrectly.");
+      }
     });
-
+    
   }
 
 }

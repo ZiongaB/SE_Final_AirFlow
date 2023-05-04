@@ -1,33 +1,28 @@
 <h1>Packing page</h1>
 
 <div class="center">
-<form [formGroup] = "packingForm" (ngSubmit)=submit(packingForm.value) novalidate class="example-form">
+<form [formGroup]="packingForm" (ngSubmit)=submit(packingForm.value) novalidate class="example-form" > 
   <mat-form-field class="example-full-width">
     <mat-label>Trip name</mat-label>
-    <input matInput placeholder="Ex. Venice" matInput rows = "4" formControlName = "tripname">
+    <input matInput placeholder="Ex. Venice" matInput rows = "4" formControlName="tripname">
   </mat-form-field>
   <mat-form-field class="example-full-width">
     <mat-label>Destination</mat-label>
-    <input matInput placeholder="Ex. Denver, Colorado"  formControlName = "destination">
+    <input matInput placeholder="Ex. Denver, Colorado"  formControlName="destination">
   </mat-form-field>
   <div class="button" >
     <button color="accent" [disabled]="!packingForm.valid" mat-raised-button type="submit" class="submitb">
       <span>Submit</span></button>
   </div>
   <hr>
-</form>
+  </form>
 
-<!--  displaying the flight information -->
-<div class = "display" *ngIf="isDisplay">
-  <b>Trip Name:</b> {{thisTrip.tripname}}<br>
-  <!-- <b>Parking Space:</b>{{post.id}} <br> -->
-  <b id="departnum">Departing Flight Number:</b>{{thisFlight.flight1}} <br>
-  <b id="departtime">Departing Flight Time:</b>{{thisFlight.time1}} <br>
-  <b id="returnnum">Returning Flight Number:</b>{{thisFlight.flight2}} <br>
-  <b id="returntime">Returning Flight Time:</b>{{thisFlight.time2}}
-</div>
-
-
+  <div class="display" *ngIf="isDisplayed"> 
+    <b>Trip Name:</b> {{thisTrip.tripname}}<br>
+                <!-- <b>Parking Space:</b>{{post.id}} <br> -->
+                <b id="departnum">Departing Flight Number:</b>{{thisFlight.flight}} <br>
+                <b id="departtime">Departing Flight Time:</b>{{toDate(thisFlight.time)}} <br>
+  </div>
   <!-- <mat-form-field class="example-full-width">
     <mat-label>Leave a comment</mat-label>
     <textarea matInput placeholder="Ex. Flight details" ></textarea>

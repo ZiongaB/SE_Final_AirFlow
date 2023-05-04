@@ -1,0 +1,45 @@
+<button (click)="this.createFlight=!this.createFlight" id="ifButton">Create Flight Reservation</button>
+  <div *ngIf="createFlight" >
+        <form [formGroup]=flightForm (ngSubmit)=submit(flightForm.value) novalidate>
+            <span class="biglabels">Flight information: <br></span>
+            <mat-form-field class="field">
+                <mat-label>Flight number</mat-label>
+                <input matInput placeholder="ex: BA 98" formControlName="flight">
+            </mat-form-field>
+            <mat-form-field class="field">
+                <mat-label>Cost</mat-label>
+                <input matInput type="number" placeholder="ex:200.00" formControlName="cost">
+            </mat-form-field>
+            <mat-form-field class="field">
+                <mat-label>Date</mat-label>
+                <input matInput formControlName="time" 
+                [matDatepicker]="time1Picker" (click)="time1Picker.open()">
+                <mat-datepicker-toggle matSuffix [for]="time1Picker"></mat-datepicker-toggle>
+                <mat-datepicker #time1Picker></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field class="field">
+                <mat-label>Time</mat-label>
+                <input matInput type="text" placeholder="ex: 14:20" formControlName="time2" >
+            </mat-form-field>
+            <div class="button" >
+                <button color="accent" [disabled]="!flightForm.valid" mat-raised-button type="submit" class="submitb">
+                <span>Submit</span></button>
+            </div>
+        </form>
+    </div>
+
+<div class="trips">
+    <button (click)="this.flightVisible=!this.flightVisible" type="checkbox" >show/hide Flight Reservations</button>
+    <ng-container *ngIf = "flightVisible">
+        <hr>
+        <div *ngFor="let post of allFlight" >
+            <ng-container *ngIf="tripid==post.tripid">
+            <b >Flight Number:</b>{{post.flight}} <br>
+            <b >Flight Time:</b>{{toDate(post.time)}} <br> 
+            <button mat-icon-button  (click)="deleteFlight(post.id)" id="deletebutton"> <mat-icon  color="warn" class="button"> delete</mat-icon></button>
+            <hr>
+        </ng-container>
+        </div>
+    </ng-container>
+</div>
+

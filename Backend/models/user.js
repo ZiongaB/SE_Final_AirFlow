@@ -22,16 +22,16 @@ module.exports = class User{
 
     static budget(userDetails){
         return db.execute(
-            'UPDATE user SET Total_budget = ?  WHERE Email = ?', [userDetails.total_budget ,userDetails.email]
+            'UPDATE user SET Total_budget = ?  WHERE ID = ?', [userDetails.budget ,userDetails.id]
         );
     }
 
     static fetchBudget(userId)
     {
+        //console.log("check")
         return db.execute(
-            `SELECT Total_budget FROM user WHERE user = ${userId}`
+            `SELECT Total_budget FROM user WHERE ID = ${userId}`
         );
     }
     
 };
-

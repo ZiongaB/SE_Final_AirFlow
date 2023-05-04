@@ -59,6 +59,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker'
 import { MatNativeDateModule,MatRippleModule } from '@angular/material/core';
 import { HotelPartComponent } from './components/dynamic/hotel-part/hotel-part.component';
 import { CarPartComponent } from './components/dynamic/car-part/car-part.component';
+import { FlightPartComponent } from './components/dynamic/flight-part/flight-part.component';
 
 
 
@@ -90,6 +91,7 @@ import { CarPartComponent } from './components/dynamic/car-part/car-part.compone
     TripsPartComponent,
     HotelPartComponent,
     CarPartComponent,
+    FlightPartComponent,
   
 
   ],

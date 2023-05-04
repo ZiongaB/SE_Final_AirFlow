@@ -76,9 +76,11 @@ exports.budget = async (req,res,next) =>{
 
     try{    
         const userDetails = {
-            email:email,
-            password: budget
+            id:id,
+            budget: budget
         }
+
+        //console.log(userDetails);
         
         const result  = await User.budget(userDetails);
         res.status(200).json("Budget Updated");
@@ -96,10 +98,12 @@ exports.budget = async (req,res,next) =>{
 //Export fetchAll to be used
 exports.fetchBudget = async (req, res, next) => {
     const ID =req.params.id;
+    //console.log(req.params.id)
     
     try {
-        const [allPosts] = await Trip.fetchBudget(ID);
-        res.status(200).json(allPosts);
+        const allPosts = await User.fetchBudget(ID);
+        //console.log(allPosts[0]);
+        res.status(200).json(allPosts[0]);
     } catch (err) {
         if (!err.statusCode) {
           err.statusCode = 500;

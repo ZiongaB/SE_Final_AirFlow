@@ -47,12 +47,9 @@ exports.postFlight = async (req, res, next) => {
   //Set constants to variable data
   const user = req.body.userId;
   const tripname = req.body.tripname;
-  const flight1 = req.body.flight1;
-  const cost1 = req.body.cost1;
-  const time1 = req.body.time1;
-  const flight2 = req.body.flight2;
-  const cost2 = req.body.cost2;
-  const time2 = req.body.time2;
+  const flight = req.body.flight;
+  const cost = req.body.cost;
+  const time = req.body.time;
   const tripid = req.body.tripid;
 
   //Create a post object using variables
@@ -60,12 +57,9 @@ exports.postFlight = async (req, res, next) => {
     const post = {
       user: user,
       tripname: tripname,
-      flight1: flight1,
-      cost1: cost1,
-      time1: time1,
-      flight2: flight2,
-      cost2: cost2,
-      time2: time2,
+      flight: flight,
+      cost: cost,
+      time: time,
       tripid:tripid
     };
     //Call save function

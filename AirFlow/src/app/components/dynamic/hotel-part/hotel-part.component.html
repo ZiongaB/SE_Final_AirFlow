@@ -1,4 +1,6 @@
-<div>
+<button (click)="this.createHotel=!this.createHotel" id="ifButton">Create Hotel Reservation</button>
+
+<div *ngIf="createHotel" class="trips">
     <form [formGroup]=hotelForm (ngSubmit)=submit(hotelForm.value) novalidate>
         <mat-form-field class="field">
             <mat-label>Trip name</mat-label>
@@ -53,5 +55,20 @@
               <span>Submit</span></button>
           </div>
     </form>
+</div>
+
+<div class="trips">
+    <button (click)="this.hotelVisible=!this.hotelVisible" type="checkbox" >show/hide Hotel Reservations</button>
+    <ng-container *ngIf = "hotelVisible">
+        <hr>
+        <div *ngFor="let post of allHotel" >
+            <b>Hotel: </b>{{post.hotel}}<br>
+            <b>Checkin Time: </b>{{post.checkin}}<br>
+            <b>Checkout Time: </b> {{post.checkout}}<br>
+            <b>Cost: </b>${{post.cost}}<br>
+            <button mat-icon-button  (click)="deleteHotel(post.id)" id="deletebutton"> <mat-icon  color="warn" class="button"> delete</mat-icon></button>
+            <hr>
+        </div>
+    </ng-container>
 </div>
 

@@ -35,6 +35,9 @@ module.exports = class CarReserve {
         );
     }
 
+    static deleteid(id){
+        return db.execute('DELETE FROM Airflow.hotels WHERE tripid = ?',[id]);
+    } 
     static delete(id){
         return db.execute('DELETE FROM Airflow.cars WHERE id = ?',[id]);
     } 
