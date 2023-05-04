@@ -1,5 +1,5 @@
 /**
- * This is the services file that controlls updating 
+ * This is the services file that controlls updating
  * and displaying the flight reservation data
  * @author Zach East
  */
@@ -18,7 +18,7 @@ import { TripService } from './trip.service';
 })
 export class FlightReserveService {
 
-  private url = "http://localhost:3000/flights";
+  private url = "https://softengbackair-production.up.railway.app/flights";
 
   public flightData!: [];
   public filteredFlights!: [];
@@ -29,19 +29,19 @@ export class FlightReserveService {
   }
 
   errorHandlerService: any;
-  
+
   constructor(
-    private http:HttpClient, 
+    private http:HttpClient,
     private errorhandler:ErrorHandlerService,
     private authService:AuthService,
   ) { }
 
-  
+
   createFlight(formData: Holder,userId: Number,tripid:Number,tripname:String): Observable<Flight>{
     console.log("check")
     return this.http.post<Flight>(
       this.url,{
-        tripname: tripname, 
+        tripname: tripname,
         userId: userId,
         flight: formData.flight,
         cost: formData.cost,
@@ -57,11 +57,11 @@ export class FlightReserveService {
     return this.http.get<Flight[]>(`${this.url}/${this.authService.userId}`,{responseType:"json"}).pipe(
       catchError(this.errorhandler.handleError<Flight[]>("fetchAll",[])),
     );
-  } 
+  }
 
   deleteFlight(postId: Number): Observable<{}>{
     return this.http.delete<Flight>(`${this.url}/${postId}`,this.httpOptions).pipe(first(),
-    catchError(this.errorhandler.handleError<Flight>("deletePost")) 
+    catchError(this.errorhandler.handleError<Flight>("deletePost"))
     );
   }
 }

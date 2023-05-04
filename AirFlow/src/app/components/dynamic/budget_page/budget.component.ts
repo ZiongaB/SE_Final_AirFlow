@@ -60,9 +60,7 @@ export class BudgetComponent {
 
     this.filterAndFetch()
   }
-
   
-
   updateVisual()
   {
     this.fetchBudget();
