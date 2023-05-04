@@ -71,7 +71,7 @@ exports.login = async (req,res,next) =>{
 }
 
 exports.budget = async (req,res,next) =>{
-    const email = req.body.name;
+    const id = req.body.id;
     const budget = req.body.budget
 
     try{    
@@ -87,7 +87,7 @@ exports.budget = async (req,res,next) =>{
 
     }catch(err){
         if (!err.statusCode){
-            console.log("error!");
+            console.log(err);
             err.statusCode = 500;
         }
         next(err)
