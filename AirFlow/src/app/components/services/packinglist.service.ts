@@ -40,7 +40,7 @@ export class PackinglistService {
       this.url,{
         tripname: formData.tripname,
         userId: userId,
-
+        
         item1: generatedList[0],
         item2: generatedList[0],
         item3: generatedList[0],
