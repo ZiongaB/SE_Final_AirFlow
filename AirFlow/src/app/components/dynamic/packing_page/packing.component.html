@@ -1,7 +1,7 @@
 
 
 <div class="center">
-<form [formGroup]="packingForm" (ngSubmit)=submit(packingForm.value) novalidate class="example-form" > 
+  <form [formGroup]="packingForm" (ngSubmit)=submit(packingForm.value) novalidate class="example-form" > 
   <mat-form-field class="example-full-width">
     <mat-label>Trip name</mat-label>
     <input matInput placeholder="Ex. Venice" matInput rows = "4" formControlName="tripname">
@@ -28,41 +28,42 @@
             </div>
           </div>
   </div>
-</div>
-<h1>Packing List</h1>
-<hr>
-<h2>Miscellaneous Items</h2>
-<!-- <mat-form-field class="example-full-width"> -->
-<mat-label>Trip name</mat-label>
-<mat-selection-list #items>
-  <mat-list-option *ngFor="let items of typesOfItems">
-  {{items}}
-    </mat-list-option>
+<div class="center">
+  <h1>Packing List</h1>
+  <hr>
+  <h2>Miscellaneous Items</h2>
   <!-- <mat-form-field class="example-full-width"> -->
+  <mat-label>Trip name</mat-label>
+  <mat-selection-list #items>
+      <mat-list-option *ngFor="let items of typesOfItems">
+      {{items}}
+        </mat-list-option>
+      </mat-selection-list>
+    <!-- <mat-form-field class="example-full-width"> -->
+      <mat-divider> </mat-divider>
+      <h2>Clothes</h2>
+    <mat-selection-list #clothes>
+        <mat-list-option *ngFor="let clothes of typesOfClothes">
+        {{clothes}}
+      </mat-list-option>
+    </mat-selection-list>
+    <!-- </mat-form-field> -->
     <mat-divider> </mat-divider>
-    <h2>Clothes</h2>
-  <mat-selection-list #clothes>
-    <mat-list-option *ngFor="let clothes of typesOfClothes">
-    {{clothes}}
-  </mat-list-option>
-  </mat-selection-list>
-  <!-- </mat-form-field> -->
-  <mat-divider> </mat-divider>
+      <br>
+
+      <div class="button" >
+          <button color="accent" [disabled]="!packingForm.valid" mat-raised-button type="submit" class="submitb">
+        <span>Submit</span></button>
+        <br>
+
+      </div>
+</div>
   <br>
-
-<div class="button" >
-  <button color="accent" [disabled]="!packingForm.valid" mat-raised-button type="submit" class="submitb">
-<span>Submit</span></button>
-<br>
-
-</div>
-
-<p></p>
-<div class ="result_font">
-  <p>
-Miscellaneous selected: {{items.selectedOptions.selected.length}}  &nbsp; Clothing selected: {{clothes.selectedOptions.selected.length}}
-  </p>
-</div>
+      <div class ="result_font">
+          <p>
+        Miscellaneous selected: {{items.selectedOptions.selected.length}}  &nbsp; Clothing selected: {{clothes.selectedOptions.selected.length}}
+          </p>
+      </div>
 
 <svg id="clouds" xmlns="http://www.w3.org/2000/svg" width="2611.084" height="485.677" viewBox="0 0 2611.084 485.677">
   <title>Gray Clouds Background</title>
