@@ -9,6 +9,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule,HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptorService } from './components/services/auth-interceptor.service';
 import{CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+
 
 
 //<!-- Sebastian Mark -->
@@ -52,7 +54,8 @@ import { MatMenuModule} from '@angular/material/menu';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { LayoutModule } from '@angular/cdk/layout';
 
-// Mat side nav module 
+
+// Mat side nav module
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatDivider, MatDividerModule } from '@angular/material/divider';
 import {MatDatepickerModule} from '@angular/material/datepicker'
@@ -79,7 +82,7 @@ import { FlightPartComponent } from './components/dynamic/flight-part/flight-par
     BudgetComponent,
     CalendarPageComponent,
     ChecklistPageComponent,
-    
+
     Airport1PageComponent,
     Airport2PageComponent,
     Airport3PageComponent,
@@ -92,7 +95,7 @@ import { FlightPartComponent } from './components/dynamic/flight-part/flight-par
     HotelPartComponent,
     CarPartComponent,
     FlightPartComponent,
-  
+
 
   ],
   imports: [
@@ -112,15 +115,16 @@ import { FlightPartComponent } from './components/dynamic/flight-part/flight-par
     MatToolbarModule,
     MatSelectModule,
     MatMenuModule,
-    FlexLayoutModule, 
+    FlexLayoutModule,
     LayoutModule,
     MatSidenavModule,
     MatDividerModule,
     MatDatepickerModule,
     MatNativeDateModule,
     MatRippleModule,
-    
-    
+    MatSlideToggleModule,
+
+
   ],
   providers: [
     {

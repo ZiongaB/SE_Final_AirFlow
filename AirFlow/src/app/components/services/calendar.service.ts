@@ -1,5 +1,5 @@
 /**
- * This is the services file that controlls updating 
+ * This is the services file that controlls updating
  * and displaying the Calendar data
  * @author Zach East
  */
@@ -42,6 +42,6 @@ export class CalendarService {
     return this.http.get<CalendarItem[]>(this.url,{responseType:"json"}).pipe(
       catchError(this.errorhandler.handleError<CalendarItem[]>("fetchAll",[])),
     );
-  } 
+  }
 
 }

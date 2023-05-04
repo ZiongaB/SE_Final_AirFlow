@@ -1,5 +1,5 @@
 /**
- * This is the services file that controlls updating 
+ * This is the services file that controlls updating
  * and displaying the checklist data
  * @author Zach East
  */
@@ -48,6 +48,6 @@ export class ChecklistService {
     return this.http.get<Checklist[]>(this.url,{responseType:"json"}).pipe(
       catchError(this.errorhandler.handleError<Checklist[]>("fetchAll",[])),
     );
-  } 
+  }
 
 }
