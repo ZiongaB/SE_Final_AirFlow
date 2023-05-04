@@ -22,6 +22,7 @@
     "@angular/platform-browser-dynamic": "^15.0.0",
     "@angular/router": "^15.0.0",
     "@syncfusion/ej2": "^21.1.41",
+    "@types/googlemaps": "^3.43.3",
     "angular-dropdown-menu": "^0.3.0",
     "angular-mat-datepicker": "^0.0.2",
     "body-parser": "^1.20.2",

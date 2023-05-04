@@ -14,7 +14,7 @@ import { User } from '../models/User';
   providedIn: 'root'
 })
 export class PackinglistService {
-  private url = "http://localhost:3000/packinglists";
+  private url = "https://softengbackair-production.up.railway.app/packinglists";
 
   public packinglistData!: [];
   public filteredPackinglist!: [];
@@ -42,16 +42,17 @@ export class PackinglistService {
         userId: userId,
 
         item1: generatedList[0],
-        item2: generatedList[0],
-        item3: generatedList[0],
-        item4: generatedList[0],
-        item5: generatedList[0],
+        item2: generatedList[1],
+        item3: generatedList[2],
+        item4: generatedList[3],
+        item5: generatedList[4],
 
-        item6: generatedList[0],
-        item7: generatedList[0],
-        item8: generatedList[0],
-        item9: generatedList[0],
-        item10: generatedList[0],
+        item6: generatedList[5],
+        item7: generatedList[6],
+        item8: generatedList[7],
+        item9: generatedList[8],
+        item10: generatedList[9],
+
       },this.httpOptions
         ).pipe(
       catchError(this.errorhandler.handleError<Packinglist>("createPackinglist")),

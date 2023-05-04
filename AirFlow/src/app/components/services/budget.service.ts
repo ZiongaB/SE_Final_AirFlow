@@ -11,7 +11,7 @@ import { AuthService } from './auth.service';
 })
 export class BudgetService {
 
-    private url = "http://localhost:3000/auth";
+    private url = "https://softengbackair-production.up.railway.app/auth";
 
     isUserLoggedIn$ = new BehaviorSubject<boolean>(false);
     userId: User["id"];
@@ -19,7 +19,7 @@ export class BudgetService {
     httpOptions: {headers:HttpHeaders}={
         headers: new HttpHeaders({"Content-Type" : "application/json"})
     }
-    
+
     errorHandlerService: any;
     constructor(private http:HttpClient, private errorhandler:ErrorHandlerService, private authService: AuthService) { }
 

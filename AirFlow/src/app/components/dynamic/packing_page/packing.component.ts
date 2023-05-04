@@ -6,6 +6,8 @@ import { Trip } from '../../models/Trip';
 import { FlightReserveService } from '../../services/flight-reserve.service';
 import { Flight } from '../../models/Flight';
 
+
+
 @Component({
   selector: 'app-packing',
   templateUrl: './packing.component.html',
@@ -19,7 +21,6 @@ export class PackingComponent {
   isDisplayed=false;
 
 constructor(private tripService:TripService, private flightService: FlightReserveService){
-
 
 }
 
@@ -59,13 +60,15 @@ constructor(private tripService:TripService, private flightService: FlightReserv
         }
         this.isDisplayed=true;
       })
-      
+
     });
 
 
     this.packingForm.reset();
   }
 
-  typesOfShoes: string[] = ['Boarding pass', 'Wallet', 'Drivers License','Cellphone','Laptop', 'Optional: Passport'];
+  typesOfItems: string[] = ['Boarding pass', 'Wallet', 'Drivers License','Cellphone','Laptop/Tablet', 'Optional: Passport', "Electronic Chargers", 'Outlet Adapter'];
+  typesOfClothes: string[] = ['Shirt', 'Jacket', 'Dress','Jeans','Swim Shorts', 'Hats', 'Suits', 'Ties', 'Hiking Boots', 'Skirts', 'Socks'];
+
 
 }
