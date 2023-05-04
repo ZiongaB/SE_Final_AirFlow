@@ -17,29 +17,29 @@
   <div class="display" *ngIf="isDisplayed"> 
     <div *ngFor="let thisTrip of allTrip">
       <div *ngIf="thisTrip.tripname == tripname">
-    <b>Trip Name:</b> {{thisTrip.tripname}}<br>
-                
-                <div *ngFor="let thisFlight of allflights" >
-                  <div *ngIf="thisTrip.id == thisFlight.tripid">
+          <b>Trip Name:</b> {{thisTrip.tripname}}<br>
+            <div *ngFor="let thisFlight of allflights" >
+              <div *ngIf="thisTrip.id == thisFlight.tripid">
                 <b id="departnum">Flight Number:</b>{{thisFlight.flight}} <br>
                 <b id="departtime">Flight Time:</b>{{toDate(thisFlight.time)}} <br>
-                </div>
               </div>
             </div>
-          </div>
+            <app-packinglist-part [tripid]="thisTrip.id" [tripname]="thisTrip.tripname"></app-packinglist-part>
+        </div>
+      </div>
   </div>
 <div class="center">
-  <h1>Packing List</h1>
+  <!-- <h1>Packing List</h1>
   <hr>
   <h2>Miscellaneous Items</h2>
-  <!-- <mat-form-field class="example-full-width"> -->
-  <mat-label>Trip name</mat-label>
+  <mat-form-field class="example-full-width">
   <mat-selection-list #items>
       <mat-list-option *ngFor="let items of typesOfItems">
       {{items}}
         </mat-list-option>
       </mat-selection-list>
-    <!-- <mat-form-field class="example-full-width"> -->
+    <mat-form-field class="example-full-width"> -->
+     
       <mat-divider> </mat-divider>
       <h2>Clothes</h2>
     <mat-selection-list #clothes>
@@ -61,7 +61,7 @@
   <br>
       <div class ="result_font">
           <p>
-        Miscellaneous selected: {{items.selectedOptions.selected.length}}  &nbsp; Clothing selected: {{clothes.selectedOptions.selected.length}}
+        Miscellaneous selected: <!--{{items.selectedOptions.selected.length}}-->  &nbsp; Clothing selected: {{clothes.selectedOptions.selected}}
           </p>
       </div>
 

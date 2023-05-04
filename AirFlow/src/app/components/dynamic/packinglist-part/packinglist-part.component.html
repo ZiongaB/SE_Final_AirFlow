@@ -1,0 +1,12 @@
+<button (click)="this.showPacking=!this.showPacking" id="ifButton">Show Packing list</button>
+<div class="center" *ngIf="this.showPacking">
+    <h1>Packing List</h1>
+  <hr>
+  <h2>Miscellaneous Items</h2>
+  <!-- <mat-form-field class="example-full-width"> -->
+  <mat-selection-list #items>
+      <mat-list-option *ngFor="let items of typesOfItems">
+      {{items}}
+        </mat-list-option>
+      </mat-selection-list>
+</div>
