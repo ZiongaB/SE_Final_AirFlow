@@ -39,7 +39,7 @@ const routes: Routes = [
   { path: "budget", component: BudgetComponent, canActivate:[AuthGuardService]  },
   { path: "calendar", component: CalendarPageComponent, canActivate:[AuthGuardService]  },
   { path: "checklist", component: ChecklistPageComponent, canActivate:[AuthGuardService]  },
-  { path: "packing", component: PackingComponent,   },
+  { path: "packing", component: PackingComponent, canActivate:[AuthGuardService]   },
 
   // navbar routing
   { path: "signup", component: SignupComponent },
