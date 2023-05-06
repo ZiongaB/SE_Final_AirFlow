@@ -15,7 +15,7 @@ import { AuthService } from './auth.service';
   providedIn: 'root'
 })
 export class HotelReserveService {
-  private url = "https://softengbackair-production.up.railway.app/hotels";
+  private url = "http://localhost:3000/hotels";
 
   public packinglistData!: [];
   public filteredPackinglist!: [];

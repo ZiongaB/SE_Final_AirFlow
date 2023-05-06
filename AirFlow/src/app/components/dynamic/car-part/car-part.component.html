@@ -1,6 +1,6 @@
 <button (click)="this.createCar = !this.createCar" id="ifButton">Create Rental Car</button>
 
-<div *ngIf="createCar" class="trips">
+<div *ngIf="createCar" >
     <form [formGroup]=carForm (ngSubmit)=submit(carForm.value) novalidate>
         <mat-form-field class="field">
             <mat-label>Trip name</mat-label>
@@ -59,7 +59,7 @@
     </form>
 </div>
 
-<div class="trips">
+<div >
     <button (click)="this.carVisible=!this.carVisible" type="checkbox" >show/hide Rental Cars</button>
     <ng-container *ngIf = "carVisible">
         <hr>

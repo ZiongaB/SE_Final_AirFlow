@@ -50,10 +50,7 @@ export class BudgetComponent {
 
   ngOnInit(){
 
-    this.carCost = 0;
-    this.fliCost = 0;
-    this.hotCost = 0;
-    this.totalCosts = 0;
+    
 
     this.updateForm = this.createFormGroup();
     //this.fetchBudget();
@@ -63,7 +60,7 @@ export class BudgetComponent {
   
   updateVisual()
   {
-    this.fetchBudget();
+    this.filterAndFetch();
   }
 
   fetchBudget()
@@ -71,7 +68,8 @@ export class BudgetComponent {
     this.budgetService.fetchBudget().subscribe(posts =>{
       this.budget = posts;
       this.displayBud = true;
-      console.log(this.budget[0].Total_budget);
+      this.fetchCars()
+      //console.log(this.budget[0].Total_budget);
       //this.usedBudget = <number>this.budget[0].Total_budget -this.totalCosts;
       //console.log("Currently used budget: "+this.usedBudget);
     })
@@ -82,6 +80,7 @@ export class BudgetComponent {
     this.carService.fetchAll().subscribe(posts =>{
       this.allCar = posts;
       this.getCarCost();
+      this.fetchFlights();
     })
   }
 
@@ -90,6 +89,7 @@ export class BudgetComponent {
     this.flightService.fetchAll().subscribe(posts =>{
       this.allFlight= posts;
       this.getFliCost();
+      this.fetchHotels();
     })
   }
 
@@ -104,17 +104,23 @@ export class BudgetComponent {
 
   filterAndFetch()
   {
-    console.log("Fetching Budget")
+    this.carCost = 0;
+    this.fliCost = 0;
+    this.hotCost = 0;
+    this.totalCosts = 0;
+    this.negative=false;
+    this.positive=false;
+    //console.log("Fetching Budget")
     this.fetchBudget();
 
-    console.log("Fetching Cars")
-    this.fetchCars();
-    console.log("Fetching Flights")
-    this.fetchFlights();
-    console.log("Fetching Hotels")
-    this.fetchHotels();
+   // console.log("Fetching Cars")
+    //this.fetchCars();
+   // console.log("Fetching Flights")
+    //this.fetchFlights();
+   // console.log("Fetching Hotels")
+    //this.fetchHotels();
 
-    console.log("TotalCost after all fetches:"+this.totalCosts)
+    //console.log("TotalCost after all fetches:"+this.totalCosts)
 
   }
 
@@ -184,7 +190,6 @@ export class BudgetComponent {
 
   
   submit(formData: User):void{
-    console.log(formData)
     this.budgetService.updateBudget(formData,this.authService.userId).pipe(first()).subscribe(()=>{
       this.create.emit(null);
       this.updateVisual();

@@ -16,9 +16,10 @@ import { Flight } from '../../models/Flight';
 export class PackingComponent {
   toDisplay = false;
   packingForm: FormGroup
-  thisTrip!: Trip;
+  allTrip!: Trip[];
   allflights!:Flight[]
   isDisplayed=false;
+  tripname : String;
 
 constructor(private tripService:TripService, private flightService: FlightReserveService){
 
@@ -45,14 +46,11 @@ constructor(private tripService:TripService, private flightService: FlightReserv
   }
 
   submit(formData:Pick<Packinglist,"tripname"|"destination">):void{
+    this.tripname = formData.tripname;
     this.tripService.fetchAll().subscribe(posts =>{
-      for(const x of posts){
-        if(x.tripname == formData.tripname){
-          this.thisTrip=x;
-        }
-      }
+      this.allTrip=posts;
       this.flightService.fetchAll().subscribe(posts=>{
-        this.allflights = posts;
+        this.allflights=posts;
         this.isDisplayed=true;
       })
 
