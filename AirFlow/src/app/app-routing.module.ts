@@ -39,14 +39,14 @@ const routes: Routes = [
   { path: "budget", component: BudgetComponent, canActivate:[AuthGuardService]  },
   { path: "calendar", component: CalendarPageComponent, canActivate:[AuthGuardService]  },
   { path: "checklist", component: ChecklistPageComponent, canActivate:[AuthGuardService]  },
-  { path: "packing", component: PackingComponent, canActivate:[AuthGuardService]  },
+  { path: "packing", component: PackingComponent, canActivate:[AuthGuardService] },
 
   // navbar routing
   { path: "signup", component: SignupComponent },
   { path: "trip", component: TripsComponent, canActivate:[AuthGuardService] },
   { path: "", component: HomeComponent},
   { path: "chatbot", component: ChatbotComponent},
- 
+
    //Airport routing
   { path: "airports", component: AirportsComponent},
   { path: "airport1", component: Airport1PageComponent },

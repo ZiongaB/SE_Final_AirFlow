@@ -59,7 +59,6 @@ export class BudgetComponent {
   topCostCategory: string;
   topCostValue: number;
 
-
   //Values to define which type of costs the user has the most of
   largestAmountCategory: string;
   largestAmountItems: number;
@@ -81,6 +80,7 @@ export class BudgetComponent {
     this.filterAndFetch()
   }
 
+
   //This is called whenever the user needs to update the page values
   updateVisual()
   {
@@ -95,7 +95,7 @@ export class BudgetComponent {
       this.budget = posts;
       this.displayBud = true;
       //Cars are fetched next
-      this.fetchCars()
+      this.fetchCars();
     })
   }
 

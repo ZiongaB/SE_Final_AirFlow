@@ -1,5 +1,5 @@
 /**
- * This is the services file that controlls updating 
+ * This is the services file that controlls updating
  * and displaying the hotel reservation data
  * @author Zach East
  */
@@ -28,7 +28,7 @@ export class HotelReserveService {
 
   errorHandlerService: any;
   constructor(
-    private http:HttpClient, 
+    private http:HttpClient,
     private errorhandler:ErrorHandlerService,
     private authService:AuthService,
   ) { }
@@ -37,7 +37,7 @@ export class HotelReserveService {
   ,userId: User["id"],tripid:Number,tripname:String): Observable<Hotel>{
     return this.http.post<Hotel>(
       this.url,{
-        tripname: tripname, 
+        tripname: tripname,
         hotel: formData.hotel,
         checkin: formData.checkin.getFullYear()+"-"+(formData.checkin.getUTCMonth()+1) +"-"+formData.checkin.getDate() +" "+formData.checkin2+":00",
         checkout: formData.checkout.getFullYear()+"-"+(formData.checkout.getUTCMonth()+1) +"-"+formData.checkout.getDate() +" "+formData.checkout2+":00",
@@ -54,11 +54,11 @@ export class HotelReserveService {
     return this.http.get<Hotel[]>(`${this.url}/${this.authService.userId}`,{responseType:"json"}).pipe(
       catchError(this.errorhandler.handleError<Hotel[]>("fetchAll",[])),
     );
-  } 
+  }
 
   deleteHotel(postId: Number): Observable<{}>{
     return this.http.delete<Hotel>(`${this.url}/${postId}`,this.httpOptions).pipe(first(),
-    catchError(this.errorhandler.handleError<Hotel>("deleteHotel")) 
+    catchError(this.errorhandler.handleError<Hotel>("deleteHotel"))
     );
   }
 

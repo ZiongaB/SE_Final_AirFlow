@@ -35,23 +35,12 @@ export class PackinglistService {
   //add function to update packing list
   //updatePacking()
 
-  createPackingList(formData: Pick<Packinglist,"tripname">,userId: User["id"], generatedList:string[]): Observable<Packinglist>{
+  createPackingList(formData: Pick<Packinglist,"tripname">,userId: User["id"]): Observable<Packinglist>{
+
     return this.http.post<Packinglist>(
       this.url,{
         tripname: formData.tripname,
         userId: userId,
-
-        item1: generatedList[0],
-        item2: generatedList[0],
-        item3: generatedList[0],
-        item4: generatedList[0],
-        item5: generatedList[0],
-
-        item6: generatedList[0],
-        item7: generatedList[0],
-        item8: generatedList[0],
-        item9: generatedList[0],
-        item10: generatedList[0],
       },this.httpOptions
         ).pipe(
       catchError(this.errorhandler.handleError<Packinglist>("createPackinglist")),
@@ -64,3 +53,17 @@ export class PackinglistService {
     );
   }
 }
+
+
+// tripid:tripid, surprise tool for later , generatedList:string[],tripid:Number
+// item1: generatedList[0],
+// item2: generatedList[1],
+// item3: generatedList[2],
+// item4: generatedList[3],
+// item5: generatedList[4],
+
+// item6: generatedList[5],
+// item7: generatedList[6],
+// item8: generatedList[7],
+// item9: generatedList[8],
+// item10: generatedList[9],

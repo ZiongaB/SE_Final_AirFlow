@@ -19,7 +19,7 @@ export class BudgetService {
     httpOptions: {headers:HttpHeaders}={
         headers: new HttpHeaders({"Content-Type" : "application/json"})
     }
-    
+
     errorHandlerService: any;
     constructor(private http:HttpClient, private errorhandler:ErrorHandlerService, private authService: AuthService) { }
 

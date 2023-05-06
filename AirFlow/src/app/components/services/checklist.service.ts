@@ -1,5 +1,5 @@
 /**
- * This is the services file that controlls updating 
+ * This is the services file that controlls updating
  * and displaying the checklist data
  * @author Zach East
  */
@@ -14,7 +14,7 @@ import { User } from '../models/User';
   providedIn: 'root'
 })
 export class ChecklistService {
-  private url = "https://softengbackair-production.up.railway.app/checklists";
+  private url = "http://localhost:3000/checklists";
 
   public checklistData!: [];
   public filteredChecklists!: [];
@@ -48,6 +48,6 @@ export class ChecklistService {
     return this.http.get<Checklist[]>(this.url,{responseType:"json"}).pipe(
       catchError(this.errorhandler.handleError<Checklist[]>("fetchAll",[])),
     );
-  } 
+  }
 
 }

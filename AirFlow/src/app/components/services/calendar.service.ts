@@ -1,5 +1,5 @@
 /**
- * This is the services file that controlls updating 
+ * This is the services file that controlls updating
  * and displaying the Calendar data
  * @author Zach East
  */
@@ -15,7 +15,7 @@ import { User } from '../models/User';
 })
 export class CalendarService {
 
-  private url = "https://softengbackair-production.up.railway.app/calendar";
+  private url = "http://localhost:3000/calendar";
   isUserLoggedIn$ = new BehaviorSubject<boolean>(false);
 
   public calendarItems!: CalendarItem[];
@@ -42,6 +42,6 @@ export class CalendarService {
     return this.http.get<CalendarItem[]>(this.url,{responseType:"json"}).pipe(
       catchError(this.errorhandler.handleError<CalendarItem[]>("fetchAll",[])),
     );
-  } 
+  }
 
 }

@@ -87,7 +87,7 @@ exports.budget = async (req,res,next) =>{
 
     }catch(err){
         if (!err.statusCode){
-            console.log("error!");
+            console.log(err);
             err.statusCode = 500;
         }
         next(err)
