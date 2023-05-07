@@ -5,6 +5,7 @@ import { TripService } from '../../services/trip.service';
 import { Trip } from '../../models/Trip';
 import { FlightReserveService } from '../../services/flight-reserve.service';
 import { Flight } from '../../models/Flight';
+import { PackinglistService } from '../../services/packinglist.service';
 
 
 
@@ -17,11 +18,12 @@ export class PackingComponent {
   toDisplay = false;
   packingForm: FormGroup
   allTrip!: Trip[];
-  allflights!:Flight[]
+  allflights!:Flight[];
+
   isDisplayed=false;
   tripname : String;
 
-constructor(private tripService:TripService, private flightService: FlightReserveService){
+constructor(private tripService:TripService, private flightService: FlightReserveService,private packingService:PackinglistService){
 
 }
 
@@ -52,7 +54,8 @@ constructor(private tripService:TripService, private flightService: FlightReserv
       this.flightService.fetchAll().subscribe(posts=>{
         this.allflights=posts;
         this.isDisplayed=true;
-      })
+      });
+      
 
     });
 

@@ -17,7 +17,7 @@ export class TripsPartComponent {
   
   tripForm: FormGroup
   @Output() create: EventEmitter<any> = new EventEmitter();
-  typesOfItems: string[] = ['Boarding pass', 'Wallet', 'Drivers License','Cellphone','Laptop/Tablet', 'Optional: Passport', "Electronic Chargers", 'Outlet Adapter'];
+  typesOfItems: string[] = ['Boarding pass', 'Wallet', 'Drivers License','Cellphone','Laptop/Tablet', 'Optional: Passport', "Electronic Chargers", 'Outlet Adapter','Suitcase','Carry-on'];
   
   ngOnInit(){
     this.tripForm = this.createFormGroup();
@@ -31,12 +31,25 @@ export class TripsPartComponent {
       tripname: new FormControl("", [Validators.required, Validators.minLength(1)]),
     })
   }
+  getPost(post:any):any{
+    return post.msg.id;
+  }
+  
+
   submit(formData: Trip):void{
+    var tripid = 0
+    this.TripService.createTrip(formData,this.authService.userId).subscribe(posts =>{
+      tripid = this.getPost(posts)
+      this.packingList.createPackingList(formData,this.authService.userId,this.typesOfItems,tripid).subscribe(posts =>{
+        console.log(posts)  
+        this.create.emit(null)
+        });
+    });
     
-    this.TripService.createTrip(formData,this.authService.userId).subscribe();
-    this.packingList.createPackingList(formData,this.authService.userId).subscribe(posts =>
-      console.log(posts));
-    this.create.emit(null);
+    
     this.tripForm.reset();
   }
+
+  
 }
+

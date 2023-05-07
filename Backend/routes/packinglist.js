@@ -8,10 +8,18 @@ const auth =  require('../middleware/auth');
 
 const router = express.Router();
 
-router.get('/', auth, eventController.fetchAll);
+router.get('/:id', auth, eventController.fetchAll);
+
+router.post('/edit',
+    [
+      auth,
+      body('tripid').trim().isLength({min:1}).not().isEmpty()
+    ],
+    eventController.editPacking
+);
 
 router.post(
-    '/',
+    '/create',
     [
       auth,
       body('userId').trim().isLength({ min: 1 }).not().isEmpty(),
