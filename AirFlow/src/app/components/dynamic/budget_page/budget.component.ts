@@ -69,7 +69,10 @@ export class BudgetComponent {
 
   suggestion1: string = "";
   suggestion2: string = "";
-  suggestion3: string = "";
+  negativeSuggest: string = "";
+  negativeSuggest2: string = "";
+  positiveSuggest: string = "";
+  positiveSuggest2: string = "";
 
 
   //On initializing page
@@ -264,10 +267,21 @@ export class BudgetComponent {
     if(this.usedBudget>0)
     {
       this.positive = true;
+      if (this.usedBudget<342)
+      {
+        this.positiveSuggest = "Did you know that the average cost for a flight out of Tampa International was $342.28 in Q4 2022? For SRQ it was $330.09";
+        this.positiveSuggest2 = "You learn more about Tampa International and SRQ here!"
+      }
+
+      this.positiveSuggest = "You're a bit low on funds! You may want to avoid making any more trip plans for the year!"
+      this.positiveSuggest2 = "If you need to free up cash perhaps you can free up some budget by removing some: "+this.topCostCategory +"!";
+      
     }
     else
     {
       this.negative = true;
+      this.negativeSuggest = "You have run overbudget!!! It might be a good idea to rethink your budget this year or some of your expenses!!!"
+      this.negativeSuggest2 = "If you want to save money you should think about modifying your existing trip expenses under this category: "+this.topCostCategory +".";
     }
 
     this.suggestion1 = "Most expensive category: "+ this.topCostCategory+ " with a cost of $"+ this.topCostValue;

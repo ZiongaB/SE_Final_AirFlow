@@ -7,9 +7,10 @@
 
 <div class ="hBack">
     
-        <h1 id="title"><b>Tampa International Airport</b></h1>
-        <p>Flying to Tampa? <a routerlink ="location2">Here's</a>some resources to plan your trip!!</p>
-
+    <h1 id="title"><b>Tampa International Airport</b></h1><br>
+    <div class = "middle">
+        <p>Flying to Tampa? <a color = "primary" routerLink="/location2" routerLinkActive="active">Here's </a>some resources to plan your trip!!</p>
+    </div>
     <div class = "middle">
         <h2>Airlines</h2>
         <p>Tampa International hosts flights from over twenty airlines!!</p>
@@ -257,7 +258,7 @@
         <div *ngIf="short">
             <p><b>Rates:</b><br>Under one hour is free; 60-80 minutes $4; each additional 20 min. $2</p>
             <p><b>Max Charge:</b><br>$24 max. per 24 hours (Tax included)</p>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1840.7894651715046!2d-82.53608025992084!3d27.979958910103715!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88c2c3a2650fd33f%3A0x43f3b1df9b13e37d!2sShort%20Term%20Parking%20Garage!5e0!3m2!1sen!2sus!4v1683418940037!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1840.7894651715046!2d-82.53608025992084!3d27.979958910103715!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88c2c3a2650fd33f%3A0x43f3b1df9b13e37d!2sShort%20Term%20Parking%20Garage!5e0!3m2!1sen!2sus!4v1683418940037!5m2!1sen!2sus" width ="100%" maxwidth="600" height="300" maxheight="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </div>
     <div class="side">
@@ -266,7 +267,7 @@
         <div *ngIf="long">
             <p><b>Rates:</b><br>Under one hour is free; 60-80 minutes $4; each additional 20 min. $2</p>
             <p><b>Max Charge:</b><br>$20 max. per 24 hours (Tax included)</p>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3523.591637856318!2d-82.53659967653489!3d27.975789991602454!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88c2c3e08b8cd4b5%3A0x7620d884e0e5a32d!2sLong%20Term%20Parking%20Garage!5e0!3m2!1sen!2sus!4v1683418820097!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3523.591637856318!2d-82.53659967653489!3d27.975789991602454!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88c2c3e08b8cd4b5%3A0x7620d884e0e5a32d!2sLong%20Term%20Parking%20Garage!5e0!3m2!1sen!2sus!4v1683418820097!5m2!1sen!2sus" width ="100%" maxwidth="600" height="300" maxheight="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </div>
     <div class="side">
@@ -275,7 +276,7 @@
         <div *ngIf="eTerminal">
             <p><b>Rates:</b><br>Under 15 minutes free; 15-20 minutes $1; each additional 20 mins. $1</p>
             <p><b>Max Charge:</b><br>$14 max. per 24 hours (Tax included)</p>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3662.953577018891!2d-82.5358649038359!3d27.966291432241253!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88c2c25b39399155%3A0x4746bc119d1226a7!2sTPA%20-%20Economy%20Parking%20Garage!5e0!3m2!1sen!2sus!4v1683418864504!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3662.953577018891!2d-82.5358649038359!3d27.966291432241253!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88c2c25b39399155%3A0x4746bc119d1226a7!2sTPA%20-%20Economy%20Parking%20Garage!5e0!3m2!1sen!2sus!4v1683418864504!5m2!1sen!2sus" width ="100%" maxwidth="600" height="300" maxheight="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </div>
     <div class="side">
@@ -283,14 +284,12 @@
         <button (click)="this.cell=!this.cell" type="checkbox" >View Rates/Map</button>
         <div *ngIf="cell">
             <p><b>Rates:</b><br>Free</p>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3461.342105546005!2d-82.540574005189!3d27.96698847081577!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88c2c25cfc9780fb%3A0xd0dbf56fa3fcd27f!2sCell%20Phone%20Waiting%20Lot%2C%20Airport%20Service%20Rd%2C%20Tampa%2C%20FL%2033630!5e0!3m2!1sen!2sus!4v1683418960851!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3461.342105546005!2d-82.540574005189!3d27.96698847081577!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88c2c25cfc9780fb%3A0xd0dbf56fa3fcd27f!2sCell%20Phone%20Waiting%20Lot%2C%20Airport%20Service%20Rd%2C%20Tampa%2C%20FL%2033630!5e0!3m2!1sen!2sus!4v1683418960851!5m2!1sen!2sus" width ="100%" maxwidth="600" height="300" maxheight="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </div>
-    
 </div>
 
-
-
+<router-outlet></router-outlet>
 
 <svg id="clouds" xmlns="http://www.w3.org/2000/svg" width="2611.084" height="485.677" viewBox="0 0 2611.084 485.677">
     <title>Gray Clouds Background</title>
