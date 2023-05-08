@@ -55,7 +55,7 @@
     <br>
 
     <br>
-    <p><img src="\assets\Imgs\GulfCoast.png" alt="Can't Load" width="40" height="25">  <b>featuring</b>  <img src="\assets\Imgs\Dunkin.png" alt="Can't Load" width="50" height="25">
+    <p><img src="\assets\Imgs\GulfCoast.png" alt="Can't Load" width="40" height="25">  <b>featuring</b>  <img src="\assets\Imgs\Dunkin.png" alt="Can't Load" width="60" height="25">
       &nbsp; This innovative Travelmart concept provides travelers with a comprehensive assortment of news, sundries, travel accessories, delicious snacks, chilled beverages, and Florida-themed apparel and gifts. Gulf Coast Travelmart is featuring Dunkin', America's largest retailer of coffee by the cup. Dunkin' offers a full-service menu that satisfies even the biggest appetites.</p>
 
     <br>
@@ -72,6 +72,69 @@
     <img src="\assets\Imgs\CNBC_SHOP.jpg" alt="Can't Load" width="400" height="234">
       <p>An innovative alternative to traditional newsstands, CNBC Sarasota Bradenton airs the CNBC business day programming in the store and offers a broad range of popular newsstand items including magazines, books and snacks, as well as Florida themed apparel and gifts. The Paradies Shops' Travelmart and CNBC at SRQ participate in the Read & Return Program. This program allows travelers to buy a book, read it, return it within in six months at a Paradies store with the original receipt, and receive 50% of their money back! The program is good on all hard cover or paperback books.</p>
       <br>
+
+      <div class="hBack">
+        <div class = "button_main_terminal">
+          <button (click)="this.mainTerminal=!this.mainTerminal" type="checkbox" >View Shops/Restaurants from Main Terminal</button>
+        </div>
+        <div *ngIf="mainTerminal">
+            <h3><b> Located Pre-Security:</b></h3>
+            <a href="https://flysrq.com/dining" target="_blank" class="link">Click here for more dining information</a>
+            <ul>
+                <li> <b> Dewar's Clubhouse <img src="\assets\Imgs\Dewar's.png" alt="Can't Load" width="65" height="31"></b>
+                  <p>Developed in cooperation with Golf Digest Magazine to cater to travelers who are golf aficionados and scotch lovers alike, this restaurant delivers the sophistication of a European golf clubhouse with the sensibility of an American bar and grill. The full-service restaurant serves several lunch and dinner items, including traditional sandwiches, entrees, and salads, plus a full bar specializing in unique scotch selections.</p>
+                  <br>
+                </li>
+                <li> <b> Dewar's To Go</b>
+                  <p>Providing similar menu items as those found in Dewar's Clubhouse.</p>
+                  <br>
+                </li>
+                <li> <b> Freshens</b>
+                  <p>The popular soft-serve frozen yogurt and smoothies brand offering a variety of frozen treats, ice cream, and even low-carb smoothies.</p>
+                  <br>
+                </li>
+                <li> <b> Dunkin' <img src="\assets\Imgs\Dunkin.png" alt="Can't Load" width="60" height="25"></b>
+                  <p>SRQ runs on Dunkin'! America's largest retailer of coffee by the cup, is located in the Paradies Shops Travelmart. Dunkin' offers a full-service menu that satisfies even the biggest appetites.</p>
+                  <br>
+                </li>
+                <h3><b> Located Post-Security:</b></h3>
+                <li> <b> Starbucks Coffee <img src="\assets\Imgs\starbucks.png" alt="Can't Load" width="85" height="61"></b>
+                  <p>The finest purveyor of coffee in the world and America's most recognizable coffee brand. Starbucks serves richly brewed Italian-style espresso drinks, tea, pastries, confections, light sandwiches, and salads in a casual café setting.</p>
+                  <br>
+                </li>
+                <li> <b> Gulf Breeze Café </b>
+                  <p>
+                    Offering delicious menu items, including fresh salads, sandwiches, soft drinks and
+
+                    a full bar.</p>
+                  <br>
+                </li>
+                <li> <b> Beach Market Café </b>
+                  <p>
+                    Located in the center of Concourse B, near gate B4, Beach Market Cafe offers seating for passengers to enjoy a quick beverage, snack, or bakery item, on the go.</p>
+                  <br>
+                </li>
+                <li> <b> Dunkin’ Express <img src="\assets\Imgs\Dunkin.png" alt="Can't Load" width="60" height="25"></b>
+                  <p>
+                    SRQ runs on Dunkin’ offering great coffee and select food items.</p>
+                  <br>
+                </li>
+                <li> <b> Kona Bar </b>
+                  <p>
+                    Serving craft beers and delicious menu items and friendly service.</p>
+                  <br>
+                </li>
+                <li> <b> Jimmy Johns <img src="\assets\Imgs\Jimmy_John.png" alt="Can't Load" width="45" height="41"></b>
+                  <p>
+                    Serving breakfast and sandwiches freaky fast!</p>
+                  <br>
+                </li>
+                <p>
+                  <i> Please note: Hours vary according to monthly flight schedules.</i></p>
+            </ul>
+        </div>
+    </div>
+
   </div>
 </div>
 
@@ -93,17 +156,19 @@
   </div>
 </div>
 <br>
+<br>
 <div class="center">
   <div class ="middle">
-    <h2>SRQ Parking</h2>
+
+    <h2> SRQ Parking</h2>
     <p>
       Short-term parking is available directly across the terminal building. There is a free parking shuttle operating between the Long-term lot, and all overflow parking lots once Long-term is full. While we do not run out of spaces, parking lots do fill up and overflow parking opens when needed with shuttle service to the terminal. Please plan your trip to SRQ accordingly. The shuttle service to the front of the terminal is available from two hours prior to the first morning departure until after the last scheduled arriving flight, even if delayed.  American Express, VISA, MasterCard, and Discover credit cards are accepted.</p>
   </div>
   </div>
-<h2><b>Pricing</b></h2>
+
 <div class = "center">
   <div class="side">
-    <h3>Short Term Lot</h3>
+    <h3> Short Term Lot</h3>
     <button (click)="this.short=!this.short" type="checkbox" >View Rates/Map</button>
     <div *ngIf="short">
         <p><b>Rates:</b><br>0-40 Minutes $2.00</p>
@@ -122,7 +187,6 @@
   </div>
 
   <div class="side">
-    <h3>Shaded Parking Lot</h3>
     <button (click)="this.shaded=!this.shaded" type="checkbox" >View Rates/Map</button>
     <div *ngIf="shaded">
         <p><b>Rates:</b><br>0-40 Minutes $2.00</p>
@@ -142,12 +206,89 @@
   </div>
 <br>
 <div class="center">
-    <h3><b>Shaded Parking</b></h3>
     <div class="sideMap">
       <img src="\assets\Imgs\Parking_SRQ.png" alt="Can't Load" width="600" height="534">
     </div>
 </div>
+<div class ="middle">
+  <h2>Transportation Options</h2><br>
+  <p>Tampa International offers several forms of transportaion to and from the airport. This includes:</p>
+</div>
 
+<div class="side">
+  <h3>Rental Cars</h3>
+  <p>Access to on-airport rental car providers is available by taking the SkyConnect train from the Main Terminal. Remote bag check is available for most domestic passengers. Service is available daily from 5 a.m. until 7 p.m.; must arrive at least 90 minutes prior to scheduled departure.</p>
+  <p>Over a dozen rental companies are available including: Alamo, Avis, Budget, Enterprise, and Hertz
+  <img src="\assets\Imgs\rental.jpg" alt="Can't Load" width="500" height="300">
+</div>
+
+<div class="side">
+  <h3>Shuttle Service</h3>
+  <p>A variety of hotels and resorts in the Sarasota Bradenton area offer ground transportation to and from SRQ. The airport recommends contacting your hotel or resort prior to arrival to verify transportation information.</p>
+  <h3><b>Hotels permitted to pickup at SRQ for 2023 include:</b></h3>
+  <ul>
+    <li>
+      Aloft Sarasota
+    </li>
+  <li>
+    Art Ovation
+  </li>
+  <li>
+    Cityside Apartments
+  </li>
+  <li>
+    Embassy Suites
+  </li>
+  <li>
+    Hilton Garden Inn/Home 2 Suites
+  </li>
+  <li>
+    Holiday Inn Sarasota
+  </li>
+  <li>
+    Hotel Indigo
+  </li>
+  <li>
+    Hyatt Place Sarasota
+  </li>
+
+</ul>
+<img src="\assets\Imgs\Shuttle.jpg" alt="Can't Load" width="500" height="300">
+</div>
+
+<div class="side">
+  <h3>Public Transit</h3>
+  <p>Public transit services are available in the Ground Transportation area located at the west end of the baggage claim area. Buses from both Manatee and Sarasota counties make regular stops to downtown Sarasota and downtown Bradenton . You may contact the transit companies directly for schedule and fare information..</p>
+  <h3><b>View bus schedules below:</b></h3>
+  <ul>
+    <li>
+      Sarasota County Area Transit (SCAT) or call 941-861-5000
+    </li>
+  <li>
+     Manatee County Area Transit (MCAT) or call 941-749-7116
+  </li>
+</ul>
+  <img src="\assets\Imgs\Bus.jpg" alt="Can't Load" width="500" height="300">
+</div>
+
+<div class="side">
+  <h3>Ride App Pickup</h3>
+  <button> <a href="https://www.uber.com/" target="_blank" class="link">Uber</a></button> &nbsp; <button><a href="https://www.lyft.com/rider/signup-a?utm_source=google&utm_medium=cpc&utm_campaign=PAID_DAX_SRCH_US_JAX_WEB_ALL_BRND_LYFT_ALL_202107&adgroup=lyft--misspell_NA_NA_202107&utm_term=lift&device=c&matchtype=e&targetid=kwd-21756306&loc_physical_ms=9012302&loc_interest_ms=&network=g&devicemodel=&adposition=&campaign_id=14829149431&ad_id=586820029182&adgroup_id=130849193754&placement=&ref=&adname=sitelink-ride-need&region=&gad=1&gclid=Cj0KCQjwmN2iBhCrARIsAG_G2i4pgnsEu7khNCo4BjV090d62Jpulq-UI6Eyba2-SokwXB8BUl_jzswaAi2REALw_wcB" target="_blank" class="link">Lyft</a></button>
+  <br>
+  <p>Guests departing the Airport using Uber or Lyft can be picked up by the service provider at Red Baggage Claim, the Blue Express Curbside, or the Remote Curbisde at the SkyCenter One office building. A service fee of $5.00 will be added to the cost of the fare.
+      Guests may be dropped off at any public access location including Ticketing, Baggage Claim or the Remote Curbside at the SkyCenter One office building.</p>
+  <img src="\assets\Imgs\UberCar.jpg" alt="Can't Load" width="500" height="300">
+</div>
+
+<div class="side">
+  <h3>Luxury Sedan and SUV Service</h3>
+  <p>On-Demand Eco-friendly Sedans, Luxury Sedans, and SUVs are available just outside the baggage claim area on the west end of the terminal. SRQ’s select on-demand transportation is provided by ALD Limo and is available for all arriving flights. A uniformed starter will connect you with a luxury vehicle of your choice, provide you with a fixed rate, based on your destination, load your luggage, and get you on your way. Download the ALD Limo free mobile app to find guaranteed rates. You may contact ALD Limo Premium Limousine Service at 855-799-LIMO, or via ALD Limo.</p>
+  <br>
+  <p>COVID-19 Update:
+
+    ALD Limo has installed a new layer of protection inside every vehicle – sneeze guards. The protective screens will stand between a passenger and a driver. Vehicles are sanitized after each customer and face masks are required for drivers.</p>
+  <img src="\assets\Imgs\SUV_Airport.png" alt="Can't Load" width="500" height="300">
+</div>
 
 
 

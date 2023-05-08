@@ -10,6 +10,7 @@ import { Component } from '@angular/core';
 
 
 export class Airport1PageComponent {
+  mainTerminal: boolean = false;
   short: boolean = false;
   long: boolean = false;
   shaded: boolean = false;
