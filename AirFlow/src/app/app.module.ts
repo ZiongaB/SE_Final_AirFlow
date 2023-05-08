@@ -12,8 +12,6 @@ import{CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 
-
-
 //<!-- Sebastian Mark -->
 import { RouterModule, Routes } from '@angular/router';
 //  <!-- Sebastian Mark -->
@@ -126,6 +124,10 @@ import { PackinglistPartComponent } from './components/dynamic/packinglist-part/
     MatNativeDateModule,
     MatRippleModule,
     MatSlideToggleModule,
+
+
+
+
 
 
   ],
