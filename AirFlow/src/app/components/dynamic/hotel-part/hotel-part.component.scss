@@ -8,36 +8,26 @@
 .submitb{
     font-size: 12px;
 }
-.button{
+
+button{
+    padding-left: 3.5%;
+    padding-right: 3.5%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    font-size: 16px;
+    background-color:rgb(255, 64, 129);
+    border: 2px solid black/*transparent*/;
+    border-radius: 30px;
     color: white;
 }
-.trips{
-    margin: auto;
-    padding: 15px;
-    margin-top:12px;
-    margin-left: 1%;
-    margin-right: 1%;
-    background: lightpink;
-    border: 2px solid black/*transparent*/;
-    border-radius: 15px;
-    justify-content: center;
-    text-align: center;
+
+.space{
+    margin-top: 1%;
+    margin-bottom: 1%;
 }
 
-@media screen and (max-width: 600px){
-    .trips{
-        margin: auto;
-        padding: 15px;
-        margin-top:12px;
-        margin-left: 1%;
-        margin-right: 1%;
-        background: lightpink;
-        border: 2px solid black/*transparent*/;
-        border-radius: 15px;
-        justify-content: center;
-        text-align: center;
-    }
-}
 #deletebutton{
     float: right;
+    border: none;
+    background-color: transparent;
 }
