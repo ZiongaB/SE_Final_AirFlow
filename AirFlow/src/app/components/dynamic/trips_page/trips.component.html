@@ -1,5 +1,6 @@
-<div class= "formholder2">
-    <button (click)="this.createTrip = !this.createTrip" id="ifButton">Create Trip/Flight</button>
+<div class= "formholder">
+    <h1>Trip Management Page</h1>
+    <button (click)="this.createTrip = !this.createTrip" id="ifButton">Create New Trip</button>
     <div class="trippart">
     <app-trips-part (create) = "createPost()" *ngIf="createTrip"></app-trips-part>
     </div>
@@ -7,18 +8,17 @@
         <!-- <button (click)="this.tripVisible=!this.tripVisible" type="checkbox" >show/hide Trips</button> -->
         <ng-container>
             <div *ngFor="let trip of allTrip" >
-                <hr>
-                <b>Trip Name:</b> {{trip.tripname}}<br>
+                <h2><b>Trip Name:</b>{{trip.tripname}}</h2>
                 <!-- <b>Parking Space:</b>{{post.id}} <br> -->
                 <button mat-icon-button  (click)="deleteTrip(trip.id)" id="deletebutton"> <mat-icon  color="warn" class="button"> delete</mat-icon></button>
-                <div class="trippart" >      
+                <div class="trippart2" >   
                     <app-flight-part [tripid]="trip.id" [tripname]="trip.tripname"></app-flight-part>
                 </div>
-                <div class="trippart">
+                <div class="trippart2">
                     <app-hotel-part [tripid]="trip.id" [tripname]="trip.tripname"></app-hotel-part>
                 </div>
                 
-                <div class="trippart">
+                <div class="trippart2">
                     <app-car-part [tripid]="trip.id" [tripname]="trip.tripname"></app-car-part>
                 </div>
                 <hr>
