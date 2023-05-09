@@ -1,14 +1,11 @@
+
 <div class="heading">
+  <img src="\assets\Imgs\sarasota_city_logo.png" alt="Can't Load">
   <div class="center">
     <h1 id="title">City of Sarasota </h1>
   </div>
 </div>
 
-<h1>
-  <!-- <hr size="1" color="blue"> -->
-</h1>
-
-<div class="center"></div>
 
 <div class="middle">
   <h2><b>University Town Center Mall</b></h2>
@@ -152,24 +149,80 @@
 <br>
 <div class = "center">
   <div class="side">
-    <h3> Hotels from $65-113 a night</h3>
+    <h3> Hotels from $65-111 a night</h3>
     <button (click)="this.westin=!this.westin" type="checkbox" >View</button>
     <div *ngIf="westin">
        <ul>
         <li>
-          Regency Inn & Suites Sarasota
-        </li>
+          Regency Inn & Suites Sarasota: $67 2-star hotel
+          Rates may change
+          <br>
+        </li><br>
+        <li>Hampton Inn & Suites Sarasota/Bradenton-Airport: $100 3-star hotel</li> <br>
+        <li>
+          Kompose Hotel Sarasota: $73 <br>
+          Rates may change
+        </li><br>
+        <li>
+          Days Inn by Wyndham Sarasota Bay: $75, 2-star hotel <br>
+          Rates may change
+        </li><br>
+        <li>
+          SpringHill Suites by Marriott Sarasota Bradenton: $105, 3-star hotel <br>
+          Rates may change
+        </li><br>
+        <li>
+          Quality Inn Sarasota Near Lido Key Beach: $69, 2-star hotel
+          <br>
+          Rates may change
+        </li><br>
+        <li>
+          Holiday Inn Sarasota-Airport, an IHG Hotel: $101, 3-star hotel <br>
+          Rates may change
+        </li><br>
+        <li>
+          Sleep Inn Sarasota North: $70, 2-star hotel<br>
+          Rates may change
+        </li><br>
+        <li>
+          La Quinta Inn & Suites by Wyndham Sarasota Downtown: $72, 2-star hotel<br>
+          Rates may change
+        </li><br>
+        <li>
+          Golden Host Resort Sarasota: $80, 2-star hotel<br>
+          Rates may change
+        </li><br>
        </ul>
     </div>
   </div>
   <div class="side">
-    <h3>Hotels from $113-175 a night</h3>
+    <h3>Hotels from $111-175 a night</h3>
     <button (click)="this.ritz=!this.ritz" type="checkbox" >View</button>
     <div *ngIf="ritz">
       <ul>
+
+        <li>Courtyard by Marriott Sarasota Bradenton Airport: $119, 3-star hotel<br>
+        Rates may change</li><br>
+
+        <li>Aloft Sarasota: $142, 3-star hotel<br>
+        Rates may change
+        </li><br>
         <li>
-          Regency Inn & Suites Sarasota
-        </li>
+          The Sarasota Modern, a Tribute Portfolio Hotel: $142, 4-star hotel<br>
+          Rates may change
+        </li><br>
+        <li>
+          Hyatt Place Sarasota/Bradenton Airport: $121, 3-star hotel <br>
+          Rates may change
+        </li><br>
+        <li>
+          Home2 Suites by Hilton Sarasota Bradenton Airport:$126, 3-star hotel <br>
+          Rates may change
+        </li><br>
+        <li>
+          Hilton Garden Inn Sarasota-Bradenton Airport: $111, 3-star hotel<br>
+          Rates may change
+        </li><br>
        </ul>
     </div>
   </div>
@@ -180,8 +233,17 @@
     <div *ngIf="hotel3">
         <ul>
           <li>
-
-          </li>
+            Art Ovation Hotel, Autograph Collection: $193, 4-star hotel<br>
+            Rates may change
+          </li><br>
+          <li>
+            The Westin Sarasota: $233, 4-star hote<br>
+            Rates may change
+          </li><br>
+          <li>
+            Embassy Suites by Hilton Sarasota: $195, 4.3 stars<br>
+            Rates may change
+          </li><br>
         </ul>
     </div>
   </div>
@@ -191,15 +253,33 @@
     <div *ngIf="hotel4">
         <ul>
           <li>
-            The Resort at Longboat Key Club
-          </li>
+            The Resort at Longboat Key Club: $399, 4-star hotel<br>
+            Rates may change
+
+          </li><br>
           <li>
-            The Ritz-Carlton, Sarasota
-          </li>
+            The Ritz-Carlton, Sarasota: $376, 5-star hotel<br>
+            Rates may change
+          </li><br>
+          <li>
+            Lido Beach Resort: $399, 3-star hotel<br>
+            Rates may change
+          </li><br>
         </ul>
     </div>
   </div>
   </div>
+  <div class = "middle">
+    <br>
+    <h2><b>Weather</b></h2>
+  <iframe width="450" height="450" src="https://embed.windy.com/embed2.html?lat=27.475&lon=-82.619&detailLat=27.950&detailLon=-82.460&width=650&height=450&zoom=5&level=surface&overlay=wind&product=ecmwf&menu=&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=&metricWind=default&metricTemp=default&radarRange=-1" frameborder="0"></iframe>
+</div>
+
+<a class="weatherwidget-io" href="https://forecast7.com/en/27d34n82d53/sarasota/" data-label_1="Sarasota" data-label_2="WEATHER" data-theme="original" >Sarasota WEATHER</a>
+<script>
+!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+</script>
+
 
 
 
