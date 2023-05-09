@@ -95,7 +95,6 @@ import { PackinglistPartComponent } from './components/dynamic/packinglist-part/
     FlightPartComponent,
     PackinglistPartComponent,
 
-
   ],
   imports: [
     BrowserModule,
