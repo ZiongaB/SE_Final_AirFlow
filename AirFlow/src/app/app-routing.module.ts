@@ -21,7 +21,7 @@ import { Airport2PageComponent } from './components/static/airport2-page/airport
 import { Airport3PageComponent } from './components/static/airport3-page/airport3-page.component';
 import { Location1PageComponent } from './components/static/location1-page/location1-page.component';
 import { Location2PageComponent } from './components/static/location2-page/location2-page.component';
-import { Location3PageComponent } from './components/static/location3-page/location3-page.component';
+
 import { HomeComponent } from './components/static/home/home.component';
 import { ChatbotComponent } from './components/dynamic/chatbot/chatbot.component';
 import { AuthGuardService } from './components/services/auth-guard.service';
@@ -54,7 +54,7 @@ const routes: Routes = [
   { path: "airport3", component: Airport3PageComponent },
   { path: "location1", component: Location1PageComponent },
   { path: "location2", component: Location2PageComponent },
-  { path: "location3", component: Location3PageComponent },
+
 
 ];
 

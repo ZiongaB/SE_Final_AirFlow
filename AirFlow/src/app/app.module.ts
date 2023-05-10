@@ -42,7 +42,6 @@ import { Airport2PageComponent } from './components/static/airport2-page/airport
 import { Airport3PageComponent } from './components/static/airport3-page/airport3-page.component';
 import { Location1PageComponent } from './components/static/location1-page/location1-page.component';
 import { Location2PageComponent } from './components/static/location2-page/location2-page.component';
-import { Location3PageComponent } from './components/static/location3-page/location3-page.component';
 
 import { ChatbotComponent } from './components/dynamic/chatbot/chatbot.component';
 import { CalendarComponent } from './components/dynamic/calendar/calendar.component';
@@ -88,7 +87,6 @@ import { PackinglistPartComponent } from './components/dynamic/packinglist-part/
     Airport3PageComponent,
     Location1PageComponent,
     Location2PageComponent,
-    Location3PageComponent,
     NavbarComponent,
     HomeComponent,
     TripsPartComponent,
@@ -96,7 +94,6 @@ import { PackinglistPartComponent } from './components/dynamic/packinglist-part/
     CarPartComponent,
     FlightPartComponent,
     PackinglistPartComponent,
-
 
   ],
   imports: [
