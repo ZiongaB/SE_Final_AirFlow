@@ -11,7 +11,7 @@ html {
         padding-top: 10px;
         }
 font-size: large;
-color: white;
+color: black;
 }
 .middle{
   margin: auto;
@@ -88,6 +88,13 @@ color: white;
   padding: 10px;
 }
 
+.footer{
+  flex-shrink: 0;
+  flex-grow: 0;
+  background: #eee;
+  padding: 3px 15px;
+}
+
 svg#clouds {
   position: fixed;
   bottom: -160px;
@@ -95,3 +102,5 @@ svg#clouds {
   z-index: -10;
   width: 1920px;
 }
+
+
