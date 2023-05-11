@@ -64,8 +64,11 @@ exports.postTrip = async (req, res, next) => {
     };
 
     //Call save function
+
     const result = await Trip.save(post);
-    res.status(201).json({ msg:"Posted!"});
+    const catchting = await Trip.catch();
+    
+    res.status(201).json({ msg:catchting[0][0]});
 
     
   //Catch errors

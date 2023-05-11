@@ -46,12 +46,19 @@ module.exports = class Packinglist {
         );
     }
 
+    //Function to change the boolean values of the Packinglist table
+    static edit(post){
+        return db.execute(
+            `update Airflow.packinglists SET checked1=?,checked2=?,checked3=?,checked4=?,checked5=?,checked6=?,checked7=?,checked8=?,checked9=?,checked10=?  where tripid=${post.tripid}`,
+            [post.checked1,post.checked2,post.checked3,post.checked4,post.checked5,post.checked6,post.checked7,post.checked8,post.checked9,post.checked10]
+        )
+    }
+
     //Function to insert new entry into database using values from passed objects
     static save(post){
-        console.log(post);
         return db.execute(
-            'INSERT INTO Airflow.packinglists (user, tripname) VALUES (?,?)',
-            [post.user, post.tripname]
+            'INSERT INTO Airflow.packinglists (user, tripname,item1,item2,item3,item4,item5,item6,item7,item8,item9,item10,tripid,checked1,checked2,checked3,checked4,checked5,checked6,checked7,checked8,checked9,checked10) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,0,0,0,0,0,0,0,0,0,0)',
+            [post.user, post.tripname,post.item1,post.item2,post.item3,post.item4,post.item5,post.item6,post.item7,post.item8,post.item9,post.item10,post.tripid]
         );
     }
 

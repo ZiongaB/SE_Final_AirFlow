@@ -4,9 +4,12 @@
   <hr>
   <h2>Miscellaneous Items</h2>
   <!-- <mat-form-field class="example-full-width"> -->
-  <mat-selection-list #items>
-      <mat-list-option *ngFor="let items of typesOfItems">
-      {{items}}
-        </mat-list-option>
-      </mat-selection-list>
+        <mat-selection-list #items >
+          <mat-list-option *ngFor="let items of list" (click)="items.checked = !items.checked" [selected]="!!items.checked">
+          {{items.item}}
+            </mat-list-option >
+          </mat-selection-list>
+      <button (click)="submit(list)">Submit changes</button>
 </div>
+
+<!-- -->
