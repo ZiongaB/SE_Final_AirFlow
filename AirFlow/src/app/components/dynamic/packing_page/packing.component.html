@@ -1,5 +1,7 @@
 <br>
 <div class="center">
+  <h2><b>Packing list</b></h2>
+  <p> <i> to view a packing list, please enter your trip name down below</i><p>
     <form [formGroup]="packingForm" (ngSubmit)=submit(packingForm.value) novalidate class="example-form" >
     <mat-form-field class="example-full-width">
       <mat-label>Trip name</mat-label>
@@ -26,7 +28,7 @@
       </div>
   </div>
     <mat-divider> </mat-divider>
-        <h2>Clothes</h2>
+        <h2>Checklist</h2>
       <mat-selection-list #clothes>
         <mat-list-option *ngFor="let clothes of typesOfClothes">
           {{clothes}}
@@ -35,15 +37,15 @@
     <!-- </mat-form-field> -->
         <mat-divider> </mat-divider>
       <br>
-    <div class="button" >
+    <!-- <div class="button" >
           <button color="accent" [disabled]="!packingForm.valid" mat-raised-button type="submit" class="submitb">
         <span>Submit</span></button>
         <br>
-    </div>
+    </div> -->
     <br>
-      <div class ="result_font">
-          <p>Miscellaneous selected: <!--{{items.selectedOptions.selected.length}}-->  &nbsp; Clothing selected: {{clothes.selectedOptions.selected}}</p>
-      </div>
+      <!-- <div class ="result_font">
+          <p>Miscellaneous selected: {{items.selectedOptions.selected.length}}  &nbsp; Clothing selected: {{clothes.selectedOptions.selected}}</p>
+      </div> -->
 </div>
 <svg id="clouds" xmlns="http://www.w3.org/2000/svg" width="2611.084" height="485.677" viewBox="0 0 2611.084 485.677">
   <title>Gray Clouds Background</title>

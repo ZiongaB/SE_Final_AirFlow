@@ -7,6 +7,16 @@
 .submitb{
     font-size: 12px;
 }
-.button{
+
+
+button{
+    padding-left: 3.5%;
+    padding-right: 3.5%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    font-size: 16px;
+    background-color:rgb(255, 64, 129);
+    //border: 2px solid black/*transparent*/;
+    border-radius: 10px;
     color: white;
 }

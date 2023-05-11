@@ -1,7 +1,9 @@
 <button (click)="this.createFlight=!this.createFlight" id="ifButton">Create Flight Reservation</button>
-  <div *ngIf="createFlight" >
+<br>
+  <div *ngIf="createFlight" class ="space">
         <form [formGroup]=flightForm (ngSubmit)=submit(flightForm.value) novalidate>
             <span class="biglabels">Flight information: <br></span>
+            <br>
             <mat-form-field class="field">
                 <mat-label>Flight number</mat-label>
                 <input matInput placeholder="ex: BA 98" formControlName="flight">
@@ -29,14 +31,14 @@
     </div>
 
 <div >
-    <button (click)="this.flightVisible=!this.flightVisible" type="checkbox" >show/hide Flight Reservations</button>
+    <button (click)="this.flightVisible=!this.flightVisible" type="checkbox" >Show Flight Reservations</button>
     <ng-container *ngIf = "flightVisible">
         <hr>
         <div *ngFor="let post of allFlight" >
             <ng-container *ngIf="tripid==post.tripid">
+            <button mat-icon-button  (click)="deleteFlight(post.id)" id="deletebutton"> <mat-icon  color="warn" class="button"> delete</mat-icon></button>
             <b >Flight Number:</b>{{post.flight}} <br>
             <b >Flight Time:</b>{{toDate(post.time)}} <br> 
-            <button mat-icon-button  (click)="deleteFlight(post.id)" id="deletebutton"> <mat-icon  color="warn" class="button"> delete</mat-icon></button>
             <hr>
         </ng-container>
         </div>

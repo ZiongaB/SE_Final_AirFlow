@@ -1,1 +1,166 @@
-<p>location2-page works!</p>
+<div class ="hBack">
+    
+    <h1 id="title"><b>City of Tampa</b></h1>
+
+    <div class ="middle">
+        <h2>Food</h2>
+        <button (click)="this.food=!this.food" type="checkbox" >View Food in Tampa</button>
+    </div>
+
+    <div *ngIf="food">
+        <div class="side">
+            <h2>Terra Gaucha Brazilian Steakhouse</h2>
+            <p>Authentic Southern Brazilian Churrascaria Steakhouse. Terra Gaucha offers a unique dining experience with fire-roasted meats served table-side with the flip of a card. A sumptuous Salad Bar area is also available with locally sourced vegetables, cured meats, cheeses and authentic Brazilian sides. Pair you food with a amazing Brazilian cocktails or your favorite red or white wine.</p>
+            <a href = "https://terragaucha.net">Website Link</a><br>
+            <img src="\assets\Imgs\TerraT.jpg" alt="Can't Load" width ="100%" maxwidth="600" height="300">
+        </div>
+        <div class="side">
+            <h2>Green Lemon</h2>
+            <p>Green Lemon is the place to go when you want to fiesta, bringing people together over food and drink for over 15 years. Serving Mexican inspired Street-Fare with unusual twists including delicious tacos, bowls, chips & dips. We’re notorious for our signature margaritas and epic Taco Tuesdays. Enjoy Happy Hour every day from 3pm-7pm. Located in the heart of SoHo in Hyde Park, Green Lemon is just minutes away from downtown and the Convention Center. We are proud to offer full-flavored gluten-free; vegan; vegetarian; and plant-based options.</p>
+            <a href = "https://www.eatgreenlemon.com">Website Link</a><br>
+            <img src="\assets\Imgs\GreenT.jpg" alt="Can't Load" width ="100%" maxwidth="600" height="300">
+        </div>
+        <div class="side">
+            <h2>Happy Fish Peruvian Fusion Restaurant</h2>
+            <p>Authentic Peruvian Fusion Cuisine</p>
+            <img src="\assets\Imgs\FishT.jpg" alt="Can't Load" width ="100%" maxwidth="600" height="300">
+        </div>
+        <div class="side">
+            <h2>Al's Finger Licking Good Bar-B-Que</h2>
+            <p>Named Best BBQ in Florida! - Located in a bungalow off of 7th Ave in historic Ybor City, Al's Finger Licking Good Bar-B-Que is dedicated to serving you the most delicious barbecue food while demonstrating true Southern hospitality.</p>
+            <a href = "https://www.alsybor.com">Website Link</a><br>
+            <img src="\assets\Imgs\AlsT.jpg" alt="Can't Load" width ="100%" maxwidth="600" height="300">
+        </div>
+        <div class="side">
+            <h2>Vino E Pasta</h2>
+            <p>Local Italian and Pizza Restaurant</p>
+            <a href = "https://vinoepastapresto.com">Website Link</a><br>
+            <img src="\assets\Imgs\VinoT.jpg" alt="Can't Load" width ="100%" maxwidth="600" height="300">
+        </div>
+        <div class="side">
+            <h2>On Swann</h2>
+            <p>Contemporary American Cuisine</p>
+            <a href = "http://www.onswann.com">Website Link</a><br>
+            <img src="\assets\Imgs\SwanT.jpg" alt="Can't Load" width ="100%" maxwidth="600" height="300">
+        </div>
+        
+
+        <div class="side2">
+            <button (click)="this.food=!this.food" type="checkbox" >View Food in Tampa</button>
+        </div>
+    </div>
+
+
+    <div class ="middle">
+        <h2>Hotels</h2>
+        <button (click)="this.hotel=!this.hotel" type="checkbox" >View Hotels in Tampa</button>
+    </div>
+    
+        <div *ngIf="hotel">
+            <div class="side">
+                <h2>Hotel Haya</h2>
+                <p>Location: 1412 E 7th Ave, Tampa, FL 33605</p>
+                <a href = "https://hotelhaya.com/?utm_source=TripAdvisor&utm_medium=Website&utm_campaign=BusinessAdvantage">Website Link</a><br>
+                <img src="\assets\Imgs\HayaT.jpg" alt="Can't Load" width ="100%" maxwidth="600" height="300">
+            </div>
+
+            <div class="side">
+                <h2>The Westin Tampa Waterside</h2>
+                <p>Location: 725 S Harbour Island Blvd, Tampa, FL 33602-5707</p>
+                <a href = "https://www.marriott.com/reservation/rateListMenu.mi?scid=b661a3c4-9c47-48c8-9e13-75b66089dd79&dclid=CLGpsZLp4_4CFdbqhwod-5kG7w&defaultTab=prepay">Website Link</a><br>
+                <img src="\assets\Imgs\WestinT.jpg" alt="Can't Load" width ="100%" maxwidth="600" height="300">
+            </div>
+
+            <div class="side">
+                <h2>Embassy Suites by Hilton Tampa Downtown Convention Center</h2>
+                <p>Location: 513 S Florida Ave, Tampa, FL 33602-5419</p>
+                <a href = "https://www.hilton.com/en/book/reservation/rooms/?ctyhocn=TPAESES&arrivalDate=2023-05-21&departureDate=2023-05-22&room1NumAdults=2&ta_refid=5ecd6fb6-dc6f-4a6e-a80c-aa455bc2b749&WT.mc_id=zLADA0WW1ES2PSH3TA4SEMTABL5HWB6TPAESES7_310602136&dclid=CN2p9NTp4_4CFZnAhwod3rMKSQ&bm-verify=AAQAAAAH_____1MkfNx0IJuznc0t4Vl3tn2SicLh_CYiCqqJfmAqDZV7wHmKCnT7OouYcHW5-Fzj_ryEgaeY0sFOxk8FcAwYR0rxg42w2kt9Ie1KYsoB6-Z4LMJtBK6umjmga9PJIgKX6KcOFf_r-y-tlDOdKDdG-0y5H8yUAgYXROx3RpUaCH-ToiPB_z5kO8DUHgoWBoBhgJxjOmn70gJwtmgth2bUGtLb2-eL--5qgVi8LDZpKBb2TbKbWok9oeIvX2dM9jrir0uV0iKpZ2OAivxqXzl9oUwUbDQMWRBXjz_3ey56KrvlJ1T0Q8rzg0VrW2vVtR7S1BQTuQgzzQyYgkaQ2TMRkwOE3GfengQQfWqdE43rJ7fyrZ_pS3LlPUbLI-kP4VlEiXWoQ5gDwI5DcEda8fBZDC27E5fTZucUfciQ3V_M_nchZd6jU6Ve-POmfovQn_nrxUYDb_pu_OBnDAvhG8GS1DUNIRPhntiMD9JC6k-5ieqbxSnoLTfnu4lRKxfmfdrkhtPJsD1JK2QgNZ4gM9TjdmfSisrQnD0oD2AcRfZNKAwNYCxGMUB8pSBajj8DJ1kgP7tYcXVVfyFmU7-fSqzzugzuupFzmTvld0tyUhldlz5jLaY9a4YyW9MVYXHrx6fXK29T7jQFVPFKkjc4s2yZDV8nnLs45RvodusSapF6E24K_NyfKeI2kiBa78Z--IDO0w">Website Link</a><br>
+                <img src="\assets\Imgs\EmbassyT.jpg" alt="Can't Load" width ="100%" maxwidth="600" height="300">
+            </div>
+
+            <div class="side">
+                <h2>Grand Hyatt Tampa Bay</h2>
+                <p>Location: 2900 Bayport Drive, Tampa, FL 33607-1479</p>
+                <img src="\assets\Imgs\GrandT.jpg" alt="Can't Load" width ="100%" maxwidth="600" height="300">
+            </div>
+
+            <div class="side2">
+                <button (click)="this.hotel=!this.hotel" type="checkbox" >View Hotels in Tampa</button>
+            </div>
+        </div>
+
+    
+    <!---Recreation--->
+    <div class ="middle">
+        <h2>Recreation</h2>
+        <button (click)="this.recreation=!this.recreation" type="checkbox" >View Recreation in Tampa</button>
+    </div>
+
+    <div *ngIf="recreation">
+        <div class="side">
+            <h2>Busch Gardens</h2>
+            <p>Busch Gardens Tampa Bay is the ultimate family adventure, combining world-class thrill rides, live entertainment and more than 12,000 animals. Challenge a 335-foot drop tower, Falcon's Fury, or race like a cheetah on Cheetah Hunt. Busch Gardens' newest attraction, Cobra's Curse puts a spin on family thrills with this one-of-a-kind spin coaster.</p>
+            <a href = "https://buschgardens.com/tampa/">Website Link</a><br>
+            <img src="\assets\Imgs\BuschT.jpg" alt="Can't Load" width ="100%" maxwidth="600" height="300">
+        </div>
+
+        <div class="side">
+            <h2>The Florida Aquarium</h2>
+            <p>The Florida Aquarium is an educational and fun-filled wonderland, home to thousands of animals and plants. Kids will especially enjoy the stingray petting area or the SeaTREK, where they’ll have to wear a wetsuit to walk among the underwater inhabitants and explore coral caves. It’s an immersive learning journey for the whole family. If you’re visiting on a hot day, pack your swimsuit for a splashing good time at the outdoor water play zone. </p>
+            <a href = "https://www.flaquarium.org">Website Link</a><br>
+            <img src="\assets\Imgs\AquariumT.jpg" alt="Can't Load" width ="100%" maxwidth="600" height="300">
+        </div>
+
+        <div class="side">
+            <h2>Ybor City</h2>
+            <p>Ybor City, once the cigar capital of the world, is a vibrant neighborhood in Tampa that boasts an exciting nightlife and delicious food. You can explore the historic district on a walking tour to learn more about the architecture and immigrant history, or indulge in a food tour that takes you to Latin and soul food restaurants.
+                As the sun sets, the area transforms into a lively entertainment district where you can do a pub crawl, dance the night away, or catch some live music. To get there, you can hop on a free streetcar from downtown. There's also a weekly local flea market.</p>
+            <a href = "https://www.ybor.org">Website Link</a><br>
+            <img src="\assets\Imgs\YborT.jpg" alt="Can't Load" width ="100%" maxwidth="600" height="300">
+        </div>
+
+        <div class="side">
+            <h2>Tampa Riverwalk</h2>
+            <p>This riverwalk is a scenic 2.6-mile-long path along the Hillsborough River where you can discover some of downtown Tampa’s must-sees. Enjoy a leisurely stroll and you'll pass by the Tampa Museum of Art, the Curtis Hixon Waterfront Park—perfect for a picnic overlooking the Tampa skyline—and finally the Tampa Bay History Center. You can also bike or take a scooter down the riverwalk.
+                If you need a rest, there's no shortage of rest stops along the way to watch the water taxis sail by. You might even be inspired to take a boat tour on the river yourself! There are also plenty of restaurants and bars for food and drinks with a view</p>
+            <a href = "https://thetampariverwalk.com">Website Link</a><br>
+            <img src="\assets\Imgs\RiverwalkT.jpg" alt="Can't Load" width ="100%" maxwidth="600" height="300">
+        </div>
+
+        <div class="side">
+            <h2>Henry B. Plant Museum</h2>
+            <p>Since 1933, the Tampa Bay Hotel has been home to the Henry B. Plant Museum and The University of Tampa. The building, renamed Plant Hall, is a National Historic Landmark. The Henry B. Plant Museum holds the distinction of accreditation by the American Alliance of Museums. Its mission is to interpret the Tampa Bay Hotel and the experiences of the diverse individuals who contributed to its success. The Museum ignites thought and transports visitors to another era through exhibits and innovative programs, so that they may be educated and inspired by the lifestyles, times and experiences of Florida’s early tourist industry. Original furnishings and artifacts and a dynamic self-guided audio tour immerse visitors in the opulence of the 1891 Tampa Bay Hotel and its rich history.</p>
+            <a href = "https://www.plantmuseum.com">Website Link</a><br>
+            <img src="\assets\Imgs\PlantT.jpg" alt="Can't Load" width ="100%" maxwidth="600" height="300">
+        </div>
+    
+        <div class="side">
+            <h2>Tampa Theatre</h2>
+            <a href = "https://tampatheatre.org">Website Link</a><br>
+            <img src="\assets\Imgs\TheaterT.jpg" alt="Can't Load" width ="100%" maxwidth="600" height="300">
+        </div>
+
+        <div class="side2">
+            <button (click)="this.recreation=!this.recreation" type="checkbox" >View Recreation in Tampa</button>
+        </div>
+    </div>
+
+    <div class ="middle">
+        <h2>Weather</h2>
+    </div>
+    <div class="side2">
+        <h3>Weather.Gov Forecast</h3>
+        <iframe src="https://forecast.weather.gov/MapClick.php?lat=27.9465&lon=-82.4593#.ZFfkJC-B1ZE" width ="90%" maxwidth="600" height="400" maxheight="450" style="border:1;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" ></iframe>
+    </div>
+    <iframe width="450" height="450" src="https://embed.windy.com/embed2.html?lat=27.475&lon=-82.619&detailLat=27.950&detailLon=-82.460&width=650&height=450&zoom=5&level=surface&overlay=wind&product=ecmwf&menu=&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=&metricWind=default&metricTemp=default&radarRange=-1" frameborder="0"></iframe>
+
+    
+</div>
+
+
+
+
+<svg id="clouds" xmlns="http://www.w3.org/2000/svg" width="2611.084" height="485.677" viewBox="0 0 2611.084 485.677">
+    <title>Gray Clouds Background</title>
+    <path id="Path_39" data-name="Path 39" d="M2379.709,863.793c10-93-77-171-168-149-52-114-225-105-264,15-75,3-140,59-152,133-30,2.83-66.725,9.829-93.5,26.25-26.771-16.421-63.5-23.42-93.5-26.25-12-74-77-130-152-133-39-120-212-129-264-15-54.084-13.075-106.753,9.173-138.488,48.9-31.734-39.726-84.4-61.974-138.487-48.9-52-114-225-105-264,15a162.027,162.027,0,0,0-103.147,43.044c-30.633-45.365-87.1-72.091-145.206-58.044-52-114-225-105-264,15-75,3-140,59-152,133-53,5-127,23-130,83-2,42,35,72,70,86,49,20,106,18,157,5a165.625,165.625,0,0,0,120,0c47,94,178,113,251,33,61.112,8.015,113.854-5.72,150.492-29.764a165.62,165.62,0,0,0,110.861-3.236c47,94,178,113,251,33,31.385,4.116,60.563,2.495,86.487-3.311,25.924,5.806,55.1,7.427,86.488,3.311,73,80,204,61,251-33a165.625,165.625,0,0,0,120,0c51,13,108,15,157-5a147.188,147.188,0,0,0,33.5-18.694,147.217,147.217,0,0,0,33.5,18.694c49,20,106,18,157,5a165.625,165.625,0,0,0,120,0c47,94,178,113,251,33C2446.709,1093.793,2554.709,922.793,2379.709,863.793Z" transform="translate(142.69 -634.312)" fill="#eee"/>
+</svg>
