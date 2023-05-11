@@ -15,7 +15,7 @@ import { AuthService } from './auth.service';
   providedIn: 'root'
 })
 export class CarReserveService {
-  private url = "hhttps://softengbackair-production.up.railway.app/cars";
+  private url = "https://softengbackair-production.up.railway.app/cars";
 
   public carData!: [];
   public filteredCar!: [];

@@ -12,7 +12,7 @@ import { FlightReserveService } from './flight-reserve.service';
   providedIn: 'root'
 })
 export class TripService {
-  private url = "hhttps://softengbackair-production.up.railway.app/trip";
+  private url = "https://softengbackair-production.up.railway.app/trip";
 
   public tripData!: Trip[];
   isUserLoggedIn$ = new BehaviorSubject<boolean>(false);
