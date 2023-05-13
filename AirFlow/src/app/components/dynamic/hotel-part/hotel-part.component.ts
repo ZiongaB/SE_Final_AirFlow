@@ -58,7 +58,7 @@ export class HotelPartComponent {
   
   submit(formData: Hotel):void{
     this.HotelService.createHotel(formData,this.authService.userId,this.tripid,this.tripname).pipe(first()).subscribe(()=>{
-      this.create.emit(null);
+      this.createHotelPost();
     });
    
    //console.log(formData.time1.getFullYear()+"-"+(formData.time1.getUTCMonth()+1) +"-"+formData.time1.getDate() +" "+formData.time12+":00");

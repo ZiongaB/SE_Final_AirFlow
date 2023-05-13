@@ -54,7 +54,7 @@ export class CarPartComponent {
 
   submit(formData: Car):void{
     this.CarService.createCar(formData,this.authService.userId).pipe(first()).subscribe(()=>{
-      this.create.emit(null);
+      this.createCarPost();
     });
    this.carForm.reset();
  }
