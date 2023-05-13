@@ -193,3 +193,13 @@ svg#clouds {
     z-index: -10;
     width: 1920px;
 }
+
+/* unvisited link */
+a:link {
+    color: white;
+  }
+  
+  /* visited link */
+  a:visited {
+    color: rgb(255, 64, 129);;
+  }

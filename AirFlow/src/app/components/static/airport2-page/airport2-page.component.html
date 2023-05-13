@@ -85,7 +85,7 @@
         <h2>Shops/Restaurants</h2>
     </div>
 
-    <div class="hBack">
+    <div class="side2">
         <button color ="accent" (click)="this.mainTerminal=!this.mainTerminal" type="checkbox" >View Shops/Restaurants from Main Terminal</button>
         <div *ngIf="mainTerminal">
             <h2>Main Terminal Shops</h2>
@@ -275,7 +275,7 @@
     <div class="side">
         <h2>Economy Garage & Lot</h2>
         <button (click)="this.economy=!this.economy" type="checkbox" >View Rates/Map</button>
-        <div *ngIf="eTerminal">
+        <div *ngIf="economy">
             <p><b>Rates:</b><br>Under 15 minutes free; 15-20 minutes $1; each additional 20 mins. $1</p>
             <p><b>Max Charge:</b><br>$14 max. per 24 hours (Tax included)</p>
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3662.953577018891!2d-82.5358649038359!3d27.966291432241253!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88c2c25b39399155%3A0x4746bc119d1226a7!2sTPA%20-%20Economy%20Parking%20Garage!5e0!3m2!1sen!2sus!4v1683418864504!5m2!1sen!2sus" width ="100%" maxwidth="600" height="300" maxheight="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
