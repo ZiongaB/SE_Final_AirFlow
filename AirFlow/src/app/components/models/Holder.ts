@@ -17,20 +17,4 @@ export interface Holder extends Trip,Car,Flight{
         time2:Pick<Flight,"time2">,
 
     }
-    /*8
-    carinfo: {
-        description: Pick<Car,"description">,
-        rentalinfo: Pick<Car,"rentalinfo">,
-        pickup: Pick<Car,"pickup">,
-        returntime: Pick<Car,"returntime">,
-        cost: Pick<Car,"cost">
-    },
-    hotelinfo:{
-        hotel: Pick<Hotel,"hotel">,
-        checkin: Pick<Hotel,"checkin">,
-        checkout: Pick<Hotel,"checkout">,
-        cost: Pick<Hotel,"cost">
-    }*/
-
-
 }

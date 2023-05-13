@@ -1,5 +1,9 @@
-<button (click)="this.createCar = !this.createCar" id="ifButton">Create Rental Car</button>
+<!--This component was done by Zach East-->
 
+<!--Button to make next section visible-->
+<button (click)="this.createCar = !this.createCar" id="ifButton">Create A New Car Rental</button>
+
+<!-- Form for setting up a rental car-->
 <div *ngIf="createCar" class ="space">
     <form [formGroup]=carForm (ngSubmit)=submit(carForm.value) novalidate>
         <mat-form-field class="field">
@@ -11,21 +15,25 @@
 
         <span class="smalllabels">Description:</span>
 
+        <!--Car description field-->
         <mat-form-field class="field">
             <mat-label>Car Description</mat-label>
             <input matInput placeholder="ex: White Toyota Corolla" formControlName="description">
         </mat-form-field>
 
+        <!--Rental information field-->
         <mat-form-field class="field">
             <mat-label>Rental Information</mat-label>
             <input matInput placeholder="ex: Enterprise at 8567 Rental Street" formControlName="rentalinfo">
         </mat-form-field>
 
+        <!--Cost field-->
         <mat-form-field class="field">
             <mat-label>Rental Cost</mat-label>
             <input matInput type="number" placeholder="ex:200.00" formControlName="cost">
         </mat-form-field>
 
+        <!--Pickup time and date fields-->
         <span class="smalllabels">Pickup:</span>
         <mat-form-field class="field">
             <mat-label>Pickup Date</mat-label>
@@ -39,6 +47,7 @@
             <input matInput type="text" placeholder="ex: 14:20" formControlName="pickup2" >
         </mat-form-field>
 
+        <!--Return time and date fields-->
         <span class="smalllabels">Return Date:</span>
         <mat-form-field class="field">
             <mat-label>Return Date</mat-label>
@@ -52,6 +61,7 @@
             <input matInput type="text" placeholder="ex: 14:20" formControlName="returntime2" >
         </mat-form-field>
 
+        <!--Submit button-->
         <div class="button" >
             <button color="accent" [disabled]="!carForm.valid" mat-raised-button type="submit" class="submitb">
               <span>Submit</span></button>
@@ -60,11 +70,14 @@
 </div>
 
 <div >
-    <button (click)="this.carVisible=!this.carVisible" type="checkbox" >Show Rental Cars</button>
+    <!--Button that makes next section visible-->
+    <button (click)="this.carVisible=!this.carVisible" type="checkbox" >Show All Car Reservations</button>
     <br>
+    <!--Displays all of the user's saved cars-->
     <ng-container *ngIf = "carVisible">
         <hr>
         <div *ngFor="let post of allCar" >
+            <!-- button for deleting car rental-->
             <button mat-icon-button  (click)="deleteCar(post.id)" id="deletebutton"> <mat-icon  color="warn" class="button"> delete</mat-icon></button>
             <b>Car Description: </b>{{post.description}}<br>
             <b>Rental Information: </b>{{post.rentalinfo}}<br>

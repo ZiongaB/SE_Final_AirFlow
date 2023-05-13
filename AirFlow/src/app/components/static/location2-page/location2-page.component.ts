@@ -7,17 +7,14 @@ import { Component } from '@angular/core';
 })
 export class Location2PageComponent {
 
+  //Booleans for displaying specific sections
   food: boolean =false;
   hotel: boolean =false;
   recreation: boolean =false;
   weather: boolean =false;
-
-
   short: boolean = false;
   long: boolean = false;
   economy: boolean = false;
   cell: boolean = false;
   valet: boolean = false;
-
-
 }

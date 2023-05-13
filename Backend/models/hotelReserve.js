@@ -18,7 +18,7 @@ module.exports = class HotelReserve {
         this.cost = cost;
     }
 
-    //Function to pass pull specific entries in database by user
+    //Function to pull specific entries in database by user
     static fetchAll(user)
     {
         return db.execute(
@@ -33,9 +33,13 @@ module.exports = class HotelReserve {
             [post.user, post.tripname, post.hotel, post.checkin, post.checkout, post.cost,post.tripid]
         );
     }
+
+    //Function to delete specific entries in database by user
     static delete(id){
         return db.execute('delete from Airflow.hotels where id = ?',[id]);
     }
+
+    //Function to delete specific entries in database by trip
     static deleteid(id){
         return db.execute('DELETE FROM Airflow.hotels WHERE tripid = ?',[id]);
     } 

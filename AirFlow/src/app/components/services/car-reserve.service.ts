@@ -15,6 +15,8 @@ import { AuthService } from './auth.service';
   providedIn: 'root'
 })
 export class CarReserveService {
+
+  //Url for API
   private url = "https://softengbackair-production.up.railway.app/cars";
 
   public carData!: [];
@@ -22,18 +24,20 @@ export class CarReserveService {
 
   isUserLoggedIn$ = new BehaviorSubject<boolean>(false);
 
+  //Set up datatypes for API interactions
   httpOptions: {headers:HttpHeaders}={
     headers: new HttpHeaders({"Content-Type" : "application/json"})
   }
 
   errorHandlerService: any;
-
+  //Set up the constructor
   constructor(
     private http:HttpClient,
     private errorhandler:ErrorHandlerService,
     private authService:AuthService
   ) { }
 
+  //Function for posting a new car reservation to the database
   createCar(formData: Pick<Car,"tripname"|"description"|"rentalinfo"|"pickup"|"pickup2"|"returntime"|"returntime2"|"cost">,userId: User["id"]): Observable<Car>{
     return this.http.post<Car>(
       this.url,{
@@ -50,12 +54,14 @@ export class CarReserveService {
     );
   }
 
+  //Function for retrieving all car reservations for the specific user
   fetchAll(): Observable<Car[]> {
     return this.http.get<Car[]>(`${this.url}/${this.authService.userId}`,{responseType:"json"}).pipe(
       catchError(this.errorhandler.handleError<Car[]>("fetchAll",[])),
     );
   }
 
+  //Function for deleting the a car reservation from the database for this user
   deleteCar(postId: Number): Observable<{}>{
     return this.http.delete<Car>(`${this.url}/${postId}`,this.httpOptions).pipe(first(),
     catchError(this.errorhandler.handleError<Car>("deleteCar"))
