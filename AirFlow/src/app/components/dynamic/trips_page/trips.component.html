@@ -1,8 +1,8 @@
 <div class= "formholder">
     <h1>Trip Management Page</h1>
     <button (click)="this.createTrip = !this.createTrip" id="ifButton">Create New Trip</button>
-    <div class="trippart">
-    <app-trips-part (create) = "createPost()" *ngIf="createTrip"></app-trips-part>
+    <div class="trippart" *ngIf="createTrip">
+    <app-trips-part (create) = "createPost()" ></app-trips-part>
     </div>
     <div class="trips">
         <!-- <button (click)="this.tripVisible=!this.tripVisible" type="checkbox" >show/hide Trips</button> -->
