@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import party from "party-js";
 
 
 @Component({

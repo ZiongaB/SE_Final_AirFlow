@@ -36,6 +36,28 @@
   justify-content: center;
   text-align: center;
 }
+
+.hBack{
+  display: flex; /*added*/
+  flex-direction: row; /*added*/
+  flex-wrap: wrap;
+  margin: auto;
+  width: 95%;
+  float: center;
+  padding: 15px;
+  margin-top:12px;
+  margin-left: 1%;
+  margin-right: 1%;
+  background-color: rgba(100, 149, 280, .25);
+  border: 1px solid black/*transparent*/;
+  border-radius: 15px;
+  justify-content: center;
+  text-align: center;
+  font-size: 18px;
+}
+
+
+
 .sideMap{
   margin: auto;
   width: 44%;
@@ -65,13 +87,33 @@
       float: left;
       padding: 15px;
       //margin-top:12px;
-      background: crimson;
+      background: #3f51b5;
       border: 2px solid black/*transparent*/;
       border-radius: 10px;
       justify-content: center;
       text-align: center;
+      color: white;
   }
 }
+
+@media screen and (max-width: 600px){
+  .hBack{
+      margin: auto;
+      width: 95%;
+      float: center;
+      padding: 15px;
+      margin-top:12px;
+      margin-left: 1%;
+      margin-right: 1%;
+      background-color: rgba(100, 149, 280, .25);
+      border: 2px solid black/*transparent*/;
+      border-radius: 15px;
+      justify-content: center;
+      text-align: center;
+      font-size: 18px;
+  }
+}
+
 .button_main_terminal{
   background-color: #3f51b5; /* Green */
   border: none;
@@ -92,8 +134,8 @@
     text-align: center;
     color: white;
 }
-#borders{
 
+#borders{
   padding:1px;
   border:1px solid #021a40;
   width: 80%;
@@ -110,4 +152,14 @@ svg#clouds {
   position: absolute;
   top:50%;
   background-color:blue;
+}
+/* Then style the iframe to fit in the container div with full height and width */
+.responsive-iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
 }

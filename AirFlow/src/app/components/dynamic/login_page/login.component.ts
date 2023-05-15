@@ -2,12 +2,23 @@ import { Component } from '@angular/core';
 import { FormControl,FormGroup,Validator, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 
+import party from "party-js";
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
+
+
+  showconfetti(source:any){
+
+    party.confetti(source);
+
+  }
+
+
   loginForm: FormGroup;
   constructor(private authService: AuthService){  }
 
@@ -31,7 +42,7 @@ export class LoginComponent {
         alert("Logged in incorrectly.");
       }
     });
-    
+
   }
 
 }
