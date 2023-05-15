@@ -9,6 +9,11 @@ import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
+
+/**
+ * This service is for all things regarding the User, including logging in, signing up, and 
+ * checking to see if you are currently logged in
+ */
 export class AuthService {
 
   private url = "https://softengbackair-production.up.railway.app/auth";

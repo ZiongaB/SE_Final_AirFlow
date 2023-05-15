@@ -11,6 +11,11 @@ import { FlightReserveService } from './flight-reserve.service';
 @Injectable({
   providedIn: 'root'
 })
+
+/**
+ * This service is for all things regarding the trip page, including creating a new trip, deleting a trip, and getting all the trips
+ * for a certain user
+ */
 export class TripService {
   private url = "https://softengbackair-production.up.railway.app/trip";
 

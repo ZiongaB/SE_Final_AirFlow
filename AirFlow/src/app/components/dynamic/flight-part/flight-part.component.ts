@@ -63,6 +63,7 @@ export class FlightPartComponent {
   submit(formData: Holder):void{
     console.log(formData)
       this.flightService.createFlight(formData,this.authService.userId,this.tripid,this.tripname).pipe(first()).subscribe(()=>{
+        this.createFlightPost();
       });
     this.flightForm.reset();
   }

@@ -15,6 +15,10 @@ import { Packing } from '../models/Packing';
 @Injectable({
   providedIn: 'root'
 })
+/**
+ * This service is for all things regarding the packinglist page, it creates a new packing list, edits existing packing lists
+ * and gets all the packing lists of a certain user
+ */
 export class PackinglistService {
   private url = "https://softengbackair-production.up.railway.app/packinglists";
 
@@ -31,11 +35,6 @@ export class PackinglistService {
   errorHandlerService: any;
   constructor(private http:HttpClient, private errorhandler:ErrorHandlerService,private authService:AuthService) { }
 
-  //add function to generate packing list
-  //generatePacking()
-
-  //add function to update packing list
-  //updatePacking()
 
 
   editPackingList(list:Packing[],tripid:Number):Observable<Packinglist>{

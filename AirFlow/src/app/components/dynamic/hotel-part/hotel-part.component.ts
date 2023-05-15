@@ -67,7 +67,7 @@ export class HotelPartComponent {
   //function to submit form data
   submit(formData: Hotel):void{
     this.HotelService.createHotel(formData,this.authService.userId,this.tripid,this.tripname).pipe(first()).subscribe(()=>{
-      this.create.emit(null);
+      this.createHotelPost();
     });
    this.hotelForm.reset();
    this.createHotelPost
