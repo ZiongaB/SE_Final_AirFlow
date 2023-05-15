@@ -1,15 +1,22 @@
+/**
+ * This is where the http requests are sent from the services for car reservations.
+ * It passes the commmands to the controller file for car reservations.
+ * @author Zach East
+ */
 const express = require('express');
-
 const { body } = require('express-validator');
 
+//Set controller file
 const eventController = require ('../controllers/carReserve');
 
+//Set up other constants
 const auth =  require('../middleware/auth');
-
 const router = express.Router();
 
+//Pass get requests to eventcontroller fetchall function
 router.get('/:id', auth, eventController.fetchAll);
 
+//Pass post requests to eventcontroller postCar function after validating information
 router.post(
     '/',
     [
@@ -25,6 +32,7 @@ router.post(
     eventController.postCar
 );
 
+//Pass delete requests to eventcontroller deleteCar function
 router.delete('/:id',auth,eventController.deleteCar)
 
 module.exports = router;

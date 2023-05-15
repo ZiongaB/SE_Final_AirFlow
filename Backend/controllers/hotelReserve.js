@@ -1,6 +1,7 @@
 /**
  * This is the controller file that defines the how backend functions are
- * called to save and retrieve data relating to the hotel reservations
+ * called to save and retrieve data relating to the hotel reservations.
+ * Passes actual work to model file
  * @author Zach East
  */
 
@@ -9,12 +10,13 @@ const HotelReserve = require('../models/hotelReserve');
 
 //Export fetchAll to be used
 exports.fetchAll = async (req, res, next) => {
+
   //Call fetchAll function
-  
-    const ID = req.params.id;
+  const ID = req.params.id;
   try {
     const [allPosts] = await HotelReserve.fetchAll(ID);
     res.status(200).json(allPosts);
+
   //Catch Errors
   } catch (err) {
     if (!err.statusCode) {
@@ -64,11 +66,16 @@ exports.postHotel = async (req, res, next) => {
   }
 };
 
+//Export deleting hotel function
 exports.deleteHotel = async (req,res,next)=>{
+
+  //Create a post object using variables
   try{    
     const deleteresponse =await HotelReserve.delete(req.params.id);
     res.status(200).json({deleteresponse});
-}catch(err){
+
+  //Catch Errors
+  }catch(err){
     console.log(err);
         if (!err.statusCode){
             console.log("error!");

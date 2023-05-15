@@ -19,7 +19,7 @@ module.exports = class CarReserve {
         this.cost = cost;
     }
 
-    //Function to pass pull specific entries in database by user
+    //Function to pull specific entries in database by user
     static fetchAll(user)
     {
         return db.execute(
@@ -35,9 +35,12 @@ module.exports = class CarReserve {
         );
     }
 
+    //Function to delete specific entries in database by trip
     static deleteid(id){
         return db.execute('DELETE FROM Airflow.hotels WHERE tripid = ?',[id]);
-    } 
+    }
+
+    //Function to delete specific entries in database by user
     static delete(id){
         return db.execute('DELETE FROM Airflow.cars WHERE id = ?',[id]);
     } 

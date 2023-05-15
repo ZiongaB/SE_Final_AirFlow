@@ -1,6 +1,7 @@
 /**
  * This is the controller file that defines the how backend functions are
- * called to save and retrieve data relating to flight reservations
+ * called to save and retrieve data relating to flight reservations.
+ * Passes actual work to model file
  * @author Zach East
  */
 
@@ -10,7 +11,7 @@ const FlightReserve = require('../models/flightReserve');
 //Export fetchAll to be used
 exports.fetchAll = async (req, res, next) => {
   
-    const ID = req.params.id;
+  const ID = req.params.id;
   //Call fetchAll function
   try {
     const [allPosts] = await FlightReserve.fetchAll(ID);
@@ -25,11 +26,16 @@ exports.fetchAll = async (req, res, next) => {
   }
 };
 
+//Export delete function
 exports.deleteFlight = async (req,res,next)=>{
+
+  //Call delete function
   try{    
     const deleteresponse =await FlightReserve.delete(req.params.id);
     res.status(200).json({deleteresponse});
-}catch(err){
+
+  //Catch Errors
+  }catch(err){
     console.log(err);
         if (!err.statusCode){
             console.log("error!");
@@ -62,9 +68,11 @@ exports.postFlight = async (req, res, next) => {
       time: time,
       tripid:tripid
     };
+
     //Call save function
     const result = await FlightReserve.save(post);
     res.status(201).json({ message: 'Posted!' });
+
     //Catch Errors
   } catch (err) {
     if (!err.statusCode) {

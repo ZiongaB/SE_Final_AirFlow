@@ -1,6 +1,7 @@
 /**
  * This is the controller file that defines the how backend functions are
- * called to save and retrieve data relating to rental cars
+ * called to save and retrieve data relating to rental cars.
+ * Passes actual work to model file
  * @author Zach East
  */
 
@@ -16,7 +17,7 @@ exports.fetchAll = async (req, res, next) => {
     const [allPosts] = await CarReserve.fetchAll(ID);
     res.status(200).json(allPosts);
 
-    //Catch Errors
+  //Catch Errors
   } catch (err) {
     if (!err.statusCode) {
       err.statusCode = 500;
@@ -52,13 +53,13 @@ exports.postCar = async (req, res, next) => {
       returntime: returntime,
       cost: cost,
     };
-
     console.log(post)
 
     //Call save function
     const result = await CarReserve.save(post);
     res.status(201).json({ message: 'Posted!' });
-    //Catch Errors
+
+  //Catch Errors
   } catch (err) {
     if (!err.statusCode) {
       err.statusCode = 500;
@@ -67,11 +68,16 @@ exports.postCar = async (req, res, next) => {
   }
 };
 
+//Export delete function
 exports.deleteCar = async (req,res,next)=>{
+
+  //Call delete function
   try{    
     const deleteresponse =await CarReserve.delete(req.params.id);
     res.status(200).json({deleteresponse});
-}catch(err){
+
+  //Catch Errors
+  }catch(err){
     console.log(err);
         if (!err.statusCode){
             console.log("error!");

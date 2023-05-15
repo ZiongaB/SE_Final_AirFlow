@@ -1,3 +1,8 @@
+/**
+ * This is the component that controls the logic of the car form/display component.
+ * It retrieves the current car rental information for the user and allows them to update it
+ * @author Zachary East
+ */
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Car } from '../../models/Car';
@@ -16,9 +21,13 @@ export class CarPartComponent {
   @Input() tripid: Number;
   @Input() tripname:String;
 
+  //Booleans for displaying specific page elemtns
   carVisible: boolean = false;
   createCar: Boolean = false;
+  //List of cars
   allCar!: Car[];
+
+  //On initialization create form and get information
   ngOnInit(){
     this.carForm = this.createFormGroup();
     this.createCarPost();
@@ -26,6 +35,7 @@ export class CarPartComponent {
 
   constructor(private CarService: CarReserveService,private authService:AuthService){}
 
+  //Function to create the form
   createFormGroup():FormGroup{
     return new FormGroup({
       tripname: new FormControl("", [Validators.required, Validators.minLength(5)]),
@@ -36,10 +46,10 @@ export class CarPartComponent {
       returntime: new FormControl("",[Validators.required]),
       returntime2: new FormControl("",[Validators.required]),
       cost:new FormControl("",[Validators.required, Validators.pattern(/^[0-9]+$/)]),
-      
     })
   }
 
+  //Function for deleting car using delete button
   deleteCar(id:Number): void{
     this.CarService.deleteCar(id).subscribe();
     this.createCarPost();
@@ -52,10 +62,12 @@ export class CarPartComponent {
     })
   }
 
+  //Submit function for form information
   submit(formData: Car):void{
     this.CarService.createCar(formData,this.authService.userId).pipe(first()).subscribe(()=>{
       this.create.emit(null);
     });
    this.carForm.reset();
+   this.createCarPost();
  }
 }

@@ -1,7 +1,12 @@
+<!--This component done by Zach East-->
+
+<!--Button to display form-->
 <button (click)="this.createHotel=!this.createHotel" id="ifButton">Create Hotel Reservation</button>
 
+<!--Form for creating a hotel reservation-->
 <div *ngIf="createHotel" class ="space" >
     <form [formGroup]=hotelForm (ngSubmit)=submit(hotelForm.value) novalidate>
+        <!--Trip name-->
         <mat-form-field class="field">
             <mat-label>Trip name</mat-label>
             <input matInput placeholder="Name" formControlName="tripname">
@@ -11,19 +16,20 @@
 
         <span class="smalllabels">Description:</span>
 
+        <!--Information on the hotel-->
         <mat-form-field class="field">
             <mat-label>Hotel Information</mat-label>
             <input matInput placeholder="ex: Hyatt at Palm Springs, Room 105" formControlName="hotel">
         </mat-form-field>
 
-
+        <!--Cost of the hotel-->
         <mat-form-field class="field">
             <mat-label>Hotel Cost</mat-label>
             <input matInput type="number" placeholder="ex:200.00" formControlName="cost">
         </mat-form-field>
 
         <span class="smalllabels">Check-in:</span>
-
+        <!--Check in time and date-->
         <mat-form-field class="field">
             <mat-label>Check-in Date</mat-label>
             <input matInput formControlName="checkin" 
@@ -37,7 +43,7 @@
         </mat-form-field>
 
         <span class="smalllabels">Checkout:</span>
-
+        <!--Checkout time and date-->
         <mat-form-field class="field">
             <mat-label>Checkout Date</mat-label>
             <input matInput formControlName="checkout" 
@@ -50,6 +56,7 @@
             <input matInput type="text" placeholder="ex: 14:20" formControlName="checkout2" >
         </mat-form-field>
 
+        <!--Submit button-->
         <div class="button" >
             <button color="accent" [disabled]="!hotelForm.valid" mat-raised-button type="submit" class="submitb">
               <span>Submit</span></button>
@@ -57,9 +64,12 @@
     </form>
 </div>
 
+
 <div >
+    <!--Button to display-->
     <button (click)="this.hotelVisible=!this.hotelVisible" type="checkbox" >Show Hotel Reservations</button>
     <br>
+    <!--Displays all the information for the user's various hotel reservations-->
     <ng-container *ngIf = "hotelVisible">
         <hr>
         <div *ngFor="let post of allHotel" >

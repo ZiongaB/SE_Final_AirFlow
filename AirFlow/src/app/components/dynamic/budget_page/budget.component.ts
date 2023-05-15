@@ -1,8 +1,14 @@
+/**
+ * This is the component that controls the logic for the budget page. 
+ * It retrieves and updates budget data, calculates leftover budget,
+ * calculates the most expensive/most common categories of costs, and 
+ * it gives the user advice on how they should budget
+ * @author Zachary East
+ */
 import { Component, EventEmitter, Output } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { Form, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Observable, first } from 'rxjs';
-
 import { User } from '../../models/User';
 import { BudgetService } from '../../services/budget.service';
 import { Flight } from '../../models/Flight';
@@ -54,6 +60,7 @@ export class BudgetComponent {
   //Variable for the total costs and the leftover budget 
   totalCosts: number;
   usedBudget: number;
+  zeroBudget: number =0;
 
   //Values to define which type of cost is the most expensive
   topCostCategory: string;
@@ -63,10 +70,12 @@ export class BudgetComponent {
   largestAmountCategory: string;
   largestAmountItems: number;
 
+  //Number of costs of specific categories
   cItem: number;
   fItem: number;
   hItem: number;
 
+  //Strings to be filled in based on financial data
   suggestion1: string = "";
   suggestion2: string = "";
   negativeSuggest: string = "";
@@ -178,24 +187,29 @@ export class BudgetComponent {
 
     console.log("Totalcosts before cars: "+this.totalCosts);
 
+    //Loop through all cars and add cost to total car costs
     for (const product of this.allCar) {
       console.log(product.description + " costs:" + product.cost);
       this.carCost = this.carCost + <number>product.cost;
       this.cItem++;
     }
 
-
+    //Add car costs to total costs
     this.totalCosts = this.totalCosts - this.carCost;
     console.log("Totalcosts after cars: "+this.totalCosts);
 
+    //If cars are the most expensive category
     if(this.topCostValue < this.carCost)
     {
+      //Set the most expensive category to cars
       this.topCostValue = this.carCost;
       this.topCostCategory = "Cars";
     }
 
+    //If cars is the most common category
     if (this.cItem >this.largestAmountItems)
     {
+      //Set it to the most common category
       this.largestAmountCategory = "Cars";
       this.largestAmountItems =this.cItem;
     }
@@ -206,23 +220,29 @@ export class BudgetComponent {
 
     console.log("Totalcosts before flights: "+this.totalCosts);
 
+    //Loop through all the flights and add the costs
     for (const product of this.allFlight) {
       console.log(product.flight + " costs:" + product.cost);
       this.fliCost = this.fliCost + <number>product.cost;
       this.fItem++;
     }
 
+    //Add cost of flights to total costs
     this.totalCosts = this.totalCosts - this.fliCost;
     console.log("Totalcosts after flights: "+this.totalCosts);
 
+    //If flights are the most expensive category
     if(this.topCostValue < this.fliCost)
     {
+      //Set the most expensive category to flights
       this.topCostValue = this.fliCost;
       this.topCostCategory = "Flights";
     }
 
+    //If flights are the most common category
     if (this.fItem >this.largestAmountItems)
     {
+      //Set the most common category to flights
       this.largestAmountCategory = "Flights";
       this.largestAmountItems =this.fItem;
     }
@@ -233,24 +253,29 @@ export class BudgetComponent {
 
     console.log("Totalcosts before hotels: "+this.totalCosts);
 
+    //Loop through all hotels and add costs together
     for (const product of this.allHotel) {
       console.log(product.hotel + " costs:" + product.cost);
       this.hotCost = this.hotCost + <number>product.cost;
       this.hItem++;
     }
 
+    //Add cost of hotels to total costs
     this.totalCosts = this.totalCosts - this.hotCost;
     console.log("Totalcosts after hotels: "+this.totalCosts);
 
+    //If it's the most expensive category
     if(this.topCostValue < this.hotCost)
     {
+      //Set most expensive category to hotels
       this.topCostValue = this.hotCost;
       this.topCostCategory = "Hotels";
     }
 
-
+    //If it's the most common category
     if (this.hItem > this.largestAmountItems)
     {
+      //Set most common category to hotels
       this.largestAmountCategory = "Hotels";
       this.largestAmountItems =this.hItem;
     }
@@ -264,21 +289,30 @@ export class BudgetComponent {
     console.log("Final Budget: "+ this.usedBudget);
     this.displayFBud = true;
 
+    //If the user's leftover budget is over 0
     if(this.usedBudget>0)
     {
+      //Show the positive messages
       this.positive = true;
-      if (this.usedBudget<342)
+
+      //If it's under the average cost of a flight from the airports
+      if (this.usedBudget>342)
       {
+        //Advertise the airports
         this.positiveSuggest = "Did you know that the average cost for a flight out of Tampa International was $342.28 in Q4 2022? For SRQ it was $330.09";
         this.positiveSuggest2 = "You learn more about Tampa International and SRQ here!"
       }
 
+      //Otherwise suggest how to possible rebudget
       this.positiveSuggest = "You're a bit low on funds! You may want to avoid making any more trip plans for the year!"
       this.positiveSuggest2 = "If you need to free up cash perhaps you can free up some budget by removing some: "+this.topCostCategory +"!";
-      
     }
+
+    //If your leftover budget is negative
     else
     {
+      //Set the value to zero and display messages suggesting to rebudget
+      this.usedBudget = 0;
       this.negative = true;
       this.negativeSuggest = "You have run overbudget!!! It might be a good idea to rethink your budget this year or some of your expenses!!!"
       this.negativeSuggest2 = "If you want to save money you should think about modifying your existing trip expenses under this category: "+this.topCostCategory +".";

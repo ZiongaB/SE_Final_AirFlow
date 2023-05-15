@@ -20,16 +20,20 @@ module.exports = class FlightReserve {
         this.time2 = time2;
     }
 
-    //Function to pass pull specific entries in database by user
+    //Function to pull specific entries in database by user
     static fetchAll(user)
     {
         return db.execute(
             `SELECT * FROM Airflow.flights WHERE user = ${user}`
         );
     }
+
+    //Function to delete specific entries in database by user
     static delete(id){
         return db.execute('delete from Airflow.flights where id = ?',[id]);
     }
+
+    //Function to delete specific entries in database by trip
     static deleteid(id){
         return db.execute('DELETE FROM Airflow.flights WHERE tripid = ?',[id]);
     } 
