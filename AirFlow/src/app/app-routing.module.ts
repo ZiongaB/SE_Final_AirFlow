@@ -1,3 +1,4 @@
+// @author Sebastian Mark
 /*
 When making a new page we need to import the component for the new age
 ***/
@@ -31,8 +32,7 @@ After importing a new component we need to define the route
 */
 
 //  <!-- Sebastian Mark -->
-
-// later we can change this to  { path: "packing", component: PackingComponent, canActivate:[AuthGuardService]   },
+// routing path to each page
 const routes: Routes = [
   { path: "login", component: LoginComponent },
   { path: "boarding", component: BoardingPageComponent, canActivate:[AuthGuardService]  },

@@ -1,3 +1,4 @@
+// Mat Material imported by Sebastian Mark
 /*
 When making a new page we need to import the component for the new age
 ***/
@@ -8,14 +9,16 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule,HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptorService } from './components/services/auth-interceptor.service';
+
+// Cuton Schema for the chatbot
 import{CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 
 //<!-- Sebastian Mark -->
 import { RouterModule, Routes } from '@angular/router';
-//  <!-- Sebastian Mark -->
 
+//  <!-- Sebastian Mark -->
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BoardingPageComponent } from './components/dynamic/boarding-page/boarding-page.component';

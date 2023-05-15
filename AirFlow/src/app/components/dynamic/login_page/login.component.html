@@ -13,7 +13,7 @@
             <mat-label>Password</mat-label>
             <input matInput type="password" placeholder="Ex. Password" formControlName="password">
           </mat-form-field>
-          <div class="button">
+          <div class="button" (click)="showconfetti($event.target)" >
 
             <!-- Testing login notification -->
             <button color="primary" white="!loginForm.valid" mat-raised-button type="submit" class="submitb">
@@ -24,7 +24,7 @@
         <div class="sign_up">
           <div>
             <p class="link"> Don't have an acount? <br>
-            </p><a routerLinkActive="active-link" routerLink="/signup" class="sign">
+            </p><a routerLinkActive="active-link" routerLink="/signup" class="sign" (click)="showconfetti($event.target)">
               <p></p>
                Sign up
             </a> &nbsp; here
@@ -34,3 +34,4 @@
       </div>
     </div>
   </div>
+

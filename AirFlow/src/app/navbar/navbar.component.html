@@ -1,29 +1,39 @@
+<!-- @author Sebastian Mark -->
 <div style="height: 100vh;">
     <mat-toolbar color = "primary" class="mat-elevation-z8">
+
+      <!-- Airplane icon -->
           <span><mat-icon>flight_takeof</mat-icon> Airflow</span>
+
+          <!-- Space between the word and icon -->
           <span class="menu-spacer"></span>
           <div fxShow="true" fxHide.lt-md>
+
             <!-- The following menu items will be hidden on both SM and XS screen sizes -->
+
+            <!-- Home icon on the navbar -->
             <a mat-button routerLink=""><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon>Home</a>
-            <!-- <a mat-button routerLink="airports">Airports</a> -->
-            <!-- We need a drop down menu -->
+
+            <!-- Main navbar (not in mobile view) -->
+
+            <!-- Airport menu button -->
             <button mat-button [matMenuTriggerFor]="airports">Airports</button>
             <mat-menu #airports="matMenu">
 
               <button mat-menu-item routerLink="airport1">Sarasota-Bradenton International</button>
               <button mat-menu-item routerLink="airport2">Tampa International</button>
-
             </mat-menu>
 
+            <!-- Navbar routing to each page -->
             <a mat-button routerLink="budget">Budget</a>
             <a mat-button routerLink="packing">Packing</a>
             <a mat-button routerLink="trip">Trips </a>
             <a routerLinkActive="active-link" routerLink="login" id="complicated" *ngIf="!isAuthenticated" mat-button color = ""> Login</a>
             <a href="" id="complicated" *ngIf="isAuthenticated" (click)="logout()" mat-raised-button color = "accent"> Log out</a>
           </div>
-          <!-- <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
-            <mat-icon>menu</mat-icon>
-          </button> -->
+
+          <!-- collapsible navbar starts here -->
+          <!-- Mobile view trigger menu option -->
           <div fxShow = "true" fxHide.gt-sm="true">
             <a (click)="sidenav.toggle()">Menu</a>
           </div>
@@ -31,10 +41,10 @@
       <mat-sidenav-container fxFlexFill>
         <mat-sidenav #sidenav fxLayout = "column">
             <div fxLayout = "column">
-            <!-- <a (click)="sidenav.toggle()" mat-list-item>Close</a> -->
 
             <a mat-button routerLink="" (click)="sidenav.close()"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon>Home</a>
-            <!-- <a mat-button (click)="sidenav.close()">Airports</a> -->
+
+            <!-- Routing to each page in mobile view  -->
             <div class = "drop_down">
             <button mat-button [matMenuTriggerFor]="airports" routerLink="airports">Airports</button>
             <mat-menu #airports="matMenu">
@@ -48,6 +58,8 @@
         </div>
       </mat-sidenav>
         <mat-sidenav-content fxFlexFill>
+            <!-- collapsible navbar ends here -->
+
           <router-outlet></router-outlet>
         </mat-sidenav-content>
       </mat-sidenav-container>

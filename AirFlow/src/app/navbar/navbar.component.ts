@@ -9,7 +9,7 @@ import { EventEmitter } from '@angular/core';
 
 
 /**
- * Before using BreakpointObserver we need 
+ * Before using BreakpointObserver we need
  * import { LayoutModule } from '@angular/cdk/layout';
  *  imports: [
     BrowserModule,
@@ -32,17 +32,14 @@ export class NavbarComponent{
 
   constructor(private authService: AuthService, private router:Router, ){}
 
-    //Sebastian start 
-
-
+    //Sebastian start
     isMenuOpen = false;
 
     // toggleMenu
     toogleMenu():void{
       this.isMenuOpen = !this.isMenuOpen;
     }
-
-    // Sebastian end 
+    // Sebastian end
 
   // Andrews work
   ngOnInit(){
